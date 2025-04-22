@@ -1,9 +1,9 @@
 # Sender_3F_WeatherPredict
 **![WeatherApp](image.png)**
 **Colaborators:**
-**Ketua Kelompok= Naoval**
-**Supervisior= Andin**
-**Supervisior= Ajul**
+-Ketua Kelompok= Naoval
+-Supervisior= Andin
+-Supervisior= Ajul
 **Anggota=** 
 - Syafiq
 - Albert 
