@@ -1,5 +1,5 @@
 # Sender_3F_WeatherPredict
-
+![WeatherApp](image.png)
 Ketua Kelompok= Achmad Arif Naoval Laguna(1)
 Supervisior= Agustin Tri Andini(2)
 Supervisior= Ayu Juliana Putri(6)
