@@ -27,18 +27,18 @@
 
 **👥 Struktur Tim & Kolaborator**
 - 👨‍💼 Ketua Kelompok
-    • Naoval
+    - Naoval
 - 🧑‍🏫 Supervisor
-    •	Andin
-    •	Ajul
+    - Andin
+    - Ajul
 - 👥 Anggota Tim
-    •	Syafiq
-    •	Albert
-    •	Ferry
-    •	Miko
-    •	Zein
-    •	Naurotur
-    •	Ryan
+    - Syafiq
+    - Albert
+    - Ferry
+    - Miko
+    - Zein
+    - Naurotur
+    - Ryan
 
 
 
