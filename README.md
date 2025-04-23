@@ -1,5 +1,4 @@
 # Sender_3F_WeatherPredict
-**![WeatherApp](image.png)**
 
 **Colaborators=**
 - Ketua Kelompok= Naoval
