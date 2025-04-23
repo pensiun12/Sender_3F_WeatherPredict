@@ -1,23 +1,6 @@
 # Sender_3F_WeatherPredict
+**🌤️ WeatherForecast App**
+Aplikasi ramalan cuaca berbasis web yang menyediakan informasi cuaca secara real-time dan prediksi cuaca per jam serta dilengkapi dengan chatbot AI.
 
-**Colaborators=**
-- Ketua Kelompok= Naoval
-- Supervisior= Andin
-- Supervisior= Ajul
-
-**Anggota=** 
-- Syafiq
-- Albert 
-- Ferry
-- Miko
-- Zein
-- Naurotur
-- Ryan
-
-**Metode= FDD(Feature-Driven Development)**
-
-**Fitur=** 
-- Chat Bot(Jika ditanya besok atau 2 hari lagi di Jakarta bagaimana cuacanya?)
-- Integrasi GPS
-- Home Page(Perjam ada prediksi cuaca,ikon(mendung,cerah,hujan,dll))
-- Setting(Akun,satuan suhu,dark dan light theme)
+**🎯 Target Device**
+Aplikasi ini dikembangkan khusus untuk dijalankan secara web-based pada server lokal (local host).
