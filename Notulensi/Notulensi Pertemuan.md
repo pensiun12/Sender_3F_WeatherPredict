@@ -17,7 +17,7 @@
 - **Pembahasan Daftar Fitur Home Page:**
   - Cuaca saat ini (ikon, suhu, lokasi)
   - Prediksi cuaca per jam
-  - Prediksi cuaca harian (5 hari ke depan)
+  - Prediksi cuaca harian (7 hari ke depan)
   - Informasi tambahan: kelembaban, kecepatan angin, tekanan udara
 
 - **Daftar Fitur ChatBot:**
