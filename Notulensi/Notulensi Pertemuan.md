@@ -9,7 +9,7 @@
   - Setting (akun, dark/light mode, satuan suhu)
 
 **Dokumentasi Rapat:**  
-![Rapat 1 – 22 April](Notulensi/pertemuan1.jpg)
+![Rapat 1 – 22 April](Notulensi/Pertemuan 1.jpg)
 
 ---
 
@@ -33,4 +33,4 @@
   - Tentang aplikasi
 
 **Dokumentasi Rapat:**  
-![Rapat 2 – 28 April](Notulensi/pertemuan2.jpg)
+![Rapat 2 – 28 April](Notulensi/Pertemuan 2.jpg)
