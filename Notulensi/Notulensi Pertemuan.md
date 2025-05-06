@@ -34,3 +34,35 @@
 
 **Dokumentasi Rapat:**  
 ![Rapat 2 – 28 April](Pertemuan%202.jpg)
+
+---
+
+## 📅 Pertemuan 3 — 4 Mei 2025
+**Agenda:** Review Progresan
+### 📌 Hasil Rapat:
+#### 📊 AI (Machine Learning)
+- **Kendala:**
+  - Dataset yang tersedia hanya memuat data beberapa hari ke belakang bahkan ada yang sampai 1 bulan ke belakang.
+  - Tidak tersedia data prediksi 1 hari ke depan.
+- **Opsi Prediksi:**
+  - Cuaca 1: Akurasi di bawah 75%
+  - Cuaca 2: Akurasi di atas 80%, prefer opsi ini.
+- **Alternatif:**
+  - Tidak perlu training model.
+  - Menggunakan chatbot yang langsung mengambil data real-time dari API cuaca tanpa perlu proses training.
+
+#### 🎨 Frontend & UI/UX
+
+- **Icon "Rumah" (Home)** diubah menjadi tulisan **Home**.
+- Teks pada header **Weather Chatbot** diubah menjadi **Weather Predict**.
+- Tambahkan placeholder text di chatbot:
+  > *"Selamat datang di Weather Predict Chatbot"*.
+- **Pada desktop:**
+  Menu **Tentang Kami** yang sebelumnya dropdown diubah menjadi **Tentang** yang berisi informasi:
+  - Semua anggota tim.
+  - Informasi tentang website **Weather Predict**.
+
+**Dokumentasi Rapat:**  
+![Rapat 3 – 4 Mei](Pertemuan%203.jpg)
+
+
