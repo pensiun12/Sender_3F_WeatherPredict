@@ -1,0 +1,437 @@
+/* Reset dan font */
+body {
+    font-family: 'Playfair Display', serif;
+    background: #f5f0e9;
+    margin: 0;
+    padding: 80px 20px 20px 20px;
+    color: #5a3e1b;
+  }
+  
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffefd4;
+    padding: 20px 30px;
+    border-bottom: 1px solid #d9cbbf;
+    font-family: 'Crimson Text';
+    font-weight: 100;
+    color: #6b4c2b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    z-index: 1000;
+  }
+  
+  /* Logo */
+  .logo {
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  
+  /* Navigasi Atas */
+  .top-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .top-nav a {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #6b4c2b;
+    text-decoration: none;
+    font-weight: 400;
+    cursor: pointer;
+    gap: 8px;
+  }
+  
+  .top-nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .top-nav a i,
+  .top-nav a svg {
+    font-size: 1.4rem;
+  }
+  
+  /* Dropdown profil */
+  .profile-dropdown {
+    position: relative;
+  }
+  
+  .profile-btn {
+    display: flex;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+    color: #6b4c2b;
+  }
+  .login-btn {
+    width: 100px;
+    height: 36px;
+    background: rgba(116,81,45,1);
+    padding: 7px 10px;
+    margin: 10px;
+    opacity: 1;
+    position: absolute;
+    top:auto;
+    left: 1000px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    overflow: hidden;
+  }
+  .login-btn a {
+    width:auto;
+    color: rgba(255,255,255,1);
+    position:absolute;
+    top: 13px;
+    left: 34px;
+    font-family: Crimson Text;
+    font-weight: semibold;
+    font-size: 1.2rem;
+    opacity: 1;
+    text-align: center;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    background-color: #f9f4ec;
+    box-shadow: 0 2px 8px rgba(107, 76, 43, 0.15);
+    border-radius: 8px;
+    min-width: 160px;
+    padding: 10px 0;
+    font-size: 1.2rem;
+    z-index: 1001;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    color: #6b4c2b;
+    text-decoration: none;
+    font-weight: 200;
+    text-align: center;
+   
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #d9cbbf;
+  }
+  
+  .profile-dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Container */
+  .container {
+    width: 100%;         /* Batasi lebar maksimum agar isi tidak terlalu lebar */
+    margin: 0;              /* Tengah-kan secara horizontal */
+    padding: 20px 20px;          /* Tetap jaga padding dalam */
+    background: #f9f4ec;
+    border-radius: 0;
+    box-shadow: 0 4px 10px rgba(107, 76, 43, 0.15);
+    box-sizing: border-box;
+  }
+  
+  
+  /* Current weather */
+  .current-weather {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .location-search {
+    flex: 1 1 200px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .location-search input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1px solid #c9b89a;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .location-search button {
+    background: #6b4c2b;
+    border: none;
+    color: #f9f4ec;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .location-search button:hover {
+    background: #5a3e1b;
+  }
+  
+  .weather-info {
+    flex: 2 1 300px;
+    background: #d9cbbf;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: inset 0 0 10px #b9a78a;
+  }
+  
+  .weather-icon {
+    font-size: 5rem;
+    margin-bottom: 10px;
+  }
+  
+  .temperature {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  
+  .description {
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .date {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .location {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  /* Info box */
+  .info-box {
+    display: flex;
+    justify-content: space-between;
+    background: #d9cbbf;
+    border-radius: 20px;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 0 10px #b9a78a;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .info-item {
+    flex: 1 1 150px;
+    text-align: center;
+    font-size: 1rem;
+    color: #6b4c2b;
+  }
+  
+  .info-item .icon {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+  }
+  
+  .sun-times {
+    flex: 1 1 100%;
+    text-align: center;
+    font-size: 1rem;
+    color: #6b4c2b;
+    margin-top: 10px;
+  }
+  
+  /* Hourly forecast */
+  .hourly-forecast h2 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #6b4c2b;
+  }
+  
+  .slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+  
+  .slider {
+    display: flex;
+    gap: 12px;
+    transition: transform 0.3s ease;
+    padding-bottom: 10px;
+  }
+  
+  .hour-card {
+    flex: 0 0 80px;
+    background: #f9f4ec;
+    border-radius: 15px;
+    padding: 10px 5px;
+    text-align: center;
+    box-shadow: 0 1px 6px rgba(107, 76, 43, 0.15);
+    user-select: none;
+    color: #5a3e1b;
+  }
+  
+  .hour-card .time {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  
+  .hour-card .icon {
+    font-size: 2rem;
+    margin-bottom: 6px;
+  }
+  
+  .hour-card .temp {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  
+  .hour-card .rain {
+    font-size: 0.9rem;
+    color: #7a5e3a;
+  }
+  
+  /* Arrow buttons */
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #d9cbbf;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border: none;
+    cursor: pointer;
+    color: #6b4c2b;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: background 0.3s ease;
+    z-index: 10;
+  }
+  
+  .arrow:hover {
+    background: #6b4c2b;
+    color: #f9f4ec;
+  }
+  
+  .arrow-left {
+    left: 5px;
+  }
+  
+  .arrow-right {
+    right: 5px;
+  }
+  
+  /* Daily forecast */
+  .daily-forecast h2 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #6b4c2b;
+  }
+  
+  .slider-day {
+    display: flex;
+    gap: 15px;
+    transition: transform 0.3s ease;
+    padding-bottom: 10px;
+  }
+  
+  .daily-card {
+    flex: 0 0 190px;
+    background: #d9cbbf;
+    border-radius: 20px;
+    padding: 15px 10px;
+    text-align: center;
+    box-shadow: 0 1px 6px rgba(107, 76, 43, 0.15);
+    color: #5a3e1b;
+    user-select: none;
+  }
+  
+  .daily-card .day {
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  .daily-card .icon {
+    font-size: 3rem;
+    margin-bottom: 8px;
+  }
+  
+  .daily-card .desc {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  
+  .daily-card .temp {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  
+  .daily-card .wind {
+    font-size: 0.9rem;
+    color: #7a5e3a;
+  }
+  
+  /* Tombol panah geser harian */
+  .arrow-left-day,
+  .arrow-right-day {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #d9cbbf;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border: none;
+    cursor: pointer;
+    color: #6b4c2b;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    z-index: 10;
+    transition: background 0.3s ease;
+  }
+  
+  .arrow-left-day:hover,
+  .arrow-right-day:hover {
+    background: #6b4c2b;
+    color: #f9f4ec;
+  }
+  
+  .arrow-left-day {
+    left: 5px;
+  }
+  
+  .arrow-right-day {
+    right: 5px;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    font-style: italic;
+    color: #6b4c2b;
+  }
+  
