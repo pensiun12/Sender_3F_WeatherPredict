@@ -65,4 +65,13 @@
 **Dokumentasi Rapat:**  
 ![Rapat 3 – 4 Mei](Pertemuan%203.jpg)
 
+## 📅 Pertemuan 4 — 12 Mei 2025
+**Agenda:** Lanjutan Progresan
+### 📌 Hasil Rapat:
+- Progress frontend 
+- Revisian UI/UX
+- Progress AI 
+
+**Dokumentasi Rapat:**  
+![Rapat 4 – 12 Mei](Pertemuan%204.jpg)
 
