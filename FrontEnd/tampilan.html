@@ -77,5 +77,35 @@
         </div>
       </div>
     </section>
+    <!-- PRAKIRAAN PER JAM -->
+    <section class="hourly-forecast forecast-container">
+      <h3>Prakiraan Cuaca Per Jam</h3>
+        <div class="slider-wrapper">
+          <button class="arrow arrow-left" aria-label="Geser ke kiri">&#8249;</button>
+          <div class="slider" id="hourlySlider">
+            <!-- Jam cuaca akan diisi JS -->
+          </div>
+          <button class="arrow arrow-right" aria-label="Geser ke kanan">&#8250;</button>
+        </div>
+    </section>
+    <!-- PRAKIRAAN PER HARI -->
+    <section class="daily-forecast forecast-container">
+      <h3>Prakiraan Cuaca Harian</h3>
+      <div class="slider-wrapper">
+        <button class="arrow arrow-left-day" aria-label="Geser ke kiri harian">&#8249;</button>
+        <div class="slider-day" id="dailyForecast">
+          <!-- Kartu harian akan diisi JS -->
+        </div>
+        <button class="arrow arrow-right-day" aria-label="Geser ke kanan harian">&#8250;</button>
+      </div>
+    </section>
   </main>
+    <script>
+      function toggleMenu() {
+        const nav = document.querySelector('.top-menu');
+        nav.classList.toggle('active');
+      }
+    </script>
+    <!-- javscript -->
+    <script src="script.js"></script>
 </body></html>
