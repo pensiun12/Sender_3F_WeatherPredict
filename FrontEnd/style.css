@@ -56,6 +56,18 @@ header {
   background-color: #fff;
   border-bottom: 1px solid #d8cfc0;
 }
+.logo {
+  font-family: 'cromson text', serif;
+  font-size: 20px;
+  color: #5a3414;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logo:hover {
+  color: #a15e2a; /* efek hover opsional */
+  cursor: pointer;
+}
 
 .top-menu {
   display: flex;
