@@ -11,7 +11,7 @@ import joblib
 import requests
 
 # Load Data (ubah path ini ke path lokal di komputermu)
-df = pd.read_csv("cuaca_banyak_kota.csv")  
+df = pd.read_csv("cuaca_ai/cuaca_banyak_kota.csv")  
 df['datetime'] = pd.to_datetime(df['datetime'])
 df['hour'] = df['datetime'].dt.hour
 df['dayofweek'] = df['datetime'].dt.dayofweek
