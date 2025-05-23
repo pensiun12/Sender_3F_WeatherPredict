@@ -609,3 +609,57 @@ input[type="password"] {
   text-decoration: none;
   margin-left: 5px;
 }
+
+
+/* PENGATURAN*/
+/* ===== Umum ===== */
+body {
+  font-family: 'Georgia', serif;
+  margin: 0;
+  background-color: #fff;
+  color: #5A3714;
+}
+
+/* ===== Header ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eee;
+  background-color: #fef9f2;
+}
+
+header .logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+nav a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: #5A3714;
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Container & Judul ===== */
+.container {
+  padding: 2rem;
+}
+
+.setting-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.setting-title i {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
