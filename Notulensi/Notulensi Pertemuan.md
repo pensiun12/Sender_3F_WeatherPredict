@@ -75,3 +75,11 @@
 **Dokumentasi Rapat:**  
 ![Rapat 4 – 12 Mei](Pertemuan%204.jpg)
 
+## 📅 Pertemuan 5 — 20 Mei 2025
+**Agenda:** Lanjutan Progresan
+### 📌 Hasil Rapat:
+- Progress frontend 
+- Progress chatbot
+
+**Dokumentasi Rapat:**  
+![Rapat 5 – 20 Mei](Pertemuan%205.jpg)
