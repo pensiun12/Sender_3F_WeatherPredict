@@ -663,3 +663,60 @@ nav a:hover {
   font-size: 2rem;
   margin-right: 0.5rem;
 }
+
+/* ===== Pilihan Pengaturan ===== */
+.setting-option {
+  background-color: #f8f3e3;
+  border: 2px solid #5A3714;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.setting-option:hover {
+  background-color: #ede2c7;
+  cursor: pointer;
+}
+
+/* ===== Label & Ikon ===== */
+.setting-label {
+  display: flex;
+  align-items: center;
+}
+
+.setting-label i {
+  margin-right: 0.5rem;
+}
+
+/* ===== Dropdown ===== */
+select {
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #5A3714;
+  background-color: #fff;
+  color: #5A3714;
+  font-family: 'Georgia', serif;
+}
+
+/* ===== Responsif ===== */
+@media (max-width: 600px) {
+  .setting-option {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  select {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  nav a {
+    margin-left: 1rem;
+  }
+}
