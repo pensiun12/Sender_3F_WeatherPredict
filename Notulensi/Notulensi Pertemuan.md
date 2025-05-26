@@ -80,6 +80,28 @@
 ### 📌 Hasil Rapat:
 - Progress frontend 
 - Progress chatbot
+- Website tersedia gratis dengan fitur utama seperti :
+  - Ramalan cuaca standar
+  - Chatbot AI dasar (jawaban terbatas)
+  - Lokasi favorit 1 tempat
+- Tapi, untuk membuka fitur lanjutan :
+  - DLC Model (One-Time Payment) :
+    - Unlock chatbot AI premium (jawaban lebih dalam, historis cuaca)
+    - Tambahkan banyak lokasi favorit
+    - Laporan cuaca PDF mingguan
+
 
 **Dokumentasi Rapat:**  
 ![Rapat 5 – 20 Mei](Pertemuan%205.jpg)
+
+## 📅 Pertemuan 6 — 26 Mei 2025
+**Agenda:** Lanjutan Progresan
+### 📌 Hasil Rapat:
+- Progress frontend 
+- Progress chatbot
+- Progress bakcend(signup,login)
+
+**Dokumentasi Rapat:**  
+![Rapat 6 – 26 Mei](Pertemuan%206.jpg)
+
+
