@@ -1,724 +1,78 @@
-/* Font dan Reset Dasar */
-body {
+/*CHATBOT PAGE*/
+/* RESET */
+* {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #fdfaf5;
-  color: #3e2f1c;
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  margin: 0;
-}
-.crimson-text-regular {
-  font-family: 'Crimson Text', serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.crimson-text-semibold {
-  font-family: 'Crimson Text', serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.crimson-text-bold {
-  font-family: 'Crimson Text', serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.crimson-text-regular-italic {
-  font-family: 'Crimson Text', serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.crimson-text-semibold-italic {
-  font-family: 'Crimson Text', serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.crimson-text-bold-italic {
-  font-family: 'Crimson Text', serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-/* Header */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 32px;
-  background-color: #fff;
-  border-bottom: 1px solid #d8cfc0;
-}
-.logo {
-  font-family: 'cromson text', serif;
-  font-size: 20px;
-  color: #5a3414;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.logo:hover {
-  color: #a15e2a; /* efek hover opsional */
-  cursor: pointer;
-}
-
-.top-menu {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.login-btn {
-  background-color: transparent;
-  border: 2px solid #6e4b29;
-  border-radius: 10px;
-  padding: 5px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-/* Link dalam tombol */
-.login-btn a {
-  text-decoration: none;
-  color: #6e4b29;
-  font-family: 'Playfair Display', serif;
-  transition: color 0.3s ease;
-}
-
-/* Hover efek */
-.login-btn:hover {
-  background-color: #6e4b29;
-}
-
-.login-btn:hover a {
-  color: white;
-}
-
-.user-icon {
-  background: #e8dfd1;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-nav a {
-  margin-left: 16px;
-  text-decoration: none;
-  color: #3e2f1c;
-  font-size: 14px;
-}
-
-/* Layout Utama */
-main {
-  width: 100%;         /* Batasi lebar maksimum agar isi tidak terlalu lebar */
-  border-radius: 0;
-  box-shadow: 0 4px 10px rgba(107, 76, 43, 0.15);
+  padding: 0;
   box-sizing: border-box;
-  display: flex;
-  padding: 24px 32px;
-  gap: 24px;
-  flex-wrap: wrap;
 }
 
-/* Sidebar Kiri */
-.sidebar {
-  background-color: #fff;
-  border: 1px solid #e2d7c4;
-  border-radius: 16px;
-  padding: 24px;
-  width: 260px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.location-search {
-  display: flex;
-  width: 100%;
-  margin-bottom: 16px;
-  border: 1px solid #a98c6b;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.location-search input {
-  flex: 1;
-  border: none;
-  padding: 8px;
-  background-color: #f7f3ec;
-  color: #3e2f1c;
-  font-weight: 200px;
-  text-align: center;
-}
-
-.search-btn {
-  background: #a98c6b;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.weather-icon img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 16px;
-}
-
-.temperature {
-  font-size: 48px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.temperature span {
-  font-size: 24px;
-}
-
-.desc {
-  margin-top: 8px;
-  font-size: 16px;
-  color: #7a6148;
-}
-
-.date {
-  font-size: 14px;
-  margin-top: 12px;
-  color: #9b8267;
-}
-
-.location {
-  margin-top: 4px;
-  font-size: 14px;
-  color: #7a6148;
-}
-
-/* Bagian Detil Kanan */
-.details {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* Kartu Info Cuaca */
-.cards {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.card {
-  flex: 1;
-  background-color: #f5eee3;
-  border-radius: 12px;
-  padding: 16px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.card img {
-  width: 30px;
-  height: 30px;
-  margin-bottom: 8px;
-}
-
-.card-value {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.card-title {
-  font-size: 14px;
-  color: #7a6148;
-}
-
-/* Sun Path */
-.sun-path {
-  background-color: #eef0f2;
-  border-radius: 16px;
-  padding: 24px;
-  position: relative;
-  text-align: center;
-}
-
-.sun-curve {
-  position: relative;
-  height: 100px;
-  border-top: 2px solid #c2b59b;
-  border-radius: 50%;
-  margin: 0 auto 16px;
-  width: 100%;
-}
-
-.sun {
-  position: absolute;
-  top: -18px;
-  left: 30%;
-  width: 40px;
-  height: 40px;
-}
-
-.sun-info {
-  display: flex;
-  justify-content: center;
-  padding: 0 40px;
-  font-size: 14px;
-  color: #6d5b45;
-}
-/* Hourly forecast */
-/* Tambahkan pembungkus dengan batas lebar */
-.forecast-container {
-  max-width:100%;
-  margin: 0 auto;
-  padding: 0 16px;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-}
-.icon-img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  margin-bottom: 6px;
-}
-
-.hourly-forecast h3 {
-  font-weight: 500;
-  margin-bottom: 15px;
-  color: #6b4c2b;
-  position: relative;
-}
-
-.slider-wrapper {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-.slider {
-  display: flex;
-  gap: 12px;
-  transition: transform 0.3s ease;
-  padding-bottom: 10px;
-}
-
-.hour-card {
-  flex: 0 0 80px;
-  background: #f9f4ec;
-  border-radius: 15px;
-  padding: 10px 5px;
-  text-align: center;
-  box-shadow: 0 1px 6px rgba(107, 76, 43, 0.15);
-  user-select: none;
-  color: #5a3e1b;
-}
-
-.hour-card .time {
-  font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 6px;
-}
-
-.hour-card .icon {
-  font-size: 2rem;
-  margin-bottom: 6px;
-}
-
-.hour-card .temp {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.hour-card .rain {
-  font-size: 0.9rem;
-  color: #7a5e3a;
-}
-
-/* Arrow buttons */
-.arrow {
-  position: absolute;
-  top: 50%;
-  bottom: 50%;
-  transform: translateY(-50%);
-  background: #d9cbbf;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  border: none;
-  cursor: pointer;
-  color: #6b4c2b;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  transition: background 0.3s ease;
-  z-index: 10;
-}
-
-.arrow:hover {
-  background: #6b4c2b;
-  color: #f9f4ec;
-}
-
-.arrow-left {
-  left: 5px;
-}
-
-.arrow-right {
-  right: 5px;
-}
-
-/* Daily forecast */
-.daily-forecast h3 {
-  font-weight: 500;
-  margin-bottom: 15px;
-  color: #6b4c2b;
-}
-.icon-daily-img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  margin-bottom: 6px;
-}
-
-
-.slider-day {
-  display: flex;
-  gap: 15px;
-  transition: transform 0.3s ease;
-  padding-bottom: 10px;
-}
-
-.daily-card {
-  flex: 0 0 190px;
-  background: #d9cbbf;
-  border-radius: 20px;
-  padding: 15px 10px;
-  text-align: center;
-  box-shadow: 0 1px 6px rgba(107, 76, 43, 0.15);
-  color: #5a3e1b;
-  user-select: none;
-}
-
-.daily-card .day {
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.daily-card .icon {
-  font-size: 3rem;
-  margin-bottom: 8px;
-}
-
-.daily-card .desc {
-  font-size: 1rem;
-  margin-bottom: 6px;
-}
-
-.daily-card .temp {
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 6px;
-}
-
-.daily-card .wind {
-  font-size: 0.9rem;
-  color: #7a5e3a;
-}
-
-/* Tombol panah geser harian */
-.arrow-left-day,
-.arrow-right-day {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #d9cbbf;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  border: none;
-  cursor: pointer;
-  color: #6b4c2b;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  z-index: 10;
-  transition: background 0.3s ease;
-}
-
-.arrow-left-day:hover,
-.arrow-right-day:hover {
-  background: #6b4c2b;
-  color: #f9f4ec;
-}
-
-.arrow-left-day {
-  left: 5px;
-}
-
-.arrow-right-day {
-  right: 5px;
-}
-#hamburger-menu {
-  display: none;
-  font-size: 2rem;
-  color: #6b4c2b;
-  cursor: pointer;
-}
-
-/* Responsif */
-@media (max-width: 768px) {
-  main {
-    flex-direction: column;
-  }
-
-  .cards {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    align-items: stretch;
-  }
-
-  .sun-info {
-    padding: 0 16px;
-  }
-}
-.login-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  /* Tambahan gaya kamu yang sudah ada */
-  border: 1px solid #7a4f27;
-  border-radius: 8px;
-  width: 320px;
-  padding: 25px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  background-color: #fff; /* Opsional, agar tidak transparan */
-}
-
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.login-form h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #5a3414;
-}
-
-label {
-  font-size: 14px;
-  color: #5a3414;
-  margin-bottom: 5px;
-}
-
-input[type="email"],
-input[type="password"] {
-  padding: 8px;
-  margin-bottom: 15px;
-  border: none;
-  border-bottom: 1px solid #aaa;
-  background: transparent;
-  outline: none;
-}
-
-.remember {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  font-size: 13px;
-  color: #5a3414;
-}
-
-.btn-login {
-  background-color: #7a4f27;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  font-size: 15px;
-  cursor: pointer;
-  margin-bottom: 15px;
-}
-
-.divider {
-  text-align: center;
-  font-size: 13px;
-  margin-bottom: 10px;
-  color: #555;
-}
-
-.btn-google {
-  background-color: #7a4f27;
-  color: white;
-  padding: 10px;
-  border: none;
-  width: 100%;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-size: 15px;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-.google-icon {
-  background-color: white;
-  color: #7a4f27;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-weight: bold;
-}
-
-.signup-text {
-  text-align: center;
-  font-size: 14px;
-  color: #5a3414;
-}
-
-.signup-btn {
-  background-color: #f4a62a;
-  padding: 5px 10px;
-  border-radius: 4px;
-  color: white;
-  text-decoration: none;
-  margin-left: 5px;
-}
-
-
-/* PENGATURAN*/
-/* ===== Umum ===== */
+/* BODY */
 body {
   font-family: 'Georgia', serif;
-  margin: 0;
   background-color: #fff;
-  color: #5A3714;
+  color: #6d4c41;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* ===== Header ===== */
+/* Background angin transparan */
+body::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  height: 40%;
+  background: url("assets2/angin.png") no-repeat bottom left;
+  background-size: contain;
+  opacity: 0.4;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* HEADER */
 header {
+  background-color: #6b4c2e;
+  color: white;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #eee;
-  background-color: #fef9f2;
+  border-bottom: 5px solid #d2a156;
+  z-index: 1;
+  position: relative;
 }
 
-header .logo {
+.logo {
+  font-size: 1.2rem;
   font-weight: bold;
-  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: white;
 }
 
 nav a {
-  margin-left: 2rem;
+  color: white;
+  margin-left: 1.5rem;
   text-decoration: none;
-  color: #5A3714;
   font-size: 0.95rem;
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Container & Judul ===== */
-.container {
-  padding: 2rem;
-}
-
-.setting-title {
+/* MAIN */
+main {
+  flex-grow: 1;
   display: flex;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+main p {
   font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-}
-
-.setting-title i {
-  font-size: 2rem;
-  margin-right: 0.5rem;
-}
-
-/* ===== Pilihan Pengaturan ===== */
-.setting-option {
-  background-color: #f8f3e3;
-  border: 2px solid #5A3714;
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.setting-option:hover {
-  background-color: #ede2c7;
-  cursor: pointer;
-}
-
-/* ===== Label & Ikon ===== */
-.setting-label {
-  display: flex;
-  align-items: center;
-}
-
-.setting-label i {
-  margin-right: 0.5rem;
-}
-
-/* ===== Dropdown ===== */
-select {
-  padding: 0.4rem 0.8rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #5A3714;
-  background-color: #fff;
-  color: #5A3714;
-  font-family: 'Georgia', serif;
-}
-
-/* ===== Responsif ===== */
-@media (max-width: 600px) {
-  .setting-option {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  select {
-    margin-top: 0.5rem;
-    width: 100%;
-  }
-
-  nav a {
-    margin-left: 1rem;
-  }
+  color: #a57c4a;
 }
 
 /* CHATBOT */
