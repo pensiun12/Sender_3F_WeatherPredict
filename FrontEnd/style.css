@@ -113,3 +113,20 @@ main p {
 .chatbox button:hover {
   background-color: #8b6744;
 }
+
+/*TENTANG KAMI*/
+/* Reset & Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background-color: #fff;
+  color: #6d4c41;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
