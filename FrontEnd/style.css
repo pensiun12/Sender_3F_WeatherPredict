@@ -720,3 +720,42 @@ select {
     margin-left: 1rem;
   }
 }
+
+/* CHATBOT */
+.chatbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: transparent;
+  z-index: 1;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.chatbox input {
+  width: 50%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #d2a156;
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+}
+
+.chatbox button {
+  padding: 0.8rem 1rem;
+  border: 2px solid #d2a156;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+  background-color: #6b4c2e;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.chatbox button:hover {
+  background-color: #8b6744;
+}
