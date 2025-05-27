@@ -25,7 +25,7 @@ body::before {
   left: 0;
   width: 30%;
   height: 40%;
-  background: url("assets2/angin.png") no-repeat bottom left;
+  background: url("assets/angin.png") no-repeat bottom left;
   background-size: contain;
   opacity: 0.4;
   z-index: 0;
