@@ -1017,3 +1017,11 @@ input[type="password"] {
   text-decoration: none;
   margin-left: 5px;
 }
+
+/* SIGN UP PAGE */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #fdfaf5;
+  color: #3e2f1c;
+}
