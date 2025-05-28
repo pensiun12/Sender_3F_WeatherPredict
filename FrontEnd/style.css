@@ -703,6 +703,17 @@ nav a:hover {
   margin-right: 0.5rem;
 }
 
+/* ===== Dropdown ===== */
+select {
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #5A3714;
+  background-color: #fff;
+  color: #5A3714;
+  font-family: 'Georgia', serif;
+}
+
 /*TENTANG KAMI*/
 /* Reset & Global */
 * {
