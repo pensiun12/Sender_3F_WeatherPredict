@@ -272,3 +272,15 @@ nav a {
   background-color: #c76b29;
   transform: translateX(-50%);
 }
+
+/* Garis Horizontal Supervisor ke Members */
+.connector-supervisors::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 680px;
+  height: 2px;
+  background-color: #c76b29;
+  transform: translateX(-50%);
+}
