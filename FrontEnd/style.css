@@ -910,7 +910,7 @@ footer {
   color: #333;
 }
 
-/*LOGIN PAGE*/
+/* LOGIN PAGE */
 .login-container {
   position: absolute;
   top: 50%;
@@ -1009,7 +1009,7 @@ input[type="password"] {
   color: #5a3414;
 }
 
-.signup-btn {
+.signup-btnb {
   background-color: #f4a62a;
   padding: 5px 10px;
   border-radius: 4px;
