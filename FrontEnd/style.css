@@ -485,6 +485,26 @@ main {
   cursor: pointer;
 }
 
+/* Responsif */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .sun-info {
+    padding: 0 16px;
+  }
+}
+
 /*CHATBOT PAGE*/
 /* RESET */
 * {
