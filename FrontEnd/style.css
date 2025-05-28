@@ -674,6 +674,25 @@ nav a:hover {
   margin-right: 0.5rem;
 }
 
+/* ===== Pilihan Pengaturan ===== */
+.setting-option {
+  background-color: #f8f3e3;
+  border: 2px solid #5A3714;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.setting-option:hover {
+  background-color: #ede2c7;
+  cursor: pointer;
+}
+
 /*TENTANG KAMI*/
 /* Reset & Global */
 * {
