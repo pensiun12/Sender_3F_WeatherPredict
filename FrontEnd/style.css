@@ -656,6 +656,24 @@ nav a:hover {
   text-decoration: underline;
 }
 
+/* ===== Container & Judul ===== */
+.container {
+  padding: 2rem;
+}
+
+.setting-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.setting-title i {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
 /*TENTANG KAMI*/
 /* Reset & Global */
 * {
