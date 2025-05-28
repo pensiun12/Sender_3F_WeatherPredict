@@ -284,3 +284,11 @@ nav a {
   background-color: #c76b29;
   transform: translateX(-50%);
 }
+
+/* Footer */
+footer {
+  margin-top: auto;
+  padding: 1rem 2rem;
+  font-size: 0.85rem;
+  color: #333;
+}
