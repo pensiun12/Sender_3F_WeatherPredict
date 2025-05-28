@@ -385,6 +385,64 @@ main {
   right: 5px;
 }
 
+/* Daily forecast */
+.daily-forecast h3 {
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #6b4c2b;
+}
+.icon-daily-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 6px;
+}
+
+
+.slider-day {
+  display: flex;
+  gap: 15px;
+  transition: transform 0.3s ease;
+  padding-bottom: 10px;
+}
+
+.daily-card {
+  flex: 0 0 190px;
+  background: #d9cbbf;
+  border-radius: 20px;
+  padding: 15px 10px;
+  text-align: center;
+  box-shadow: 0 1px 6px rgba(107, 76, 43, 0.15);
+  color: #5a3e1b;
+  user-select: none;
+}
+
+.daily-card .day {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.daily-card .icon {
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+
+.daily-card .desc {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.daily-card .temp {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.daily-card .wind {
+  font-size: 0.9rem;
+  color: #7a5e3a;
+}
+
 /*CHATBOT PAGE*/
 /* RESET */
 * {
