@@ -85,6 +85,40 @@ header {
   transition: background-color 0.3s ease;
 }
 
+/* Link dalam tombol */
+.login-btn a {
+  text-decoration: none;
+  color: #6e4b29;
+  font-family: 'Playfair Display', serif;
+  transition: color 0.3s ease;
+}
+
+/* Hover efek */
+.login-btn:hover {
+  background-color: #6e4b29;
+}
+
+.login-btn:hover a {
+  color: white;
+}
+
+.user-icon {
+  background: #e8dfd1;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #3e2f1c;
+  font-size: 14px;
+}
+
 /*CHATBOT PAGE*/
 /* RESET */
 * {
