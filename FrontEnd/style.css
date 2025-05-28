@@ -119,6 +119,18 @@ nav a {
   font-size: 14px;
 }
 
+/* Layout Utama */
+main {
+  width: 100%;         /* Batasi lebar maksimum agar isi tidak terlalu lebar */
+  border-radius: 0;
+  box-shadow: 0 4px 10px rgba(107, 76, 43, 0.15);
+  box-sizing: border-box;
+  display: flex;
+  padding: 24px 32px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
 /*CHATBOT PAGE*/
 /* RESET */
 * {
