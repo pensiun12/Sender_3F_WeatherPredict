@@ -33,3 +33,7 @@ for intent in data['intents']:
 words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_letters]
 words = sorted(set(words))
 classes = sorted(set(classes))
+
+# Simpan kata dan kelas
+pickle.dump(words, open('bmkg\words.pkl', 'wb'))
+pickle.dump(classes, open('bmkg\classes.pkl', 'wb'))
