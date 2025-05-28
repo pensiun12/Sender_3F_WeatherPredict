@@ -1196,12 +1196,3 @@ input[type="repassword"] {
   font-size: 14px;
   color: #5a3414;
 }
-
-.login-btn {
-  background-color: #f4a62a;
-  padding: 5px 10px;
-  border-radius: 4px;
-  color: white;
-  text-decoration: none;
-  margin-left: 5px;
-}
