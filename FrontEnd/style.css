@@ -214,6 +214,38 @@ main {
   gap: 24px;
 }
 
+/* Kartu Info Cuaca */
+.cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.card {
+  flex: 1;
+  background-color: #f5eee3;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 8px;
+}
+
+.card-value {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-title {
+  font-size: 14px;
+  color: #7a6148;
+}
+
 /*CHATBOT PAGE*/
 /* RESET */
 * {
