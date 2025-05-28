@@ -29,7 +29,40 @@
       </div>
     </header>
 
-    
+    <div class="signup-container">
+        <form class="signup-form">
+          <h2>Sign Up</h2>
+          
+          <label for="username">Username</label>
+          <input type="username" id="username" placeholder="Username" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Email" required />
+
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Password" required />
+
+          <label for="repassword">Confirm Password</label>
+          <input type="repassword" id="repassword" placeholder="Confirm Password" required />
+
+          <div class="remember">
+            <input type="checkbox" id="remember" />
+            <label for="remember">Remember me?</label>
+          </div>
+
+          <button type="submit" class="btn-signup">Sign Up</button>
+
+          <div class="divider">or Sign Up with</div>
+
+          <button type="button" class="btn-google">
+            <span class="google-icon">G</span> Google Email
+          </button>
+
+          <div class="login-text">
+            Already have an account? <a href="#" class="login-btn">Sign In</a>
+          </div>
+        </form>
+    </div>
   </div>
 </body>
 </html>
