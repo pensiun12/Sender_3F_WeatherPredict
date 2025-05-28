@@ -196,3 +196,58 @@ nav a {
   height: 30px;
   border-radius: 8px;
 }
+
+/* Organization Chart */
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.level {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #f2a32f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.circle img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+
+.label {
+  position: absolute;
+  bottom: -25px;
+  text-align: center;
+  width: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85rem;
+  color: #6b4c2e;
+}
+
+.name {
+  position: absolute;
+  bottom: -40px;
+  text-align: center;
+  width: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: #333;
+}
