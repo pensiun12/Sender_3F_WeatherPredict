@@ -246,6 +246,40 @@ main {
   color: #7a6148;
 }
 
+/* Sun Path */
+.sun-path {
+  background-color: #eef0f2;
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  text-align: center;
+}
+
+.sun-curve {
+  position: relative;
+  height: 100px;
+  border-top: 2px solid #c2b59b;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  width: 100%;
+}
+
+.sun {
+  position: absolute;
+  top: -18px;
+  left: 30%;
+  width: 40px;
+  height: 40px;
+}
+
+.sun-info {
+  display: flex;
+  justify-content: center;
+  padding: 0 40px;
+  font-size: 14px;
+  color: #6d5b45;
+}
+
 /*CHATBOT PAGE*/
 /* RESET */
 * {
