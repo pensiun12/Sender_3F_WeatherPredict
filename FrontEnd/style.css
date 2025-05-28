@@ -925,3 +925,30 @@ footer {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   background-color: #fff; /* Opsional, agar tidak transparan */
 }
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #5a3414;
+}
+
+label {
+  font-size: 14px;
+  color: #5a3414;
+  margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+  padding: 8px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  background: transparent;
+  outline: none;
+}
