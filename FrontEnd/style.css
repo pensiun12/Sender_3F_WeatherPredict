@@ -260,3 +260,15 @@ nav a {
   position: relative;
   top: 15px;
 }
+
+/* Garis Horizontal Cabang Leader ke Supervisor */
+.connector-leader::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 120px;
+  height: 2px;
+  background-color: #c76b29;
+  transform: translateX(-50%);
+}
