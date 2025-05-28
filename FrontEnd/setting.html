@@ -9,11 +9,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <header class="top-bar">
     <h1>
       <a href="homepage.html" class="logo"> WEATHER PREDICT</a>
     </h1>
-    <nav>
+    <div id="hamburger-menu" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <nav class="top-menu">
       <a href="chatbot.html">ChatBot</a>
       <a href="team.html">Tentang Kami</a>
       <a href="homepage.html">Laman Utama</a>
@@ -57,5 +60,13 @@
       </div>
     </div>
   </div>
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('.top-menu');
+      nav.classList.toggle('active');
+    }
+  </script>
+    <!-- javscript -->
+    <script src="script.js"></script>
 </body>
 </html>
