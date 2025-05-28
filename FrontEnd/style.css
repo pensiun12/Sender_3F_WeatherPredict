@@ -693,6 +693,16 @@ nav a:hover {
   cursor: pointer;
 }
 
+/* ===== Label & Ikon ===== */
+.setting-label {
+  display: flex;
+  align-items: center;
+}
+
+.setting-label i {
+  margin-right: 0.5rem;
+}
+
 /*TENTANG KAMI*/
 /* Reset & Global */
 * {
