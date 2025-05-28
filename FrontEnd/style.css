@@ -280,6 +280,76 @@ main {
   color: #6d5b45;
 }
 
+/* Hourly forecast */
+/* Tambahkan pembungkus dengan batas lebar */
+.forecast-container {
+  max-width:100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.icon-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 6px;
+}
+
+.hourly-forecast h3 {
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #6b4c2b;
+  position: relative;
+}
+
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.slider {
+  display: flex;
+  gap: 12px;
+  transition: transform 0.3s ease;
+  padding-bottom: 10px;
+}
+
+.hour-card {
+  flex: 0 0 80px;
+  background: #f9f4ec;
+  border-radius: 15px;
+  padding: 10px 5px;
+  text-align: center;
+  box-shadow: 0 1px 6px rgba(107, 76, 43, 0.15);
+  user-select: none;
+  color: #5a3e1b;
+}
+
+.hour-card .time {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.hour-card .icon {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.hour-card .temp {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.hour-card .rain {
+  font-size: 0.9rem;
+  color: #7a5e3a;
+}
+
 /*CHATBOT PAGE*/
 /* RESET */
 * {
