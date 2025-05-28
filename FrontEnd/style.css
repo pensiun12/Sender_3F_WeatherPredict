@@ -350,6 +350,41 @@ main {
   color: #7a5e3a;
 }
 
+/* Arrow buttons */
+.arrow {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  transform: translateY(-50%);
+  background: #d9cbbf;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border: none;
+  cursor: pointer;
+  color: #6b4c2b;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+
+.arrow:hover {
+  background: #6b4c2b;
+  color: #f9f4ec;
+}
+
+.arrow-left {
+  left: 5px;
+}
+
+.arrow-right {
+  right: 5px;
+}
+
 /*CHATBOT PAGE*/
 /* RESET */
 * {
