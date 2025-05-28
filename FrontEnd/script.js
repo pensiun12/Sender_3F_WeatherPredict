@@ -118,6 +118,7 @@ function updateWeather() {
     hourlySlider.style.transform = `translateX(${currentPosition}px)`;
   });
   
+  
   // Render prakiraan harian dengan slider geser
 const dailyForecast = document.getElementById("dailyForecast");
 
@@ -180,4 +181,6 @@ document.addEventListener('click', function(e){
         topNav.classList.remove('active');
     }
 })
+
+  
   

@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css" />
+  <!-- Link CDN Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
   <div class="page-wrapper">
@@ -59,10 +61,22 @@
           </button>
 
           <div class="login-text">
-            Already have an account? <a href="login.html" class="login-btn">Sign In</a>
+            Already have an account? 
+            <button class="login-btn">
+              <a href="login.html">Sign In</a>
+            </button>
+           
           </div>
         </form>
     </div>
   </div>
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('.top-menu');
+      nav.classList.toggle('active');
+    }
+  </script>
+    <!-- javscript -->
+    <script src="script.js"></script>
 </body>
 </html>

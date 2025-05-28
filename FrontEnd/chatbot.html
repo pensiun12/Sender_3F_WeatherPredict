@@ -4,14 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weather Predict</title>
+  <!-- Link CDN Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+  <header class="top-bar">
     <h1>
       <a href="homepage.html" class="logo"> WEATHER PREDICT</a>
     </h1>
-    <nav>
+    <!-- Hamburger Menu -->
+    <div id="hamburger-menu" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <nav class="top-menu">
       <a href="team.html">Tentang Kami</a>
       <a href="setting.html">Pengaturan</a>
       <a href="homepage.html">Laman Utama</a>
@@ -26,5 +32,13 @@
     <input type="text" placeholder="Ask about weather......." />
     <button>&gt;</button>
   </div>
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('.top-menu');
+      nav.classList.toggle('active');
+    }
+  </script>
+    <!-- javscript -->
+    <script src="script.js"></script>
 </body>
 </html>

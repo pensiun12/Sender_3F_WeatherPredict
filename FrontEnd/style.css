@@ -49,13 +49,23 @@ h1 {
 }
 
 /* Header */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 32px;
-  background-color: #fff;
-  border-bottom: 1px solid #d8cfc0;
+.top-bar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fffdf9;
+    padding: 20px 30px;
+    border-bottom: 1px solid #d9cbbf;
+    font-family: 'Crimson Text';
+    font-weight: 100;
+    position: fixed;
+    height: 80px;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    z-index: 1000;
 }
 .logo {
   font-family: 'cromson text', serif;
@@ -127,6 +137,7 @@ main {
   box-sizing: border-box;
   display: flex;
   padding: 24px 32px;
+  margin-top: 80px;
   gap: 24px;
   flex-wrap: wrap;
 }
@@ -275,6 +286,7 @@ main {
 .sun-info {
   display: flex;
   justify-content: center;
+  gap: 900px;
   padding: 0 40px;
   font-size: 14px;
   color: #6d5b45;
@@ -485,23 +497,49 @@ main {
   cursor: pointer;
 }
 
-/* Responsif */
-@media (max-width: 768px) {
-  main {
+/* Gaya dasar navigasi desktop */
+/* Responsive untuk layar kecil (mobile dan tablet) */
+@media(max-width: 768px) {
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .top-menu {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #ffffff;
+    width: 250px;
+    height: 100vh;
     flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 999;
   }
 
-  .cards {
-    flex-direction: column;
+  .top-menu.active {
+    right: 0;
   }
 
-  .sidebar {
-    width: 100%;
-    align-items: stretch;
+  .top-menu a,
+  .login-btn a {
+    font-size: 1rem;
+    margin: 0.5rem 0.5rem;
+    color: #6b4c2b;
+    display: block;
+    padding: 5px 10px;
   }
-
-  .sun-info {
-    padding: 0 16px;
+  .login-btn {
+    margin-bottom: 2rem;
+    height: 40px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    
+    
   }
 }
 
@@ -712,23 +750,6 @@ select {
   background-color: #fff;
   color: #5A3714;
   font-family: 'Georgia', serif;
-}
-
-/* ===== Responsif ===== */
-@media (max-width: 600px) {
-  .setting-option {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  select {
-    margin-top: 0.5rem;
-    width: 100%;
-  }
-
-  nav a {
-    margin-left: 1rem;
-  }
 }
 
 /*TENTANG KAMI*/
@@ -1020,10 +1041,11 @@ input[type="password"] {
 
 /* SIGN UP PAGE */
 body {
-  margin: 0;
+  margin-top: 40px;
   font-family: 'Inter', sans-serif;
   background-color: #fdfaf5;
   color: #3e2f1c;
+  
 }
 
 /* Header */

@@ -10,24 +10,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
   <!-- Iconify CDN -->
   <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+   <!-- Link CDN Font Awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <!-- Di bagian <head> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
-  <header>
+  <header class="top-bar">
     <h1>
       <a href="tampilan.html" class="logo"> WEATHER PREDICT</a>
     </h1>
+    <!-- Hamburger Menu -->
+    <div id="hamburger-menu" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
     <div class="top-menu">
-      <div id="hamburger-menu" onclick="toggleMenu()">
-        <span class="uil--align-justify"></span>
-      </div>
       <button class="login-btn">
         <a href="login.html">Login</a>
       </button>
-      <div class="user-icon">
+      <!--<div class="user-icon">
         <span class="iconify" data-icon="iconamoon:profile-fill" data-width="28" data-height="28"></span>
       </div>
+      <!-->
       <nav>
         <a href="chatbot.html">ChatBot</a>
         <a href="team.html">Tentang Kami</a>
@@ -103,12 +107,12 @@
       </div>
     </section>
   </main>
-    <script>
-      function toggleMenu() {
-        const nav = document.querySelector('.top-menu');
-        nav.classList.toggle('active');
-      }
-    </script>
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('.top-menu');
+      nav.classList.toggle('active');
+    }
+  </script>
     <!-- javscript -->
     <script src="script.js"></script>
 </body></html>
