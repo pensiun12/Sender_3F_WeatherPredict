@@ -714,6 +714,23 @@ select {
   font-family: 'Georgia', serif;
 }
 
+/* ===== Responsif ===== */
+@media (max-width: 600px) {
+  .setting-option {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  select {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  nav a {
+    margin-left: 1rem;
+  }
+}
+
 /*TENTANG KAMI*/
 /* Reset & Global */
 * {
