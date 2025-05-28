@@ -630,6 +630,32 @@ body {
   color: #5A3714;
 }
 
+/* ===== Header ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eee;
+  background-color: #fef9f2;
+}
+
+header .logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+nav a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: #5A3714;
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
 /*TENTANG KAMI*/
 /* Reset & Global */
 * {
