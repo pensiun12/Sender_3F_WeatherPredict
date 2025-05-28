@@ -1002,3 +1002,18 @@ input[type="password"] {
   border-radius: 3px;
   font-weight: bold;
 }
+
+.signup-text {
+  text-align: center;
+  font-size: 14px;
+  color: #5a3414;
+}
+
+.signup-btn {
+  background-color: #f4a62a;
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  margin-left: 5px;
+}
