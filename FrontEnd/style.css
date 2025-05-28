@@ -952,3 +952,11 @@ input[type="password"] {
   background: transparent;
   outline: none;
 }
+
+.remember {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #5a3414;
+}
