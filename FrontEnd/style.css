@@ -251,3 +251,12 @@ nav a {
   font-size: 0.75rem;
   color: #333;
 }
+
+/* Garis Vertikal */
+.connector {
+  width: 3px;
+  height: 30px;
+  background-color: #c76b29;
+  position: relative;
+  top: 15px;
+}
