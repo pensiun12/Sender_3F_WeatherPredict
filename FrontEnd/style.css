@@ -621,6 +621,15 @@ main p {
   background-color: #8b6744;
 }
 
+/* SETTING */
+/* ===== Umum ===== */
+body {
+  font-family: 'Georgia', serif;
+  margin: 0;
+  background-color: #fff;
+  color: #5A3714;
+}
+
 /*TENTANG KAMI*/
 /* Reset & Global */
 * {
