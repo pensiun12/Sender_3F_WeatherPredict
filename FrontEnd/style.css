@@ -1062,3 +1062,52 @@ header {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
+/* Link dalam tombol */
+.signup-btn a {
+  text-decoration: none;
+  color: #6e4b29;
+  font-family: 'Playfair Display', serif;
+  transition: color 0.3s ease;
+}
+
+/* Hover efek */
+.signup-btn:hover {
+  background-color: #6e4b29;
+}
+
+.singup-btn:hover a {
+  color: white;
+}
+
+.user-icon {
+  background: #e8dfd1;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #3e2f1c;
+  font-size: 14px;
+}
+
+.signup-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Tambahan gaya kamu yang sudah ada */
+  border: 1px solid #7a4f27;
+  border-radius: 8px;
+  width: 320px;
+  padding: 25px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #fff; /* Opsional, agar tidak transparan */
+}
