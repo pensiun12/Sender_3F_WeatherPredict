@@ -909,3 +909,19 @@ footer {
   font-size: 0.85rem;
   color: #333;
 }
+
+/*LOGIN PAGE*/
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Tambahan gaya kamu yang sudah ada */
+  border: 1px solid #7a4f27;
+  border-radius: 8px;
+  width: 320px;
+  padding: 25px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #fff; /* Opsional, agar tidak transparan */
+}
