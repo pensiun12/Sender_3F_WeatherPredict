@@ -12,15 +12,15 @@ from tensorflow.keras.models import load_model
 from nltk.stem import WordNetLemmatizer
 
 lemmatizer = WordNetLemmatizer()
-intents = json.loads(open('bmkg/intents.json', encoding='utf-8').read())
-words = pickle.load(open('bmkg/words.pkl', 'rb'))
-classes = pickle.load(open('bmkg/classes.pkl', 'rb'))
-model = load_model('bmkg/chatbot_model.h5')
+intents = json.loads(open('cuaca_ai/bmkg/intents.json', encoding='utf-8').read())
+words = pickle.load(open('cuaca_ai/bmkg/words.pkl', 'rb'))
+classes = pickle.load(open('cuaca_ai/bmkg/classes.pkl', 'rb'))
+model = load_model('cuaca_ai/bmkg/chatbot_model.h5')
 
 nlp = spacy.load("xx_ent_wiki_sm")
 
 df_kota = pd.read_csv(
-    'bmkg/kode_kota_indonesia.csv',
+    'cuaca_ai/bmkg/kode_kota_indonesia.csv',
     sep=r'[\t;,]',
     engine='python',
     encoding='utf-8',
