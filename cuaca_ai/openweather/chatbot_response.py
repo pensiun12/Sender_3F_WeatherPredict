@@ -43,3 +43,12 @@ def predict_class(sentence):
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
     results.sort(key=lambda x: x[1], reverse=True)
     return [{"intent": classes[r[0]], "probability": str(r[1])} for r in results]
+
+# Ekstraksi informasi
+
+def extract_city(text):
+    doc = nlp(text)
+    for ent in doc.ents:
+        if ent.label_ in ("GPE", "LOC"):
+            return ent.text.title()  # Pastikan kapitalisasi awal huruf
+    return None
