@@ -20,3 +20,6 @@ intents = json.loads(open('cuaca_ai/openweather/intents.json', encoding='utf-8')
 words = pickle.load(open('cuaca_ai/openweather/words.pkl', 'rb'))
 classes = pickle.load(open('cuaca_ai/openweather/classes.pkl', 'rb'))
 model = load_model('cuaca_ai/openweather/chatbot_model.h5')
+
+# API Key dari OpenWeatherMap
+API_KEY = 'b713b4d39383e47c069a01dab4a2b673'
