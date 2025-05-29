@@ -52,3 +52,15 @@ def extract_city(text):
         if ent.label_ in ("GPE", "LOC"):
             return ent.text.title()  # Pastikan kapitalisasi awal huruf
     return None
+
+def extract_day_offset(text):
+    text = text.lower()
+    if "lusa" in text:
+        return 2
+    elif "besok" in text:
+        return 1
+    elif "kemarin" in text:
+        return -1
+    elif "hari ini" in text or "sekarang" in text:
+        return 0
+    return 0
