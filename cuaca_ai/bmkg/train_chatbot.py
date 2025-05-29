@@ -37,3 +37,7 @@ classes = sorted(set(classes))
 # Simpan kata dan kelas
 pickle.dump(words, open('bmkg\words.pkl', 'wb'))
 pickle.dump(classes, open('bmkg\classes.pkl', 'wb'))
+
+# Membuat data training
+training = []
+output_empty = [0] * len(classes)
