@@ -89,3 +89,55 @@ def get_weather_recommendation(weather_desc):
         return "💨 Cuaca berangin, kenakan pakaian yang cukup hangat."
     else:
         return "Tetap jaga kesehatan ya, apapun cuacanya. 😊"
+    
+# Ambil cuaca dari OpenWeatherMap
+
+def get_weather(city, day_offset=0, target_hour=None):
+    try:
+        now = datetime.now()
+        forecast_url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={API_KEY}&units=metric&lang=id"
+        response = requests.get(forecast_url)
+
+        if response.status_code != 200:
+            return f"Maaf, saya tidak dapat menemukan informasi cuaca untuk kota '{city}'."
+
+        data = response.json()
+        forecast_list = data['list']
+
+        # Tentukan tanggal target
+        target_date = (now + timedelta(days=day_offset)).date()
+
+        # Temukan entry prakiraan yang paling sesuai
+        best_match = None
+        smallest_diff = float('inf')
+
+        for entry in forecast_list:
+            dt_txt = entry['dt_txt']  # format 'YYYY-MM-DD HH:MM:SS'
+            dt = datetime.strptime(dt_txt, '%Y-%m-%d %H:%M:%S')
+
+            if dt.date() == target_date:
+                if target_hour is not None:
+                    diff = abs(dt.hour - target_hour)
+                else:
+                    diff = abs(dt.hour - 12)  # default siang hari
+
+                if diff < smallest_diff:
+                    smallest_diff = diff
+                    best_match = entry
+
+        if not best_match:
+            return f"Tidak ada data prakiraan untuk {city.title()} pada tanggal tersebut."
+
+        weather_desc = best_match['weather'][0]['description']
+        suhu = best_match['main']['temp']
+        jam = datetime.strptime(best_match['dt_txt'], '%Y-%m-%d %H:%M:%S').hour
+        tanggal = datetime.strptime(best_match['dt_txt'], '%Y-%m-%d %H:%M:%S').strftime('%d %B %Y')
+        rekomendasi = get_weather_recommendation(weather_desc)
+
+        return (
+            f"Cuaca di {city.title()} sekitar pukul {jam:02d}.00 pada {tanggal} adalah {weather_desc}, "
+            f"suhu {suhu:.1f}°C.\n{rekomendasi}"
+        )
+
+    except Exception as e:
+        return f"Terjadi kesalahan saat mengambil data cuaca: {e}"
