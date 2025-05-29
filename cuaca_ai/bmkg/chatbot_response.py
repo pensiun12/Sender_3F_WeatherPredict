@@ -98,3 +98,68 @@ def get_weather_recommendation(weather_desc):
         return "💨 Cuaca berangin, kenakan pakaian yang cukup hangat."
     else:
         return "Tetap jaga kesehatan ya, apapun cuacanya. 😊"
+    
+def is_date_in_bmkg_data(target_date, cuaca_list):
+    return any(item["local_datetime"].startswith(target_date) for item in cuaca_list)
+
+def get_weather_from_bmkg(city_name, day_offset=0, target_hour=None):
+    city_normalized = city_name.lower().strip()
+    matched = df_kota[df_kota['city_name_normalized'] == city_normalized]
+
+    if matched.empty:
+        matched = df_kota[df_kota['city_name_normalized'].str.contains(rf'\b{re.escape(city_normalized)}\b', regex=True)]
+
+    if matched.empty:
+        return f"Maaf, saya belum mendukung kota '{city_name}' untuk cuaca BMKG."
+
+    kode_adm = matched.iloc[0]['kode_adm']
+    kota_asli = matched.iloc[0]['city_name'].title()
+    url = f"https://api.bmkg.go.id/publik/prakiraan-cuaca?adm4={kode_adm}"
+
+    try:
+        response = requests.get(url, timeout=5)
+        if response.status_code != 200:
+            return "Maaf, gagal mengambil data dari BMKG."
+
+        data = response.json()
+        cuaca_list = data["data"][0]["cuaca"][0]
+        now = datetime.now() + timedelta(days=day_offset)
+        target_date_str = now.strftime('%Y-%m-%d')
+
+        if not is_date_in_bmkg_data(target_date_str, cuaca_list):
+            return (
+                f"Maaf, data cuaca untuk tanggal {target_date_str} belum tersedia dari BMKG.\n"
+                "Berikut prakiraan terbaru yang tersedia:\n" +
+                get_weather_from_bmkg(city_name, day_offset=0, target_hour=target_hour)
+            )
+
+        if target_hour is not None:
+            for item in cuaca_list:
+                dt = datetime.fromisoformat(item["local_datetime"])
+                if dt.strftime('%Y-%m-%d') == target_date_str and dt.hour == target_hour:
+                    cuaca = item["weather_desc"]
+                    suhu = item["t"]
+                    kelembapan = item["hu"]
+                    rekomendasi = get_weather_recommendation(cuaca)
+                    return (
+                        f"Cuaca di {kota_asli} sekitar pukul {target_hour:02d}.00 pada {dt.strftime('%d %B %Y')} adalah {cuaca}, "
+                        f"suhu {suhu}°C, kelembapan {kelembapan}%.\n{rekomendasi}"
+                    )
+            return f"Maaf, saya tidak menemukan data cuaca pukul {target_hour:02d}.00 untuk {kota_asli} pada {target_date_str}."
+
+        else:
+            for item in cuaca_list:
+                dt = datetime.fromisoformat(item["local_datetime"])
+                if dt.strftime('%Y-%m-%d') == target_date_str:
+                    cuaca = item["weather_desc"]
+                    suhu = item["t"]
+                    kelembapan = item["hu"]
+                    rekomendasi = get_weather_recommendation(cuaca)
+                    return (
+                        f"Cuaca di {kota_asli} pada {dt.strftime('%d %B %Y %H:%M')} adalah {cuaca}, "
+                        f"suhu sekitar {suhu}°C, kelembapan {kelembapan}%.\n{rekomendasi}"
+                    )
+            return f"Maaf, tidak ada data cuaca untuk tanggal {target_date_str}."
+
+    except Exception as e:
+        return f"Terjadi kesalahan saat mengambil data cuaca: {e}"
