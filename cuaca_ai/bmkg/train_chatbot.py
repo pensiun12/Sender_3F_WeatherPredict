@@ -41,3 +41,15 @@ pickle.dump(classes, open('bmkg\classes.pkl', 'wb'))
 # Membuat data training
 training = []
 output_empty = [0] * len(classes)
+
+for doc in documents:
+    bag = []
+    word_patterns = doc[0]
+    word_patterns = [lemmatizer.lemmatize(w.lower()) for w in word_patterns]
+    for w in words:
+        bag.append(1) if w in word_patterns else bag.append(0)
+
+    output_row = list(output_empty)
+    output_row[classes.index(doc[1])] = 1
+
+    training.append([bag, output_row])
