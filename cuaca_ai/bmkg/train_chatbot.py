@@ -75,3 +75,8 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 
 # Training
 model.fit(train_x, train_y, epochs=200, batch_size=5, verbose=1)
+
+# Simpan model
+model.save('bmkg\chatbot_model.h5')
+
+print("Model selesai dilatih dan disimpan sebagai chatbot_model.h5")
