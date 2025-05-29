@@ -83,3 +83,18 @@ def extract_hour(text):
     if match:
         return int(match.group(1))
     return None
+
+def get_weather_recommendation(weather_desc):
+    desc = weather_desc.lower()
+    if "hujan" in desc:
+        return "🌧️ Disarankan membawa payung dan memakai jaket tahan air."
+    elif "cerah" in desc or "terik" in desc:
+        return "☀️ Gunakan pakaian ringan dan sunscreen ya."
+    elif "berawan" in desc:
+        return "⛅ Cuaca mendung, tetap jaga kesehatan."
+    elif "kabut" in desc:
+        return "🌫️ Hati-hati saat berkendara, jarak pandang terbatas."
+    elif "angin" in desc:
+        return "💨 Cuaca berangin, kenakan pakaian yang cukup hangat."
+    else:
+        return "Tetap jaga kesehatan ya, apapun cuacanya. 😊"
