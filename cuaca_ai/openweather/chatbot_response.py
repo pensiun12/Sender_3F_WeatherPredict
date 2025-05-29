@@ -23,3 +23,23 @@ model = load_model('cuaca_ai/openweather/chatbot_model.h5')
 
 # API Key dari OpenWeatherMap
 API_KEY = 'b713b4d39383e47c069a01dab4a2b673'
+
+# Fungsi preprocessing dan prediksi
+
+def clean_up_sentence(sentence):
+    sentence_words = nltk.word_tokenize(sentence)
+    sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
+    return sentence_words
+
+def bag_of_words(sentence, words):
+    sentence_words = clean_up_sentence(sentence)
+    bag = [1 if w in sentence_words else 0 for w in words]
+    return np.array(bag)
+
+def predict_class(sentence):
+    bow = bag_of_words(sentence, words)
+    res = model.predict(np.array([bow]))[0]
+    ERROR_THRESHOLD = 0.25
+    results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
+    results.sort(key=lambda x: x[1], reverse=True)
+    return [{"intent": classes[r[0]], "probability": str(r[1])} for r in results]
