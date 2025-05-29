@@ -189,9 +189,13 @@ const sendBtn = document.getElementById("sendBtn");
 const chatContainer = document.getElementById("chatContainer");
 
 sendBtn.addEventListener("click", sendMessage);
-userInput.addEventListener("keypress", function (e) {
-  if (e.key === "Enter") sendMessage();
+userInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault(); // optional: mencegah line break
+    sendMessage();
+  }
 });
+
 
 function addChatMessage(sender, text) {
   const msgDiv = document.createElement("div");
