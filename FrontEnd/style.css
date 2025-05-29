@@ -6,6 +6,38 @@ body {
   background-color: #fdfaf5;
   color: #3e2f1c;
 }
+.darkmode{
+  margin-top:50px;
+  font-family: 'Inter', sans-serif;
+  background-color: #000000;
+  color: #3e2f1c;
+}
+#theme-switch{
+  margin-top: 600px;
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: #e2d7c4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+#theme-switch svg{
+  fill: #333;
+}
+#theme-switch svg:last-child{
+  display: none;
+}
+.darkmode #theme-switch svg:first-child{
+  display: none;
+}
+.darkmode #theme-switch svg:last-child{
+  display: block;
+}
 
 h1 {
   font-family: 'Playfair Display', serif;
@@ -137,7 +169,7 @@ main {
   box-sizing: border-box;
   display: flex;
   padding: 24px 32px;
-  margin-top: 80px;
+  margin-top: 50px;
   gap: 24px;
   flex-wrap: wrap;
 }
