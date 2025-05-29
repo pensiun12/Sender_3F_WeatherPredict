@@ -149,7 +149,15 @@ def get_weather(city, day_offset=0, target_hour=None):
     except Exception as e:
         return f"Terjadi kesalahan saat mengambil data cuaca: {e}"
     
-    # Fungsi utama respons chatbot
+# Fungsi utama respons chatbot
+
+def initial_greeting_with_weather():
+    city = detect_location_by_ip()
+    if city:
+        weather = get_weather(city, day_offset=0)
+        return f"Halo! Ini ringkasan cuaca hari ini di {city.title()}:\n\n{weather}"
+    else:
+        return "Halo! Saya adalah asisten cuaca. Untuk memulai, sebutkan kota kamu ya. 😊"
 
 def get_response(intents_list, intents_json, user_input):
     if not intents_list:
