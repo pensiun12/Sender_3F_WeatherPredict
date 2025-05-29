@@ -12,7 +12,7 @@ import pickle
 lemmatizer = WordNetLemmatizer()
 
 # Load data intents
-with open('openweather\intents.json',  encoding='utf-8') as file:
+with open('cuaca_ai/openweather/intents.json',  encoding='utf-8') as file:
     data = json.load(file)
 
 words = []
@@ -35,8 +35,8 @@ words = sorted(set(words))
 classes = sorted(set(classes))
 
 # Simpan kata dan kelas
-pickle.dump(words, open('openweather/words.pkl', 'wb'))
-pickle.dump(classes, open('openweather/classes.pkl', 'wb'))
+pickle.dump(words, open('cuaca_ai/openweather/words.pkl', 'wb'))
+pickle.dump(classes, open('cuaca_ai/openweather/classes.pkl', 'wb'))
 
 # Membuat data training
 training = []
@@ -77,6 +77,6 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 model.fit(train_x, train_y, epochs=200, batch_size=5, verbose=1)
 
 # Simpan model
-model.save('openweather/chatbot_model.h5')
+model.save('cuaca_ai/openweather/chatbot_model.h5')
 
 print("Model selesai dilatih dan disimpan sebagai chatbot_model.h5")
