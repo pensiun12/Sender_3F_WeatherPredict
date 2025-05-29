@@ -1,9 +1,9 @@
-from chatbot_response import chatbot_response
+from chatbot_response import chatbot_response, initial_greeting_with_weather
 
-print("Chatbot Cuaca BMKG (Ketik 'quit' untuk keluar)")
+# Tampilkan ringkasan cuaca saat chatbot pertama kali dijalankan
+print("Bot:", initial_greeting_with_weather())
+
 while True:
-    user_input = input("Kamu: ")
-    if user_input.lower() == "quit":
-        break
-    response = chatbot_response(user_input)
-    print("Bot:", response)
+    msg = input("Kamu: ")
+    res = chatbot_response(msg)
+    print("Bot:", res)
