@@ -47,3 +47,18 @@ def predict_class(sentence):
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
     results.sort(key=lambda x: x[1], reverse=True)
     return [{"intent": classes[r[0]], "probability": str(r[1])} for r in results]
+
+def extract_city(text):
+    doc = nlp(text)
+    for ent in doc.ents:
+        if ent.label_ in ("GPE", "LOC"):
+            return ent.text.lower().strip()
+    words_in_text = [w.lower() for w in nltk.word_tokenize(text)]
+    for word in words_in_text:
+        if word in df_kota['city_name_normalized'].values:
+            return word
+    for i in range(len(words_in_text)-1):
+        two_words = words_in_text[i] + ' ' + words_in_text[i+1]
+        if two_words in df_kota['city_name_normalized'].values:
+            return two_words
+    return None
