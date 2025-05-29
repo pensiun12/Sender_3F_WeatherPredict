@@ -74,3 +74,12 @@ def extract_day_offset(text):
     elif "hari ini" in text or "sekarang" in text:
         return 0
     return 0  # default
+
+def extract_hour(text):
+    match = re.search(r'jam (\d{1,2})', text)
+    if match:
+        return int(match.group(1))
+    match = re.search(r'pukul (\d{1,2})', text)
+    if match:
+        return int(match.group(1))
+    return None
