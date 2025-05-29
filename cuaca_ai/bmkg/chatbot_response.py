@@ -62,3 +62,15 @@ def extract_city(text):
         if two_words in df_kota['city_name_normalized'].values:
             return two_words
     return None
+
+def extract_day_offset(text):
+    text = text.lower()
+    if "lusa" in text:
+        return 2
+    elif "besok" in text:
+        return 1
+    elif "kemarin" in text:
+        return -1
+    elif "hari ini" in text or "sekarang" in text:
+        return 0
+    return 0  # default
