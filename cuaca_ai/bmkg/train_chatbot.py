@@ -53,3 +53,10 @@ for doc in documents:
     output_row[classes.index(doc[1])] = 1
 
     training.append([bag, output_row])
+
+# Shuffle dan ubah ke numpy array
+random.shuffle(training)
+training = np.array(training, dtype=object)
+
+train_x = np.array(list(training[:, 0]))
+train_y = np.array(list(training[:, 1]))
