@@ -1,24 +1,20 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from openweather.chatbot_response import chatbot_response  # Sesuaikan path sesuai struktur folder kamu
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:8000"])
-  # Izinkan permintaan dari frontend
+CORS(app)
 
 @app.route("/chat", methods=["POST"])
 def chat():
     data = request.get_json()
-    user_message = data.get("message", "").lower()
+    user_message = data.get("message", "")
 
-    # Jawaban sederhana (dummy)
-    if "besok" in user_message:
-        reply = "Cuaca besok diperkirakan cerah berawan."
-    elif "hujan" in user_message:
-        reply = "Hujan diperkirakan terjadi pada sore hari."
-    else:
-        reply = "Saya tidak memahami pertanyaan Anda. Silakan tanya lagi tentang cuaca."
+    if not user_message:
+        return jsonify({"reply": "Pesan kosong, silakan masukkan pertanyaan."})
 
+    reply = chatbot_response(user_message)
     return jsonify({"reply": reply})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5000)

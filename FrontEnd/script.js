@@ -1,9 +1,15 @@
-// Data prakiraan per jam
-function updateWeather() {
-    const city = document.getElementById("cityInput").value;
-    alert("Fitur pencarian untuk kota " + city + " akan dikembangkan.");
-    // Di sini bisa ditambahkan pemanggilan API cuaca nyata di masa depan
+document.addEventListener("DOMContentLoaded", () => {
+  // Fungsi updateWeather yang digabung dan validasi input
+  function updateWeather() {
+    const city = document.getElementById("cityInput").value.trim();
+    if (!city) {
+      alert("Masukkan nama kota terlebih dahulu!");
+      return;
+    }
+    alert(`Fitur pencarian untuk kota ${city} akan dikembangkan.`);
   }
+
+  // Data prakiraan per jam
   const hourlyData = [
     { time: "01:00", icon: '<img src="assets/cerah.png" alt="cloudy" class="icon-img">', temp: "20°", rain: "0%" },
     { time: "02:00", icon: '<img src="assets/cerah.png" alt="cloudy" class="icon-img">', temp: "20°", rain: "0%" },
@@ -30,7 +36,7 @@ function updateWeather() {
     { time: "23:00", icon: '<img src="assets/cerah.png" alt="cloudy" class="icon-img">', temp: "30°", rain: "20%" },
     { time: "00:00", icon: '<img src="assets/cerah.png" alt="cloudy" class="icon-img">', temp: "30°", rain: "20%" },
   ];
-  
+
   // Data prakiraan harian
   const dailyData = [
     {
@@ -69,24 +75,23 @@ function updateWeather() {
       wind: "Angin pada 15 hingga 25 km/jam",
     },
     {
-        day: "Rabu, 30 April",
-        icon: '<img src="assets/cerah.png" alt="cloudy" class="icon-daily-img">',
-        desc: "Hujan",
-        temp: "30°C",
-        wind: "Angin pada 15 hingga 25 km/jam",
-      },
+      day: "Rabu, 30 April",
+      icon: '<img src="assets/cerah.png" alt="cloudy" class="icon-daily-img">',
+      desc: "Hujan",
+      temp: "30°C",
+      wind: "Angin pada 15 hingga 25 km/jam",
+    },
     {
-        day: "Kamis, 31 April",
-        icon: '<img src="assets/cerah.png" alt="cloudy" class="icon-daily-img">',
-        desc: "Hujan",
-        temp: "30°C",
-        wind: "Angin pada 15 hingga 25 km/jam",
+      day: "Kamis, 31 April",
+      icon: '<img src="assets/cerah.png" alt="cloudy" class="icon-daily-img">',
+      desc: "Hujan",
+      temp: "30°C",
+      wind: "Angin pada 15 hingga 25 km/jam",
     },
   ];
-  
+
   // Render prakiraan per jam
   const hourlySlider = document.getElementById("hourlySlider");
-  
   hourlyData.forEach((hour) => {
     const card = document.createElement("div");
     card.classList.add("hour-card");
@@ -98,133 +103,80 @@ function updateWeather() {
     `;
     hourlySlider.appendChild(card);
   });
-  
-  // Slider geser kanan kiri
+
+  // Slider geser kanan kiri untuk jam
   const btnLeft = document.querySelector(".arrow-left");
   const btnRight = document.querySelector(".arrow-right");
   const cardWidth = 80 + 12; // lebar kartu + margin kiri kanan
   let currentPosition = 0;
-  
-  btnLeft.addEventListener("click", () => {
+
+  btnLeft?.addEventListener("click", () => {
     currentPosition += cardWidth * 2; // geser 2 kartu
     if (currentPosition > 0) currentPosition = 0;
     hourlySlider.style.transform = `translateX(${currentPosition}px)`;
   });
-  
-  btnRight.addEventListener("click", () => {
+
+  btnRight?.addEventListener("click", () => {
     const maxScroll = -(hourlySlider.scrollWidth - hourlySlider.parentElement.offsetWidth);
     currentPosition -= cardWidth * 2;
     if (currentPosition < maxScroll) currentPosition = maxScroll;
     hourlySlider.style.transform = `translateX(${currentPosition}px)`;
   });
-  
-  
+
   // Render prakiraan harian dengan slider geser
-const dailyForecast = document.getElementById("dailyForecast");
+  const dailyForecast = document.getElementById("dailyForecast");
+  dailyData.forEach((day) => {
+    const card = document.createElement("div");
+    card.classList.add("daily-card");
+    card.innerHTML = `
+      <div class="day">${day.day}</div>
+      <div class="icon">${day.icon}</div>
+      <div class="desc">${day.desc}</div>
+      <div class="temp">${day.temp}</div>
+      <div class="wind">${day.wind}</div>
+    `;
+    dailyForecast.appendChild(card);
+  });
 
-// Render kartu harian
-dailyData.forEach((day) => {
-  const card = document.createElement("div");
-  card.classList.add("daily-card");
-  card.innerHTML = `
-    <div class="day">${day.day}</div>
-    <div class="icon">${day.icon}</div>
-    <div class="desc">${day.desc}</div>
-    <div class="temp">${day.temp}</div>
-    <div class="wind">${day.wind}</div>
-  `;
-  dailyForecast.appendChild(card);
-});
+  // Tombol geser kiri dan kanan untuk daily forecast
+  const btnLeftDaily = document.querySelector(".arrow-left-day");
+  const btnRightDaily = document.querySelector(".arrow-right-day");
+  const cardWidthDaily = 130 + 15; // lebar kartu + margin
+  let currentPositionDaily = 0;
 
-// Tombol geser kiri dan kanan untuk daily forecast
-const btnLeftDaily = document.querySelector(".arrow-left-day");
-const btnRightDaily = document.querySelector(".arrow-right-day");
-const cardWidthDaily = 130 + 15; // lebar kartu + margin (sesuaikan dengan CSS)
-let currentPositionDaily = 0;
+  btnLeftDaily?.addEventListener("click", () => {
+    currentPositionDaily += cardWidthDaily * 2; // geser 2 kartu
+    if (currentPositionDaily > 0) currentPositionDaily = 0;
+    dailyForecast.style.transform = `translateX(${currentPositionDaily}px)`;
+  });
 
-btnLeftDaily.addEventListener("click", () => {
-  currentPositionDaily += cardWidthDaily * 2; // geser 2 kartu
-  if (currentPositionDaily > 0) currentPositionDaily = 0;
-  dailyForecast.style.transform = `translateX(${currentPositionDaily}px)`;
-});
+  btnRightDaily?.addEventListener("click", () => {
+    const maxScrollDaily = -(dailyForecast.scrollWidth - dailyForecast.parentElement.offsetWidth);
+    currentPositionDaily -= cardWidthDaily * 2;
+    if (currentPositionDaily < maxScrollDaily) currentPositionDaily = maxScrollDaily;
+    dailyForecast.style.transform = `translateX(${currentPositionDaily}px)`;
+  });
 
-btnRightDaily.addEventListener("click", () => {
-  const maxScrollDaily = -(dailyForecast.scrollWidth - dailyForecast.parentElement.offsetWidth);
-  currentPositionDaily -= cardWidthDaily * 2;
-  if (currentPositionDaily < maxScrollDaily) currentPositionDaily = maxScrollDaily;
-  dailyForecast.style.transform = `translateX(${currentPositionDaily}px)`;
-});
-
-  
-  // Fungsi dummy update weather
-  function updateWeather() {
-    const city = document.getElementById("cityInput").value.trim();
-    if (!city) {
-      alert("Masukkan nama kota terlebih dahulu!");
-      return;
-    }
-    alert(`Fitur pencarian untuk kota ${city} akan dikembangkan.`);
-}
-//Toggle class active
-const topNav = document.querySelector('.top-menu')
-
-//Hamburger menu di klik
-document.querySelector('#hamburger-menu').onclick =()=>{
-    topNav.classList.toggle('active');
-};
-
-//klik diluar untuk menghilangkan sidebar
-const Hamburger = document.querySelector('#hamburger-menu');
-
-document.addEventListener('click', function(e){
-    if(!Hamburger.contains(e.target) && !topNav.contains(e.target)){
-        topNav.classList.remove('active');
-    }
-})
-
-  
-/* CHATBOT PAGE */
-const userInput = document.getElementById("userInput");
-const sendBtn = document.getElementById("sendBtn");
-const chatContainer = document.getElementById("chatContainer");
-
-sendBtn.addEventListener("click", sendMessage);
-userInput.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    e.preventDefault(); // optional: mencegah line break
-    sendMessage();
+  // Event listener tombol pencarian cuaca (jika ada tombol)
+  const searchBtn = document.getElementById("searchBtn");
+  if (searchBtn) {
+    searchBtn.addEventListener("click", updateWeather);
   }
+
+  // Toggle hamburger menu
+  const topNav = document.querySelector('.top-menu');
+  const hamburger = document.querySelector('#hamburger-menu');
+
+  hamburger?.addEventListener("click", () => {
+    topNav.classList.toggle('active');
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!hamburger?.contains(e.target) && !topNav?.contains(e.target)) {
+      topNav.classList.remove('active');
+    }
+  });
+
+  /* CHATBOT PAGE */
+
 });
-
-
-function addChatMessage(sender, text) {
-  const msgDiv = document.createElement("div");
-  msgDiv.className = sender === "user" ? "chat-msg user" : "chat-msg bot";
-  msgDiv.textContent = text;
-  chatContainer.appendChild(msgDiv);
-  chatContainer.scrollTop = chatContainer.scrollHeight;
-}
-
-function sendMessage() {
-  const message = userInput.value.trim();
-  if (!message) return;
-
-  addChatMessage("user", message);
-  userInput.value = "";
-
-  fetch("http://localhost:5000/chat", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ message }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      addChatMessage("bot", data.reply);
-    })
-    .catch((err) => {
-      console.error("Error:", err);
-      addChatMessage("bot", "Terjadi kesalahan. Silakan coba lagi nanti.");
-    });
-}
