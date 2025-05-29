@@ -163,3 +163,29 @@ def get_weather_from_bmkg(city_name, day_offset=0, target_hour=None):
 
     except Exception as e:
         return f"Terjadi kesalahan saat mengambil data cuaca: {e}"
+    
+def get_response(intents_list, intents_json, user_input):
+    if not intents_list:
+        return "Maaf, saya tidak mengerti. Bisa diulangi?"
+
+    tag = intents_list[0]['intent']
+
+    if tag == "cuaca":
+        city = extract_city(user_input)
+        day_offset = extract_day_offset(user_input)
+        hour = extract_hour(user_input)
+
+        if city:
+            return get_weather_from_bmkg(city, day_offset, hour)
+        else:
+            return "Silakan sebutkan nama kota yang ingin kamu ketahui cuacanya."
+
+    for i in intents_json['intents']:
+        if i['tag'] == tag:
+            return random.choice(i['responses'])
+
+    return "Maaf, saya tidak paham maksudmu."
+
+def chatbot_response(msg):
+    intents_list = predict_class(msg)
+    return get_response(intents_list, intents, msg)
