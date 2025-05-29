@@ -46,6 +46,13 @@ def predict_class(sentence):
 
 # Ekstraksi informasi
 
+def detect_location_by_ip():
+    try:
+        ip_info = requests.get("https://ipinfo.io/json").json()
+        return ip_info.get("city", None)
+    except:
+        return None
+
 def extract_city(text):
     doc = nlp(text)
     for ent in doc.ents:
