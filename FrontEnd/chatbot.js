@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {  
+document.addEventListener("DOMContentLoaded", () => {
   // Toggle hamburger menu
   const topNav = document.querySelector('.top-menu');
   const hamburger = document.querySelector('#hamburger-menu');
@@ -13,27 +13,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* CHATBOT PAGE */
+  // CHATBOT PAGE
   const userInput = document.getElementById("userInput");
   const sendBtn = document.getElementById("sendBtn");
   const chatContainer = document.getElementById("chatContainer");
 
-  sendBtn?.addEventListener("click", sendMessage);
-  userInput?.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      e.preventDefault(); // optional: mencegah line break
-      sendMessage();
-    }
-  });
-
+  // Tambah pesan ke UI
   function addChatMessage(sender, text) {
     const msgDiv = document.createElement("div");
-    msgDiv.className = sender === "user" ? "chat-msg user" : "chat-msg bot";
+    msgDiv.classList.add("chat-bubble", sender); // pakai class 'chat-bubble user/bot'
     msgDiv.textContent = text;
     chatContainer.appendChild(msgDiv);
     chatContainer.scrollTop = chatContainer.scrollHeight;
   }
 
+  // Kirim pesan user ke server
   function sendMessage() {
     const message = userInput.value.trim();
     if (!message) return;
@@ -43,18 +37,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch("http://localhost:5000/chat", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message }),
     })
-      .then((res) => res.json())
-      .then((data) => {
-        addChatMessage("bot", data.reply);
-      })
-      .catch((err) => {
-        console.error("Error:", err);
-        addChatMessage("bot", "Terjadi kesalahan. Silakan coba lagi nanti.");
-      });
+    .then((res) => res.json())
+    .then((data) => {
+      addChatMessage("bot", data.reply);
+    })
+    .catch((err) => {
+      console.error("Error:", err);
+      addChatMessage("bot", "Terjadi kesalahan. Silakan coba lagi nanti.");
+    });
   }
+
+  // Kirim greeting awal
+  function sendInitialGreeting() {
+    fetch("http://localhost:5000/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: "__greeting__" })
+    })
+    .then(res => res.json())
+    .then(data => {
+      addChatMessage("bot", data.reply);
+    })
+    .catch((err) => {
+      console.error("Error greeting:", err);
+      addChatMessage("bot", "Gagal memuat cuaca awal.");
+    });
+  }
+
+  // Event listener kirim
+  sendBtn?.addEventListener("click", sendMessage);
+  userInput?.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  sendInitialGreeting();
 });

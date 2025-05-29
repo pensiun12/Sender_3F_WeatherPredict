@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weather Predict</title>
-  <!-- Link CDN Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -13,7 +12,6 @@
     <h1>
       <a href="homepage.html" class="logo"> WEATHER PREDICT</a>
     </h1>
-    <!-- Hamburger Menu -->
     <div id="hamburger-menu" onclick="toggleMenu()">
       <i class="fa-solid fa-bars"></i>
     </div>
@@ -24,22 +22,26 @@
     </nav>
   </header>
 
-  <main>
+  <main id="introMessage">
     <p><em>Selamat Datang <br> di Weather-Chatbot</em></p>
   </main>
 
+  <div class="chat-wrapper">
+    <div id="chatContainer" class="message-area"></div>
+  </div>
+
   <div class="chatbox">
-    <div id="chatContainer" class="message-area"></div> <!-- Tambahan ini penting -->
     <input type="text" id="userInput" placeholder="Tanyakan cuaca..." />
     <button id="sendBtn">&gt;</button>
   </div>
+
+
   <script>
     function toggleMenu() {
       const nav = document.querySelector('.top-menu');
       nav.classList.toggle('active');
     }
   </script>
-    <!-- javscript -->
-    <script src="chatbot.js" defer></script>
+  <script src="chatbot.js" defer></script>
 </body>
 </html>
