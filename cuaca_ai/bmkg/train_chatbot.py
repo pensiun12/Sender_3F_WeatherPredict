@@ -72,3 +72,6 @@ model.add(Dense(len(train_y[0]), activation='softmax'))
 # Compile
 sgd = SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+
+# Training
+model.fit(train_x, train_y, epochs=200, batch_size=5, verbose=1)
