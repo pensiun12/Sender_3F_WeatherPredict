@@ -22,19 +22,24 @@
     </nav>
   </header>
 
-  <main id="introMessage">
-    <p><em>Selamat Datang <br> di Weather-Chatbot</em></p>
-  </main>
+  <!-- WRAPPER LAYOUT -->
+  <div class="main-wrapper">
 
-  <div class="chat-wrapper">
+    <!-- Pesan Selamat Datang -->
+    <main id="introMessage" class="intro">
+      <p><em>Selamat Datang <br> di Weather-Chatbot</em></p>
+    </main>
+
+    <!-- Chat Container -->
     <div id="chatContainer" class="message-area"></div>
-  </div>
 
-  <div class="chatbox">
-    <input type="text" id="userInput" placeholder="Tanyakan cuaca..." />
-    <button id="sendBtn">&gt;</button>
-  </div>
+    <!-- Input Chat -->
+    <div class="chatbox">
+      <input type="text" id="userInput" placeholder="Tanyakan cuaca..." />
+      <button id="sendBtn">&gt;</button>
+    </div>
 
+  </div>
 
   <script>
     function toggleMenu() {

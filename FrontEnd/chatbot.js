@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const userInput = document.getElementById("userInput");
   const sendBtn = document.getElementById("sendBtn");
   const chatContainer = document.getElementById("chatContainer");
+  const introMessage = document.getElementById("introMessage");
+
+  let introHidden = false; // status intro
 
   // Tambah pesan ke UI
   function addChatMessage(sender, text) {
@@ -27,11 +30,20 @@ document.addEventListener("DOMContentLoaded", () => {
     chatContainer.scrollTop = chatContainer.scrollHeight;
   }
 
+  // Sembunyikan introMessage jika belum
+  function hideIntroMessage() {
+    if (!introHidden && introMessage) {
+      introMessage.classList.add("hidden");
+      introHidden = true;
+    }
+  }
+
   // Kirim pesan user ke server
   function sendMessage() {
     const message = userInput.value.trim();
     if (!message) return;
 
+    hideIntroMessage(); // sembunyikan intro
     addChatMessage("user", message);
     userInput.value = "";
 
@@ -67,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Event listener kirim
+  // Event listener tombol & enter
   sendBtn?.addEventListener("click", sendMessage);
   userInput?.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
