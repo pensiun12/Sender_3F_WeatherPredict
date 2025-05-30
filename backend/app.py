@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from openweather.chatbot_response import chatbot_response, initial_greeting_with_weather
+# from openweather.chatbot_response import chatbot_response, initial_greeting_with_weather
+from weatherapi.chatbot_response import chatbot_response, initial_greeting_with_weather
 
 app = Flask(__name__)
 CORS(app)

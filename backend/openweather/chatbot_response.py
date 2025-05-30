@@ -184,3 +184,12 @@ def get_response(intents_list, intents_json, user_input):
 def chatbot_response(msg):
     intents_list = predict_class(msg)
     return get_response(intents_list, intents, msg)
+
+if __name__ == '__main__':
+    print(initial_greeting_with_weather())
+    while True:
+        message = input("Anda: ")
+        if message.lower() == "keluar":
+            break
+        resp = chatbot_response(message)
+        print(f"Bot: {resp}")
