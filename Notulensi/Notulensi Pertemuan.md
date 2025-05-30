@@ -88,7 +88,6 @@
   - DLC Model (One-Time Payment) :
     - Unlock chatbot AI premium (jawaban lebih dalam, historis cuaca)
     - Tambahkan banyak lokasi favorit
-    - Laporan cuaca PDF mingguan
 
 
 **Dokumentasi Rapat:**  
