@@ -309,6 +309,16 @@ main {
   margin-bottom: 6px;
 }
 
+.hour-card .desc-hourly {
+    font-size: 0.8em; /* Sesuaikan ukuran font jika perlu */
+    color: #555;     /* Sesuaikan warna jika perlu */
+    margin-top: 4px;  /* Beri sedikit jarak dari ikon */
+    text-align: center; /* Pusatkan teks jika mau */
+    /* white-space: nowrap;  Jika ingin teks tetap satu baris */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+}
+
 .hourly-forecast h3 {
   font-weight: 500;
   margin-bottom: 15px;
