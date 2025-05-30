@@ -597,7 +597,7 @@ body {
   background-color: #fff;
   color: #6d4c41;
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   display: flex;
@@ -658,7 +658,7 @@ main {
 }
 
 main p {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   color: #a57c4a;
 }
 
@@ -668,7 +668,7 @@ main p {
   max-width: 800px;
   margin: 2rem auto;
   padding: 1rem;
-  background-color: #fffdf8;
+  background-color: #b39c63;
   border: 2px solid #d2a156;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -677,10 +677,13 @@ main p {
 }
 
 #chatContainer {
-  flex: 1;
+  margin-top: 50px;
+  flex-grow: 1;
+  flex: 3;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  gap: 10px;
   padding: 1rem;
 }
 
@@ -724,13 +727,14 @@ main p {
 
 /* CHATBOT */
 .chatbox {
+  flex: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
   z-index: 1;
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   gap: 0.5rem;
 }
 
@@ -746,6 +750,7 @@ main p {
 }
 
 .message-area {
+  margin-top: 500px;
   flex: 1;
   max-height: 400px;
   overflow-y: auto;
@@ -759,14 +764,15 @@ main p {
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 60px); /* tinggi layar dikurangi header */
   overflow: hidden;
+  padding: 1rem;
+  flex-grow: 1;
 }
 
 /* Pesan intro */
 #introMessage {
   padding: 6px 12px;
-  margin: 0;
+  margin-top: 40px;
   height: auto;
   line-height: 1.1;
   display: flex;
@@ -803,7 +809,7 @@ main p {
 
 #userInput {
   flex: 1;
-  max-width: 500px;
+  max-width: 1000px;
   padding: 0.8rem 1rem;
   border: 2px solid #d2a156;
   border-radius: 10px;
