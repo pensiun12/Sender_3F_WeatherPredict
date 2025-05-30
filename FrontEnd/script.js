@@ -1,22 +1,44 @@
-let darkmode = localStorage.getItem('darkmode')
-const themeSwitch = document.getElementById('theme-switch')
+//DARKMODE//
+document.addEventListener('DOMContentLoaded', () => {
+  const themeSelect = document.getElementById('themeSelect');
+  const body = document.body;
 
-const enableDarkmode = () => {
-  document.body.classList.add('darkmode')
-    localStorage.setItem('darkmode', 'active')
-}
+  // Function to apply the theme
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      body.classList.add('dark-theme');
+      body.classList.remove('light-theme'); // Ensure light-theme is removed if present
+      localStorage.setItem('theme', 'dark'); // Save user preference
+    } else if (theme === 'light') {
+      body.classList.add('light-theme');
+      body.classList.remove('dark-theme'); // Ensure dark-theme is removed if present
+      localStorage.setItem('theme', 'light'); // Save user preference
+    } else {
+      // Default or 'Pilih' state
+      body.classList.remove('dark-theme');
+      body.classList.remove('light-theme');
+      localStorage.removeItem('theme'); // Remove preference if default
+    }
+  }
 
-const disableDarkmode = () => {
-    document.body.classList.remove('darkmode')
-    localStorage.setItem('darkmode', null)
-}
+  // Load theme from localStorage on page load
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    applyTheme(savedTheme);
+    themeSelect.value = savedTheme; // Set the dropdown to the saved theme
+  } else {
+    // If no saved theme, set dropdown to 'Pilih' and apply default styles
+    themeSelect.value = 'default';
+  }
 
-if(darkmode === "active") enableDarkmode()
 
-themeSwitch.addEventListener("click", () => {
-  darkmode = localStorage.getItem('darkmode')
-    darkmode !=="active" ? enableDarkmode() : disableDarkmode ()
-})
+  // Event listener for dropdown change
+  themeSelect.addEventListener('change', (event) => {
+    const selectedTheme = event.target.value;
+    applyTheme(selectedTheme);
+  });
+});
+// End DARKMODE//
 
 // Data prakiraan per jam
 function updateWeather() {

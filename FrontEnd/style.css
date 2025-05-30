@@ -1,110 +1,69 @@
+
 /* HOMEPAGE */
 /* Font dan Reset Dasar */
 body {
-  margin: 0;
+  margin-top: 50px;
   font-family: 'Inter', sans-serif;
   background-color: #fdfaf5;
-  color: #3e2f1c;
-}
-.darkmode{
-  margin-top:50px;
-  font-family: 'Inter', sans-serif;
-  background-color: #000000;
-  color: #3e2f1c;
-}
-#theme-switch{
-  margin-top: 600px;
-  height: 50px;
-  width: 50px;
-  padding: 0;
-  border-radius: 50%;
-  background-color: #e2d7c4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-}
-#theme-switch svg{
-  fill: #333;
-}
-#theme-switch svg:last-child{
-  display: none;
-}
-.darkmode #theme-switch svg:first-child{
-  display: none;
-}
-.darkmode #theme-switch svg:last-child{
-  display: block;
+  color: #3e2f1c; /* Warna teks default untuk mode terang */
+  /* Transisi untuk dark mode */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  margin: 0;
-}
-.crimson-text-regular {
-  font-family: 'Crimson Text', serif;
-  font-weight: 400;
-  font-style: normal;
+/* DARKMODE */
+/* This class will be applied to the <body> or a main container */
+.dark-theme {
+  background-color: #000000; /* Black background */
+  color: #e2d7c4; /* Light text color for contrast */
 }
 
-.crimson-text-semibold {
-  font-family: 'Crimson Text', serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.crimson-text-bold {
-  font-family: 'Crimson Text', serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.crimson-text-regular-italic {
-  font-family: 'Crimson Text', serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.crimson-text-semibold-italic {
-  font-family: 'Crimson Text', serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.crimson-text-bold-italic {
-  font-family: 'Crimson Text', serif;
-  font-weight: 700;
-  font-style: italic;
+/* General styles that might need dark mode adjustment */
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme p,
+.dark-theme span,
+.dark-theme label {
+  color: #e2d7c4; /* Light text color for all general text */
 }
 
 /* Header */
-.top-bar{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fffdf9;
-    padding: 20px 30px;
-    border-bottom: 1px solid #d9cbbf;
-    font-family: 'Crimson Text';
-    font-weight: 100;
-    position: fixed;
-    height: 80px;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    z-index: 1000;
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fffdf9; /* Latar belakang terang untuk top-bar */
+  padding: 20px 30px;
+  border-bottom: 1px solid #d9cbbf;
+  font-family: 'Crimson Text';
+  font-weight: 100;
+  position: fixed;
+  height: 80px;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease, border-bottom-color 0.3s ease; /* Transisi */
 }
+
+.dark-theme .top-bar {
+  background-color: #1a1a1a; /* Darker header background */
+  border-bottom-color: #333; /* Darker border */
+}
+
 .logo {
   font-family: 'cromson text', serif;
   font-size: 20px;
-  color: #5a3414;
+  color: #5a3414; /* Warna logo default (gelap) untuk mode terang */
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .logo {
+  color: #e2d7c4; /* Light color for logo in dark mode */
 }
 
 .logo:hover {
@@ -124,15 +83,23 @@ h1 {
   border-radius: 10px;
   padding: 5px 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .login-btn {
+  border-color: #a15e2a; /* Dark mode border color */
 }
 
 /* Link dalam tombol */
 .login-btn a {
   text-decoration: none;
-  color: #6e4b29;
+  color: #6e4b29; /* Warna teks tombol login default (gelap) untuk mode terang */
   font-family: 'Playfair Display', serif;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .login-btn a {
+  color: #e2d7c4; /* Light text for button link in dark mode */
 }
 
 /* Hover efek */
@@ -144,6 +111,15 @@ h1 {
   color: white;
 }
 
+.dark-theme .login-btn:hover {
+  background-color: #a15e2a; /* Dark mode hover effect */
+}
+
+.dark-theme .login-btn:hover a {
+  color: #000000; /* Dark mode hover text color */
+}
+
+
 .user-icon {
   background: #e8dfd1;
   border-radius: 50%;
@@ -152,18 +128,60 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease; /* Transisi */
+  /* Pastikan ikon di dalam user-icon (jika ada teks/SVG) juga diatur warnanya */
 }
+
+/* Jika user-icon berisi elemen SVG atau font icon, Anda mungkin perlu menargetkannya secara spesifik */
+.user-icon i, /* Contoh jika menggunakan font icon */
+.user-icon svg { /* Contoh jika menggunakan SVG */
+    color: #3e2f1c; /* Warna ikon default (gelap) untuk mode terang */
+    transition: color 0.3s ease;
+}
+
+.dark-theme .user-icon {
+  background: #333; /* Darker background for icon */
+}
+
+.dark-theme .user-icon i,
+.dark-theme .user-icon svg {
+    color: #e2d7c4; /* Warna ikon terang untuk dark mode */
+}
+
 
 nav a {
   margin-left: 16px;
   text-decoration: none;
-  color: #3e2f1c;
+  color: #3e2f1c; /* Warna link navigasi default (gelap) untuk mode terang */
   font-size: 14px;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme nav a {
+  color: #e2d7c4; /* Light text for nav links */
+}
+/* Efek Hover, Focus, Active untuk nav a di dalam .top-bar (Homepage) */
+body:not(.dark-theme) .top-bar nav a:hover,
+body:not(.dark-theme) .top-bar nav a:focus {
+  color: #a15e2a; /* Warna aksen coklat saat hover/focus di light mode */
+}
+
+body:not(.dark-theme) .top-bar nav a:active {
+  color: #7a4f27; /* Warna sedikit lebih gelap saat ditekan di light mode */
+}
+
+.dark-theme .top-bar nav a:hover,
+.dark-theme .top-bar nav a:focus {
+  color: #f2a32f; /* Warna aksen emas/oranye saat hover/focus di dark mode */
+}
+
+.dark-theme .top-bar nav a:active {
+  color: #d98e24; /* Warna sedikit lebih gelap dari hover saat ditekan di dark mode */
 }
 
 /* Layout Utama */
 main {
-  width: 100%;         /* Batasi lebar maksimum agar isi tidak terlalu lebar */
+  width: 100%;
   border-radius: 0;
   box-shadow: 0 4px 10px rgba(107, 76, 43, 0.15);
   box-sizing: border-box;
@@ -172,6 +190,11 @@ main {
   margin-top: 50px;
   gap: 24px;
   flex-wrap: wrap;
+  transition: box-shadow 0.3s ease; /* Transisi */
+}
+
+.dark-theme main {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
 }
 
 /* Sidebar Kiri */
@@ -184,6 +207,12 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .sidebar {
+  background-color: #1a1a1a; /* Dark background */
+  border-color: #333; /* Dark border */
 }
 
 .location-search {
@@ -193,6 +222,11 @@ main {
   border: 1px solid #a98c6b;
   border-radius: 8px;
   overflow: hidden;
+  transition: border-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .location-search {
+  border-color: #666; /* Dark border */
 }
 
 .location-search input {
@@ -203,6 +237,12 @@ main {
   color: #3e2f1c;
   font-weight: 200px;
   text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .location-search input {
+  background-color: #2a2a2a; /* Dark input background */
+  color: #e2d7c4; /* Light input text */
 }
 
 .search-btn {
@@ -213,40 +253,72 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .search-btn {
+  background: #666; /* Darker search button */
 }
 
 .weather-icon img {
   width: 80px;
   height: 80px;
   margin-bottom: 16px;
+  /* Ikon biasanya tetap sama, tidak perlu perubahan warna CSS */
 }
 
 .temperature {
   font-size: 48px;
   font-weight: bold;
   margin: 0;
+  transition: color 0.3s ease; /* Transisi */
 }
+
+.dark-theme .temperature {
+  color: #e2d7c4; /* Light temperature text */
+}
+
 
 .temperature span {
   font-size: 24px;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .temperature span {
+  color: #e2d7c4; /* Light temperature unit text */
 }
 
 .desc {
   margin-top: 8px;
   font-size: 16px;
   color: #7a6148;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .desc {
+  color: #b0a390; /* Lighter description text */
 }
 
 .date {
   font-size: 14px;
   margin-top: 12px;
   color: #9b8267;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .date {
+  color: #8c7e6c; /* Lighter date text */
 }
 
 .location {
   margin-top: 4px;
   font-size: 14px;
   color: #7a6148;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .location {
+  color: #b0a390; /* Lighter location text */
 }
 
 /* Bagian Detil Kanan */
@@ -270,23 +342,41 @@ main {
   border-radius: 12px;
   padding: 16px;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transisi */
+}
+
+.dark-theme .card {
+  background-color: #2a2a2a; /* Dark card background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Darker shadow */
 }
 
 .card img {
   width: 30px;
   height: 30px;
   margin-bottom: 8px;
+  /* Ikon kartu mungkin perlu invert filter jika tidak ada versi dark */
+  /* filter: invert(0.8) hue-rotate(180deg); */
 }
 
 .card-value {
   font-size: 18px;
   font-weight: bold;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .card-value {
+  color: #e2d7c4; /* Light text for card values */
 }
 
 .card-title {
   font-size: 14px;
   color: #7a6148;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .card-title {
+  color: #b0a390; /* Lighter text for card titles */
 }
 
 /* Sun Path */
@@ -296,6 +386,11 @@ main {
   padding: 24px;
   position: relative;
   text-align: center;
+  transition: background-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .sun-path {
+  background-color: #1a1a1a; /* Dark background for sun path */
 }
 
 .sun-curve {
@@ -305,6 +400,13 @@ main {
   border-radius: 50%;
   margin: 0 auto 16px;
   width: 100%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: border-top-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .sun-curve {
+  border-top-color: #555; /* Darker curve color */
 }
 
 .sun {
@@ -313,32 +415,42 @@ main {
   left: 30%;
   width: 40px;
   height: 40px;
+  transform: translateX(-50%);
+  z-index: 5;
+  /* Ikon matahari mungkin perlu filter jika tidak ada versi dark */
+  /* filter: brightness(0.8); */
 }
 
 .sun-info {
   display: flex;
-  justify-content: center;
-  gap: 900px;
+  justify-content: space-between;
   padding: 0 40px;
   font-size: 14px;
   color: #6d5b45;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .sun-info {
+  color: #e2d7c4; /* Light text for sun info */
 }
 
 /* Hourly forecast */
 /* Tambahkan pembungkus dengan batas lebar */
 .forecast-container {
-  max-width:100%;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 0px;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
 }
+
 .icon-img {
   width: 40px;
   height: 40px;
   object-fit: contain;
   margin-bottom: 6px;
+  /* Ikon mungkin perlu filter */
 }
 
 .hourly-forecast h3 {
@@ -346,6 +458,11 @@ main {
   margin-bottom: 15px;
   color: #6b4c2b;
   position: relative;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .hourly-forecast h3 {
+  color: #e2d7c4; /* Light text */
 }
 
 .slider-wrapper {
@@ -370,28 +487,52 @@ main {
   box-shadow: 0 1px 6px rgba(107, 76, 43, 0.15);
   user-select: none;
   color: #5a3e1b;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Transisi */
 }
+
+.dark-theme .hour-card {
+  background: #2a2a2a; /* Dark background */
+  color: #e2d7c4; /* Light text */
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3); /* Darker shadow */
+}
+
 
 .hour-card .time {
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 6px;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .hour-card .time {
+  color: #e2d7c4;
 }
 
 .hour-card .icon {
   font-size: 2rem;
   margin-bottom: 6px;
+  /* Ikon mungkin perlu filter */
 }
 
 .hour-card .temp {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 4px;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .hour-card .temp {
+  color: #e2d7c4;
 }
 
 .hour-card .rain {
   font-size: 0.9rem;
   color: #7a5e3a;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .hour-card .rain {
+  color: #b0a390;
 }
 
 /* Arrow buttons */
@@ -412,13 +553,23 @@ main {
   align-items: center;
   justify-content: center;
   user-select: none;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease; /* Transisi */
   z-index: 10;
+}
+
+.dark-theme .arrow {
+  background: #444; /* Darker arrow background */
+  color: #e2d7c4; /* Light arrow icon */
 }
 
 .arrow:hover {
   background: #6b4c2b;
   color: #f9f4ec;
+}
+
+.dark-theme .arrow:hover {
+  background: #666; /* Dark mode hover */
+  color: #000000; /* Dark mode hover text */
 }
 
 .arrow-left {
@@ -434,12 +585,19 @@ main {
   font-weight: 500;
   margin-bottom: 15px;
   color: #6b4c2b;
+  transition: color 0.3s ease; /* Transisi */
 }
+
+.dark-theme .daily-forecast h3 {
+  color: #e2d7c4; /* Light text */
+}
+
 .icon-daily-img {
   width: 50px;
   height: 50px;
   object-fit: contain;
   margin-bottom: 6px;
+  /* Ikon mungkin perlu filter */
 }
 
 
@@ -454,37 +612,66 @@ main {
   flex: 0 0 190px;
   background: #d9cbbf;
   border-radius: 20px;
-  padding: 15px 10px;
+  padding: 15px 0px;
   text-align: center;
   box-shadow: 0 1px 6px rgba(107, 76, 43, 0.15);
   color: #5a3e1b;
   user-select: none;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Transisi */
 }
+
+.dark-theme .daily-card {
+  background: #3a3a3a; /* Dark background */
+  color: #e2d7c4; /* Light text */
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3); /* Darker shadow */
+}
+
 
 .daily-card .day {
   font-weight: 600;
   margin-bottom: 8px;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .daily-card .day {
+  color: #e2d7c4;
 }
 
 .daily-card .icon {
   font-size: 3rem;
   margin-bottom: 8px;
+  /* Ikon mungkin perlu filter */
 }
 
 .daily-card .desc {
   font-size: 1rem;
   margin-bottom: 6px;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .daily-card .desc {
+  color: #b0a390;
 }
 
 .daily-card .temp {
   font-weight: 700;
   font-size: 1.2rem;
   margin-bottom: 6px;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .daily-card .temp {
+  color: #e2d7c4;
 }
 
 .daily-card .wind {
   font-size: 0.9rem;
   color: #7a5e3a;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .daily-card .wind {
+  color: #b0a390;
 }
 
 /* Tombol panah geser harian */
@@ -506,7 +693,13 @@ main {
   justify-content: center;
   user-select: none;
   z-index: 10;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .arrow-left-day,
+.dark-theme .arrow-right-day {
+  background: #444; /* Darker arrow background */
+  color: #e2d7c4; /* Light arrow icon */
 }
 
 .arrow-left-day:hover,
@@ -515,6 +708,13 @@ main {
   color: #f9f4ec;
 }
 
+.dark-theme .arrow-left-day:hover,
+.dark-theme .arrow-right-day:hover {
+  background: #666; /* Dark mode hover */
+  color: #000000; /* Dark mode hover text */
+}
+
+
 .arrow-left-day {
   left: 5px;
 }
@@ -522,56 +722,238 @@ main {
 .arrow-right-day {
   right: 5px;
 }
+
 #hamburger-menu {
   display: none;
   font-size: 2rem;
   color: #6b4c2b;
   cursor: pointer;
+  transition: color 0.3s ease; /* Transisi */
 }
 
-/* Gaya dasar navigasi desktop */
-/* Responsive untuk layar kecil (mobile dan tablet) */
+.dark-theme #hamburger-menu {
+  color: #e2d7c4; /* Light hamburger icon */
+}
+
+/* media Queries */
+/* tablet */
+/* =====================================================================================
+ KODE RESPONSIVE YANG SUDAH ADA
+ ===================================================================================== */
+
 @media(max-width: 768px) {
+  html {
+      font-size: 62.5%;
+  }
+
   #hamburger-menu {
-    display: inline-block;
+      display: inline-block;
   }
 
+  .top-bar .top-menu,
   .top-menu {
-    position: absolute;
-    top: 100%;
-    right: -100%;
-    background-color: #ffffff;
-    width: 250px;
-    height: 100vh;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 2rem 1rem;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-    transition: right 0.3s ease;
-    z-index: 999;
+      position: absolute;
+      top: 100%;
+      right: -100%;
+      background-color: #fff;
+      width: 30rem;
+      height: 100vh;
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 2rem 1rem;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 999;
   }
 
+  .dark-theme .top-bar .top-menu,
+  .dark-theme .top-menu {
+      background-color: #1a1a1a; /* Dark menu background */
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
+  }
+
+
+  .top-bar .top-menu.active,
   .top-menu.active {
-    right: 0;
+      right: 0;
   }
 
-  .top-menu a,
-  .login-btn a {
-    font-size: 1rem;
-    margin: 0.5rem 0.5rem;
-    color: #6b4c2b;
-    display: block;
-    padding: 5px 10px;
+  .top-bar .top-menu a,
+  .top-menu a {
+      color: #6b4c2b;
+      display: block;
+      margin: 0.5rem 0.5rem;
+      padding: 0.5rem;
+      font-size: 1rem;
   }
-  .login-btn {
-    margin-bottom: 2rem;
-    height: 40px;
-    width: 80px;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    
-    
+
+  .dark-theme .top-bar .top-menu a,
+  .dark-theme .top-menu a {
+      color: #e2d7c4; /* Light menu link text */
+  }
+
+  /* --- MODIFIKASI UNTUK KARTU INFO CUACA --- */
+  .sidebar {
+      padding: 16px;
+      /* Kurangi padding */
+      width: 400px;
+      /* Batasi lebar untuk tablet */
+      margin: 1.5rem auto;
+      /* Sesuaikan margin */
+      margin-top: 0.2rem;
+  }
+
+  /* --- MODIFIKASI UNTUK KARTU INFO CUACA --- */
+  .cards {
+      display: flex;
+      /* Aktifkan flexbox untuk tata letak horizontal */
+      flex-direction: row;
+      /* Pastikan kartu diatur dalam baris */
+      flex-wrap: wrap;
+      /* Izinkan kartu untuk turun ke baris berikutnya */
+      justify-content: center;
+      /* Pusatkan kartu dalam baris */
+      gap: 15px;
+      /* Jarak antar kartu */
+      padding: 15px;
+      /* Padding kontainer kartu */
+      max-width: 700px;
+      /* Batasi lebar kontainer di tablet */
+      margin: auto;
+      /* Pusatkan kontainer */
+  }
+
+  .card {
+      padding: 12px;
+      /* Kurangi padding kartu */
+      flex: 0 0 calc(50% - 15px);
+      /* 2 kartu per baris, dikurangi gap */
+      width: auto;
+      /* Hapus width: 40%; yang mungkin konflik */
+      max-width: 320px;
+      /* Batasi lebar kartu di tablet */
+  }
+
+  /* Kunci: Memindahkan kartu ketiga ke baris baru dan menengahkan */
+  .cards .card:nth-child(3) {
+      flex: 0 0 100%;
+      /* Kartu ketiga mengambil lebar penuh dari kontainer .cards */
+      max-width: 320px;
+      /* Pertahankan lebar yang konsisten dengan kartu lainnya */
+      margin-top: 15px;
+      /* Beri jarak dari kartu di atasnya */
+      /* justify-content: center pada .cards akan memusatkannya */
+  }
+
+  .sun-path {
+      padding: 16px;
+      /* Kurangi padding */
+      width: 400px;
+      /* Batasi lebar untuk tablet */
+      margin: 1.5rem auto;
+      /* Sesuaikan margin */
+  }
+
+  .sun-curve {
+      height: 80px;
+      /* Kurangi tinggi kurva */
+  }
+
+  .sun {
+      width: 30px;
+      /* Ukuran ikon matahari lebih kecil */
+      height: 30px;
+      top: -15px;
+      /* Sesuaikan posisi vertikal */
+      left: 30%;
+      /* Pertahankan posisi relatif pada kurva */
+  }
+
+  .sun-info {
+      padding: 0 20px;
+      /* Kurangi padding horizontal */
+      font-size: 12px;
+      /* Ukuran font lebih kecil */
+      gap: 80%;
+      /* Menggunakan persentase untuk gap agar responsif */
+      /* Alternatif: gunakan justify-content: space-between; jika terbit/terbenam selalu di ujung */
+      /* Jika menggunakan space-between, tidak perlu gap */
+  }
+}
+
+
+/* =====================================================================================
+ KODE BARU UNTUK VERSI TAMPILAN MOBILE PHONE (max-width: 450px)
+ ===================================================================================== */
+
+@media(max-width: 450px) {
+  html {
+      font-size: 55%;
+      /* Font dasar global yang lebih kecil untuk mobile */
+  }
+
+  .cards {
+      flex-direction: column;
+      /* Tumpuk semua kartu secara vertikal */
+      align-items: center;
+      /* Pusatkan semua kartu secara horizontal */
+      gap: 10px;
+      /* Kurangi gap lebih lanjut */
+      padding: 10px;
+      max-width: 350px;
+      /* Batasi lebar kontainer di mobile */
+      margin: auto;
+  }
+
+  .card {
+      padding: 10px;
+      /* Padding lebih kecil */
+      flex: 1 1 90%;
+      /* Ambil 90% lebar kontainer (yang sekarang vertikal) */
+      width: 90%;
+      /* Pastikan lebar kartu diatur untuk mobile */
+      max-width: none;
+      /* Hapus batas max-width agar lebih fleksibel di mobile */
+  }
+
+  /* Sun Path Container (Garis Lengkung) */
+  .sun-path {
+      padding: 12px;
+      /* Padding lebih kecil */
+      border-radius: 12px;
+      /* Radius lebih kecil */
+      max-width: 300px;
+      /* Batasi lebar untuk mobile */
+      margin: 1rem auto;
+      /* Sesuaikan margin */
+  }
+
+  .sun-curve {
+      height: 60px;
+      /* Tinggi kurva lebih kecil */
+      border-top-width: 1px;
+      /* Ketebalan garis lebih tipis */
+  }
+
+  .sun {
+      width: 24px;
+      /* Ukuran ikon matahari lebih kecil lagi */
+      height: 24px;
+      top: -12px;
+      /* Sesuaikan posisi vertikal */
+      left: 30%;
+      /* Pertahankan posisi relatif pada kurva */
+  }
+
+  .sun-info {
+      padding: 0 10px;
+      /* Padding horizontal lebih kecil */
+      font-size: 10px;
+      /* Ukuran font terkecil */
+      gap: 30%;
+      /* Gap lebih kecil untuk mobile */
+      /* Jika menggunakan space-between, tidak perlu gap */
   }
 }
 
@@ -592,6 +974,12 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transisi */
+}
+
+.dark-theme body {
+  background-color: #000000;
+  color: #e2d7c4;
 }
 
 /* Background angin transparan */
@@ -607,6 +995,7 @@ body::before {
   opacity: 0.4;
   z-index: 0;
   pointer-events: none;
+  /* Tidak perlu transisi untuk gambar background karena tidak berubah warna */
 }
 
 /* HEADER */
@@ -620,36 +1009,17 @@ header {
   border-bottom: 5px solid #d2a156;
   z-index: 1;
   position: relative;
+  transition: background-color 0.3s ease, border-bottom-color 0.3s ease, color 0.3s ease; /* Transisi */
 }
 
-.logo {
-  font-size: 1.2rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: white;
+.dark-theme header {
+  background-color: #1a1a1a;
+  border-bottom-color: #333;
+  color: #e2d7c4;
 }
 
-nav a {
-  color: white;
-  margin-left: 1.5rem;
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-/* MAIN */
-main {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 1;
-  position: relative;
-}
-
-main p {
-  font-size: 1.5rem;
-  color: #a57c4a;
+.dark-theme main p {
+  color: #b0a390; /* Lighter text for main content */
 }
 
 /* CHATBOT */
@@ -673,6 +1043,13 @@ main p {
   font-size: 1rem;
   background-color: #fff;
   color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .chatbox input {
+  background-color: #2a2a2a;
+  color: #e2d7c4;
+  border-color: #666;
 }
 
 .chatbox button {
@@ -684,48 +1061,24 @@ main p {
   color: white;
   font-size: 1.2rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Transisi */
+}
+
+.dark-theme .chatbox button {
+  background-color: #444;
+  color: #e2d7c4;
+  border-color: #666;
 }
 
 .chatbox button:hover {
   background-color: #8b6744;
 }
 
+.dark-theme .chatbox button:hover {
+  background-color: #666;
+}
+
 /* SETTING */
-/* ===== Umum ===== */
-body {
-  font-family: 'Georgia', serif;
-  margin: 0;
-  background-color: #fff;
-  color: #5A3714;
-}
-
-/* ===== Header ===== */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #eee;
-  background-color: #fef9f2;
-}
-
-header .logo {
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-nav a {
-  margin-left: 2rem;
-  text-decoration: none;
-  color: #5A3714;
-  font-size: 0.95rem;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
 /* ===== Container & Judul ===== */
 .container {
   margin-top: 40px;
@@ -738,12 +1091,23 @@ nav a:hover {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .setting-title {
+  color: #e2d7c4; /* Light text */
 }
 
 .setting-title i {
   font-size: 2rem;
   margin-right: 0.5rem;
+  transition: color 0.3s ease; /* Transisi */
 }
+
+.dark-theme .setting-title i {
+  color: #e2d7c4; /* Light icon */
+}
+
 
 /* ===== Pilihan Pengaturan ===== */
 .setting-option {
@@ -756,13 +1120,24 @@ nav a:hover {
   justify-content: space-between;
   align-items: center;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .setting-option {
+  background-color: #2a2a2a;
+  border-color: #666;
+  color: #e2d7c4;
 }
 
 .setting-option:hover {
   background-color: #ede2c7;
   cursor: pointer;
 }
+
+.dark-theme .setting-option:hover {
+  background-color: #3a3a3a;
+}
+
 
 /* ===== Label & Ikon ===== */
 .setting-label {
@@ -772,6 +1147,7 @@ nav a:hover {
 
 .setting-label i {
   margin-right: 0.5rem;
+  /* Ikon mungkin perlu filter */
 }
 
 /* ===== Dropdown ===== */
@@ -783,48 +1159,18 @@ select {
   background-color: #fff;
   color: #5A3714;
   font-family: 'Georgia', serif;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme select {
+  background-color: #333;
+  color: #e2d7c4;
+  border-color: #666;
 }
 
 /*TENTANG KAMI PAGE*/
 /* Reset & Global */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Georgia', serif;
-  background-color: #fff;
-  color: #6d4c41;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Header */
-header {
-  background-color: #fff;
-  border-bottom: 3px solid #f2a32f;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.3rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: #6b4c2e;
-}
-
-nav a {
-  color: #6b4c2e;
-  margin-left: 1.5rem;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
+/* Body sudah dihandle di global */
 
 /* Team Title Section */
 .team-title {
@@ -840,6 +1186,11 @@ nav a {
   border-radius: 10px;
   margin-right: -20px;
   z-index: 1;
+  transition: background-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .highlight {
+  background-color: #a15e2a; /* Darker highlight */
 }
 
 .title-box {
@@ -851,6 +1202,12 @@ nav a {
   font-weight: bold;
   position: relative;
   z-index: 2;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .title-box {
+  background-color: #3a3a3a;
+  color: #e2d7c4;
 }
 
 .title-box h2 {
@@ -866,7 +1223,13 @@ nav a {
   width: 30px;
   height: 30px;
   border-radius: 8px;
+  transition: background-color 0.3s ease; /* Transisi */
 }
+
+.dark-theme .tail {
+  background-color: #7a4f27;
+}
+
 
 /* Organization Chart */
 .org-chart {
@@ -893,12 +1256,18 @@ nav a {
   justify-content: center;
   align-items: center;
   position: relative;
+  transition: background-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .circle {
+  background-color: #a15e2a; /* Darker circle background */
 }
 
 .circle img {
   width: 90%;
   height: 90%;
   object-fit: contain;
+  /* Ikon mungkin perlu filter */
 }
 
 .label {
@@ -910,6 +1279,11 @@ nav a {
   transform: translateX(-50%);
   font-size: 0.85rem;
   color: #6b4c2e;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .label {
+  color: #e2d7c4; /* Light label text */
 }
 
 .name {
@@ -921,6 +1295,11 @@ nav a {
   transform: translateX(-50%);
   font-size: 0.75rem;
   color: #333;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .name {
+  color: #b0a390; /* Lighter name text */
 }
 
 /* Garis Vertikal */
@@ -930,6 +1309,11 @@ nav a {
   background-color: #c76b29;
   position: relative;
   top: 15px;
+  transition: background-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .connector {
+  background-color: #7a4f27;
 }
 
 /* Garis Horizontal Cabang Leader ke Supervisor */
@@ -942,6 +1326,11 @@ nav a {
   height: 2px;
   background-color: #c76b29;
   transform: translateX(-50%);
+  transition: background-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .connector-leader::before {
+  background-color: #7a4f27;
 }
 
 /* Garis Horizontal Supervisor ke Members */
@@ -954,6 +1343,11 @@ nav a {
   height: 2px;
   background-color: #c76b29;
   transform: translateX(-50%);
+  transition: background-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .connector-supervisors::before {
+  background-color: #7a4f27;
 }
 
 /* TENTANG KAMI */
@@ -962,12 +1356,22 @@ main.tentang-kami {
   margin: 3rem auto;
   padding: 0 1.5rem;
   color: #4e3a28;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme main.tentang-kami {
+  color: #e2d7c4;
 }
 
 main.tentang-kami h2 {
   text-align: center;
   color: #6b4c2e;
   margin-bottom: 2rem;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme main.tentang-kami h2 {
+  color: #e2d7c4;
 }
 
 main.tentang-kami section {
@@ -977,6 +1381,11 @@ main.tentang-kami section {
 main.tentang-kami h3 {
   color: #c76b29;
   margin-bottom: 0.5rem;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme main.tentang-kami h3 {
+  color: #f2a32f;
 }
 
 main.tentang-kami p,
@@ -984,12 +1393,12 @@ main.tentang-kami ul {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #4e3a28;
+  transition: color 0.3s ease; /* Transisi */
 }
 
-main.tentang-kami ul {
-  padding-left: 1.2rem;
-  list-style-type: square;
-  text-align: left;
+.dark-theme main.tentang-kami p,
+.dark-theme main.tentang-kami ul {
+  color: #e2d7c4;
 }
 
 /* Footer */
@@ -998,6 +1407,11 @@ footer {
   padding: 1rem 2rem;
   font-size: 0.85rem;
   color: #333;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme footer {
+  color: #e2d7c4;
 }
 
 /* LOGIN PAGE */
@@ -1006,14 +1420,19 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
-  /* Tambahan gaya kamu yang sudah ada */
   border: 1px solid #7a4f27;
   border-radius: 8px;
   width: 320px;
   padding: 25px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  background-color: #fff; /* Opsional, agar tidak transparan */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Transisi */
+}
+
+.dark-theme .login-container {
+  background-color: #1a1a1a;
+  border-color: #444;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .login-form {
@@ -1025,13 +1444,24 @@ footer {
   text-align: center;
   margin-bottom: 20px;
   color: #5a3414;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .login-form h2 {
+  color: #e2d7c4;
 }
 
 label {
   font-size: 14px;
   color: #5a3414;
   margin-bottom: 5px;
+  transition: color 0.3s ease; /* Transisi */
 }
+
+.dark-theme label {
+  color: #e2d7c4;
+}
+
 
 input[type="email"],
 input[type="password"] {
@@ -1041,6 +1471,14 @@ input[type="password"] {
   border-bottom: 1px solid #aaa;
   background: transparent;
   outline: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-bottom-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme input[type="email"],
+.dark-theme input[type="password"] {
+  background-color: #2a2a2a;
+  color: #e2d7c4;
+  border-bottom-color: #666;
 }
 
 .remember {
@@ -1049,6 +1487,11 @@ input[type="password"] {
   margin-bottom: 20px;
   font-size: 13px;
   color: #5a3414;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .remember {
+  color: #e2d7c4;
 }
 
 .btn-login {
@@ -1060,6 +1503,12 @@ input[type="password"] {
   font-size: 15px;
   cursor: pointer;
   margin-bottom: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .btn-login {
+  background-color: #a15e2a;
+  color: #000000;
 }
 
 .divider {
@@ -1067,6 +1516,11 @@ input[type="password"] {
   font-size: 13px;
   margin-bottom: 10px;
   color: #555;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .divider {
+  color: #e2d7c4;
 }
 
 .btn-google {
@@ -1083,7 +1537,14 @@ input[type="password"] {
   font-size: 15px;
   cursor: pointer;
   margin-bottom: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transisi */
 }
+
+.dark-theme .btn-google {
+  background-color: #a15e2a;
+  color: #000000;
+}
+
 
 .google-icon {
   background-color: white;
@@ -1091,13 +1552,25 @@ input[type="password"] {
   padding: 2px 6px;
   border-radius: 3px;
   font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .google-icon {
+  background-color: #e2d7c4;
+  color: #a15e2a;
 }
 
 .signup-text {
   text-align: center;
   font-size: 14px;
   color: #5a3414;
+  transition: color 0.3s ease; /* Transisi */
 }
+
+.dark-theme .signup-text {
+  color: #e2d7c4;
+}
+
 
 .signup-btnb {
   background-color: #f4a62a;
@@ -1106,43 +1579,28 @@ input[type="password"] {
   color: white;
   text-decoration: none;
   margin-left: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .signup-btnb {
+  background-color: #c76b29;
+  color: #000000;
 }
 
 /* SIGN UP PAGE */
-body {
-  margin-top: 40px;
-  font-family: 'Inter', sans-serif;
-  background-color: #fdfaf5;
-  color: #3e2f1c;
-  
-}
+/* Body untuk signup page - sudah dihandle di global */
 
 /* Header */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 32px;
-  background-color: #fff;
-  border-bottom: 1px solid #d8cfc0;
-}
-.logo {
-  font-family: 'cromson text', serif;
-  font-size: 20px;
-  color: #5a3414;
-  text-decoration: none;
-  font-weight: bold;
+  /* Sudah dihandle di header global di atas */
 }
 
-.logo:hover {
-  color: #a15e2a; /* efek hover opsional */
-  cursor: pointer;
+.logo {
+  /* Sudah dihandle di logo global di atas */
 }
 
 .top-menu {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  /* Sudah dihandle di top-menu global di atas */
 }
 
 .signup-btn {
@@ -1151,7 +1609,11 @@ header {
   border-radius: 10px;
   padding: 5px 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .signup-btn {
+  border-color: #a15e2a;
 }
 
 /* Link dalam tombol */
@@ -1159,7 +1621,11 @@ header {
   text-decoration: none;
   color: #6e4b29;
   font-family: 'Playfair Display', serif;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .signup-btn a {
+  color: #e2d7c4;
 }
 
 /* Hover efek */
@@ -1167,25 +1633,24 @@ header {
   background-color: #6e4b29;
 }
 
+.dark-theme .signup-btn:hover {
+  background-color: #a15e2a;
+}
+
 .singup-btn:hover a {
   color: white;
 }
 
+.dark-theme .singup-btn:hover a {
+  color: #000000;
+}
+
 .user-icon {
-  background: #e8dfd1;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* Sudah dihandle di user-icon global di atas */
 }
 
 nav a {
-  margin-left: 16px;
-  text-decoration: none;
-  color: #3e2f1c;
-  font-size: 14px;
+  /* Sudah dihandle di nav a global di atas */
 }
 
 .signup-container {
@@ -1193,15 +1658,21 @@ nav a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
-  /* Tambahan gaya kamu yang sudah ada */
   border: 1px solid #7a4f27;
   border-radius: 8px;
   width: 320px;
   padding: 25px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  background-color: #fff; /* Opsional, agar tidak transparan */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Transisi */
 }
+
+.dark-theme .signup-container {
+  background-color: #1a1a1a;
+  border-color: #444;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 
 .signup-form {
   display: flex;
@@ -1212,12 +1683,15 @@ nav a {
   text-align: center;
   margin-bottom: 20px;
   color: #5a3414;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .signup-form h2 {
+  color: #e2d7c4;
 }
 
 label {
-  font-size: 14px;
-  color: #5a3414;
-  margin-bottom: 5px;
+  /* Sudah dihandle di label global di atas */
 }
 
 input[type="username"],
@@ -1230,14 +1704,20 @@ input[type="repassword"] {
   border-bottom: 1px solid #aaa;
   background: transparent;
   outline: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-bottom-color 0.3s ease; /* Transisi */
+}
+
+.dark-theme input[type="username"],
+.dark-theme input[type="email"],
+.dark-theme input[type="password"],
+.dark-theme input[type="repassword"] {
+  background-color: #2a2a2a;
+  color: #e2d7c4;
+  border-bottom-color: #666;
 }
 
 .remember {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  font-size: 13px;
-  color: #5a3414;
+  /* Sudah dihandle di remember global di atas */
 }
 
 .btn-signup {
@@ -1249,41 +1729,33 @@ input[type="repassword"] {
   font-size: 15px;
   cursor: pointer;
   margin-bottom: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .btn-signup {
+  background-color: #a15e2a;
+  color: #000000;
 }
 
 .divider {
-  text-align: center;
-  font-size: 13px;
-  margin-bottom: 10px;
-  color: #555;
+  /* Sudah dihandle di divider global di atas */
 }
 
 .btn-google {
-  background-color: #7a4f27;
-  color: white;
-  padding: 10px;
-  border: none;
-  width: 100%;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-size: 15px;
-  cursor: pointer;
-  margin-bottom: 20px;
+  /* Sudah dihandle di btn-google global di atas */
 }
 
 .google-icon {
-  background-color: white;
-  color: #7a4f27;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-weight: bold;
+  /* Sudah dihandle di google-icon global di atas */
 }
 
 .login-text {
   text-align: center;
   font-size: 14px;
   color: #5a3414;
+  transition: color 0.3s ease; /* Transisi */
+}
+
+.dark-theme .login-text {
+  color: #e2d7c4;
 }
