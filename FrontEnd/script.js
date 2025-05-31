@@ -38,9 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     applyTheme(selectedTheme);
   });
 
-  //popup//
-  // Cek apakah kita berada di halaman yang memiliki elemen-elemen ini
-  // Ini penting agar script tidak error di halaman lain
+  //POP UP MESSAGE//
   const logoutOption = document.getElementById('logoutOption');
   const logoutPopup = document.getElementById('logoutPopup');
   
