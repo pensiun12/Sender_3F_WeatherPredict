@@ -20,9 +20,26 @@
     <div id="hamburger-menu"> <i class="fa-solid fa-bars"></i>
     </div>
     <div class="top-menu">
-      <button class="login-btn">
+      <button class="login-btn" id="loginButtonContainer">
         <a href="login.html">Login</a>
       </button>
+
+      <!-- TAMBAHAN DROPDOWN -->
+      <div id="userProfileDropdown" class="user-profile-dropdown" style="display: none;">
+        <button id="userProfileButton" class="user-profile-button">
+          <span class="user-icon-custom">
+            <i class="fas fa-user-circle"></i> </span>
+          <span class="dropdown-arrow-custom">
+            <i class="fas fa-chevron-down"></i>
+          </span>
+        </button>
+        <div id="userDropdownMenu" class="dropdown-menu-content">
+          <p id="userEmailDisplay" class="user-email">user@example.com</p>
+          <hr>
+          <a href="#" id="logoutButton" class="logout-link">Logout</a>
+        </div>
+      </div>
+
       <nav>
         <a href="chatbot.html">ChatBot</a>
         <a href="team.html">Tentang Kami</a>
@@ -88,5 +105,7 @@
     </section>
   </main>
   <script src="visualcross.js"></script>
+  <script type="module" src="firebaseauth.js"></script>
+  <script type="module" src="authUI.js"></script>
 </body>
 </html>
