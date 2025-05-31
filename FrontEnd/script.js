@@ -37,6 +37,87 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedTheme = event.target.value;
     applyTheme(selectedTheme);
   });
+
+  //popup//
+  // Cek apakah kita berada di halaman yang memiliki elemen-elemen ini
+  // Ini penting agar script tidak error di halaman lain
+  const logoutOption = document.getElementById('logoutOption');
+  const logoutPopup = document.getElementById('logoutPopup');
+  
+  if (logoutOption && logoutPopup) { // Hanya jalankan jika elemen pop-up dan tombol pemicu ada
+      const confirmLogoutBtn = document.getElementById('confirmLogoutBtn');
+      const cancelLogoutBtn = document.getElementById('cancelLogoutBtn');
+
+      // Pastikan tombol di dalam pop-up juga ada
+      if (!confirmLogoutBtn || !cancelLogoutBtn) {
+          console.error('Tombol konfirmasi atau batal di dalam pop-up tidak ditemukan!');
+          return;
+      }
+
+      // Fungsi untuk menampilkan pop-up
+      function showLogoutPopup() {
+          logoutPopup.style.display = 'flex'; // Mengubah dari none ke flex
+          setTimeout(() => { // Memberi sedikit waktu untuk display flex bekerja sebelum transisi opacity
+              logoutPopup.classList.add('show');
+          }, 10); 
+      }
+
+      // Fungsi untuk menyembunyikan pop-up
+      function hideLogoutPopup() {
+          logoutPopup.classList.remove('show');
+          // Tunggu animasi selesai sebelum menyembunyikan total dengan display: none
+          setTimeout(() => {
+               logoutPopup.style.display = 'none';
+          }, 300); // Sesuaikan dengan durasi transisi CSS (0.3s)
+      }
+
+      // Event listener untuk opsi "Keluar"
+      logoutOption.addEventListener('click', function(event) {
+          event.preventDefault(); // Mencegah perilaku default jika "Keluar" adalah link
+          showLogoutPopup();
+      });
+
+      // Event listener untuk tombol "Batal" di pop-up
+      cancelLogoutBtn.addEventListener('click', function() {
+          hideLogoutPopup();
+      });
+
+      // Event listener untuk tombol "Ya, Keluar" di pop-up
+      confirmLogoutBtn.addEventListener('click', function() {
+          hideLogoutPopup();
+          // --- LOGIKA KELUAR AKTUAL DITAMBAHKAN DI SINI ---
+          alert('Anda telah berhasil keluar!'); // Placeholder
+          window.location.href = 'login.html';
+         
+            
+
+          // Contoh: Menghapus data sesi dari localStorage (jika digunakan untuk status login)
+          // localStorage.removeItem('userToken');
+          // localStorage.removeItem('userData');
+          // window.location.href = 'homepage.html'; // atau halaman lain setelah logout
+      });
+
+      // Opsional: Event listener untuk menutup pop-up jika area overlay (luar konten pop-up) diklik
+      logoutPopup.addEventListener('click', function(event) {
+          if (event.target === logoutPopup) { // Memastikan yang diklik adalah overlay, bukan kontennya
+              hideLogoutPopup();
+          }
+      });
+
+      // Opsional: Event listener untuk menutup pop-up dengan tombol 'Escape'
+      document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape' && logoutPopup.classList.contains('show')) {
+              hideLogoutPopup();
+          }
+      });
+
+  } else {
+      
+      if (window.location.pathname.includes('setting.html')) {
+           if (!logoutOption) console.warn('Peringatan: Elemen dengan ID "logoutOption" tidak ditemukan di halaman pengaturan.');
+           if (!logoutPopup) console.warn('Peringatan: Elemen dengan ID "logoutPopup" tidak ditemukan di halaman pengaturan.');
+       }
+  }
 });
 // End DARKMODE//
 

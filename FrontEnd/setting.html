@@ -55,14 +55,33 @@
         <option value="dark">Gelap</option>
       </select>
     </div>
-
-    <div class="setting-option">
+    <div class="setting-option" id="logoutOption"> 
       <div class="setting-label">
         <i class="fas fa-sign-out-alt"></i>
         Keluar
+     </div>
+    </div>
+  </div>
+  <div id="logoutPopup" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+      <h2>Konfirmasi Keluar</h2>
+      <p>Apakah Anda yakin ingin keluar dari akun Anda?</p>
+      <div class="popup-buttons">
+        <button id="confirmLogoutBtn" class="btn btn-popup btn-danger">Ya, Keluar</button>
+        <button id="cancelLogoutBtn" class="btn btn-popup btn-secondary">Batal</button>
       </div>
     </div>
   </div>
+  
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('.top-menu');
+      nav.classList.toggle('active');
+    }
+  </script>
+  <script src="script.js"></script>
+  </body>
+  </html>
   <script>
     function toggleMenu() {
       const nav = document.querySelector('.top-menu');
