@@ -1,4 +1,3 @@
-
 /* HOMEPAGE */
 /* Font dan Reset Dasar */
 body {
@@ -187,7 +186,7 @@ main {
   box-sizing: border-box;
   display: flex;
   padding: 24px 32px;
-  margin-top: 50px;
+  margin-top: 20px;
   gap: 24px;
   flex-wrap: wrap;
   transition: box-shadow 0.3s ease; /* Transisi */
@@ -999,19 +998,6 @@ body::before {
 }
 
 /* HEADER */
-header {
-  background-color: #6b4c2e;
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 5px solid #d2a156;
-  z-index: 1;
-  position: relative;
-  transition: background-color 0.3s ease, border-bottom-color 0.3s ease, color 0.3s ease; /* Transisi */
-}
-
 .dark-theme header {
   background-color: #1a1a1a;
   border-bottom-color: #333;
@@ -1025,13 +1011,14 @@ header {
 /* CHATBOT */
 .chatbox {
   display: flex;
+  margin-top: 400px;
   justify-content: center;
   align-items: center;
   padding: 1rem;
   background-color: transparent;
   z-index: 1;
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .chatbox input {
@@ -1107,8 +1094,47 @@ header {
 .dark-theme .setting-title i {
   color: #e2d7c4; /* Light icon */
 }
+/* ===== Tombol Langganan ===== */
+.btn-langganan {
+  padding: 0.5rem 1rem; /* Sesuaikan padding */
+  font-size: 0.9rem; /* Ukuran font sedikit lebih kecil dari judul */
+  font-family: 'Georgia', serif; /* Konsisten dengan font lain */
+  background-color: transparent; /* Contoh: menggunakan warna coklat dari tema Anda */
+  color: #f8f3e3; /* Contoh: menggunakan warna terang dari tema Anda */
+  border: 2px solid #6e4b29;
+  border-radius: 6px; /* Menyamakan dengan border-radius select */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-left: 74rem; /* Memberi sedikit jarak dari judul jika diperlukan */
+}
+.btn-langganan a{
+  text-decoration: none;
+  color: #6e4b29; /* Warna teks tombol login default (gelap) untuk mode terang */
+  font-family: 'Playfair Display', serif;
+  transition: color 0.3s ease; /* Transisi */
+}
+.dark-theme .btn-langganan a{
+    color: #e2d7c4; /* Light text for button link in dark mode */
+  }
 
 
+.btn-langganan:hover {
+  background-color: #6e4b29;
+  
+}
+.btn-langganan:hover a{
+  color: white;
+}
+
+.dark-theme .btn-langganan {
+  background-color: #a15e2a; /* Dark mode hover effect */
+
+}
+.dark-theme .btn-langganan:hover a{
+  color: #000000; /* Dark mode hover text color */
+
+
+}
 /* ===== Pilihan Pengaturan ===== */
 .setting-option {
   background-color: #f8f3e3;
@@ -1185,6 +1211,7 @@ select {
   height: 60px;
   border-radius: 10px;
   margin-right: -20px;
+  margin-top: 20px;
   z-index: 1;
   transition: background-color 0.3s ease; /* Transisi */
 }
@@ -1196,6 +1223,7 @@ select {
 .title-box {
   background-color: #6b4c2e;
   padding: 0.7rem 2rem;
+  margin-top: 20px;
   border-radius: 10px;
   color: white;
   font-size: 1.1rem;
@@ -1212,6 +1240,7 @@ select {
 
 .title-box h2 {
   margin: 0;
+  justify-content: center;
 }
 
 .tail {
@@ -1351,6 +1380,10 @@ select {
 }
 
 /* TENTANG KAMI */
+.judul{
+  margin-top: 20px;
+ text-align: center;
+}
 main.tentang-kami {
   max-width: 800px;
   margin: 3rem auto;
@@ -1366,7 +1399,6 @@ main.tentang-kami {
 main.tentang-kami h2 {
   text-align: center;
   color: #6b4c2e;
-  margin-bottom: 2rem;
   transition: color 0.3s ease; /* Transisi */
 }
 
@@ -1391,7 +1423,7 @@ main.tentang-kami h3 {
 main.tentang-kami p,
 main.tentang-kami ul {
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.6rem;
   color: #4e3a28;
   transition: color 0.3s ease; /* Transisi */
 }
@@ -1759,3 +1791,296 @@ input[type="repassword"] {
 .dark-theme .login-text {
   color: #e2d7c4;
 }
+
+/* FITUR PRICING*/
+.subscription-page-content .intro-section {
+  margin-top: 50px;
+  margin-bottom: 40px;
+  text-align: center; /* MEMASTIKAN semua inline/inline-block content di dalamnya (termasuk teks) menjadi tengah */
+}
+
+.subscription-page-content .main-title {
+  font-size: 2.2em;
+  /* Warna dan font-family sudah diatur sebelumnya */
+  margin-bottom: 15px; /* Jarak bawah dari judul ke subjudul */
+  font-weight: 700;
+  /* text-align: center; akan diwarisi dari .intro-section */
+  /* Jika .main-title adalah block-level (default untuk h2), teks di dalamnya akan tengah. */
+}
+
+.subscription-page-content .subtitle {
+  font-size: 1em;
+  /* Warna sudah diatur sebelumnya */
+  max-width: 600px;   /* Batasi lebar maksimum paragraf agar tidak terlalu panjang */
+  margin-left: auto;  /* Untuk memusatkan blok paragraf itu sendiri */
+  margin-right: auto; /* Untuk memusatkan blok paragraf itu sendiri */
+  margin-bottom: 30px; /* Jarak bawah dari subjudul ke bagian paket */
+  /* text-align: center; akan diwarisi dari .intro-section, membuat teks di dalam paragraf ini juga tengah. */
+  /* Jika Anda ingin teks di dalam subtitle ini rata kiri (tapi bloknya tetap tengah), Anda bisa tambahkan: */
+  /* text-align: left; */
+}
+
+/* ... Sisa CSS Anda ... */
+
+.subscription-page-content .packages-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.subscription-page-content .package-card {
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    padding: 30px 25px;
+    width: calc(25% - 30px);
+    min-width: 260px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-theme .subscription-page-content .package-card {
+    background-color: #2a2a2a;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); /* Shadow lebih gelap untuk dark mode */
+}
+.subscription-page-content .package-price-sticker {
+  position: absolute;
+  top: 10px;   /* Posisi mungkin perlu sedikit disesuaikan */
+  left: -15px; /* Posisi mungkin perlu sedikit disesuaikan */
+  
+  width: 75px;   /* Atur lebar tetap (contoh: 75px) */
+  height: 75px;  /* Atur tinggi sama dengan lebar */
+  border-radius: 50%; /* Membuatnya menjadi lingkaran */
+  box-sizing: border-box; /* Penting agar padding tidak menambah ukuran total di luar width/height */
+
+  background-color: #d3d3d3; /* Warna latar stiker */
+  color: #333333;       /* Warna teks stiker */
+  font-weight: bold;
+  font-size: 1.1em; /* Sesuaikan ukuran font jika "FREE" terlalu besar/kecil */
+  
+  /* --- Untuk memusatkan teks di dalam lingkaran --- */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Jaga-jaga */
+  
+  padding: 5px; /* Padding internal yang kecil */
+  
+  transform: rotate(-15deg); /* Rotasi stiker */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark Mode untuk Stiker "FREE" (biasanya sudah ada, ini hanya untuk konteks) */
+.dark-theme .subscription-page-content .package-price-sticker {
+  background-color: #444444;
+  color: #e2d7c4;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.subscription-page-content .package-price-display {
+  font-size: 2.2em; /* Ukuran font mungkin perlu disesuaikan agar pas di dalam lingkaran */
+  font-weight: bold;
+  color: #9e7d3f; /* Warna teks untuk mode terang */
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* --- Aturan inti untuk bentuk lingkaran sempurna --- */
+  width: 90px;      /* Atur lebar tetap (contoh: 90px) */
+  height: 90px;     /* Atur tinggi sama dengan lebar */
+  border-radius: 50%; /* Membuatnya menjadi lingkaran */
+  background-color: #e0e0e0; /* Warna latar belakang lingkaran */
+  box-sizing: border-box; /* Padding dan border termasuk dalam width/height */
+
+  /* --- Untuk memusatkan teks di dalam lingkaran --- */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Jaga-jaga jika flex tidak sepenuhnya bekerja di konteks tertentu */
+  
+  padding: 5px; /* Padding kecil jika diperlukan, teks utama dipusatkan oleh flex */
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode untuk Lingkaran Harga */
+.dark-theme .subscription-page-content .package-price-display {
+  background-color: #3e3e3e; /* Warna latar belakang lingkaran di dark mode */
+  color: #e2d7c4;       /* Warna teks di dark mode */
+}
+
+
+
+.subscription-page-content .package-title {
+    font-size: 1.4em; /* Atau sesuaikan dengan h3 global */
+    font-weight: 700;
+    /* color: #333; Warna akan diambil dari .dark-theme h3 */
+    margin-bottom: 8px;
+    text-align: center;
+    font-family: 'Inter', sans-serif; /* Pastikan konsisten */
+}
+
+.subscription-page-content .package-tagline {
+    font-size: 0.9em;
+    font-style: italic;
+    /* color: #555; Warna akan diambil dari .dark-theme p */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* =====================================================================================
+   CSS untuk Features List pada Halaman Langganan
+   ===================================================================================== */
+
+/* Gaya untuk setiap item dalam daftar fitur (<li>) */
+.subscription-page-content .features-list li {
+  margin-bottom: 15px; /* Jarak antar item fitur */
+  display: flex; /* Mengaktifkan flexbox untuk ikon checkmark dan konten fitur */
+  align-items: flex-start; /* Menyelaraskan ikon dan konten ke bagian atas */
+}
+
+/* Gaya untuk ikon checkmark (fas fa-check) */
+.subscription-page-content .features-list .fas.fa-check {
+  color: #28a745; /* Warna hijau untuk mode terang */
+  margin-right: 10px; /* Jarak antara ikon dan teks */
+  margin-top: 0.2em; /* Penyesuaian vertikal agar sejajar dengan baris pertama teks */
+  flex-shrink: 0; /* Mencegah ikon mengecil jika ruang terbatas */
+  transition: color 0.3s ease;
+}
+
+/* Gaya ikon checkmark untuk Dark Mode */
+.subscription-page-content .features-list .feature-checkmark-icon {
+  width: 18px;  /* Atur lebar ikon sesuai kebutuhan */
+  height: 18px; /* Atur tinggi ikon sesuai kebutuhan */
+  margin-right: 10px; /* Jarak dari ikon ke teks (sama seperti sebelumnya) */
+  margin-top: 0.2em;  /* Penyesuaian vertikal, sesuaikan agar sejajar dengan teks */
+  flex-shrink: 0;     /* Mencegah ikon mengecil */
+  object-fit: contain; /* Memastikan gambar ikon pas tanpa distorsi */
+}
+/* Pembungkus untuk nama fitur dan detailnya (konten di sebelah kanan checkmark) */
+.subscription-page-content .feature-item-content {
+  display: block; /* BERUBAH dari flex menjadi block agar judul dan detail bertumpuk */
+  flex-grow: 1;   /* Tetap biarkan ini agar mengambil ruang di sebelah ikon checkmark */
+}
+
+/* Gaya untuk judul/nama fitur */
+.subscription-page-content .feature-item-title {
+  /* flex: 0 1 160px; DIHAPUS karena tidak lagi item flex di dalam .feature-item-content */
+  display: block; /* Pastikan judul mengambil barisnya sendiri */
+  font-weight: 500;
+  line-height: 1.4;
+  /* padding-right: 20px; DIHAPUS atau diubah menjadi margin-bottom jika perlu */
+  margin-bottom: 5px; /* TAMBAHKAN jarak antara judul dan detail di bawahnya */
+  color: #3e2f1c;
+  transition: color 0.3s ease;
+}
+
+/* ... (Seluruh kode CSS Anda yang sudah ada untuk FITUR PRICING seperti yang Anda berikan) ... */
+
+/* Gaya untuk kolom detail fitur (lanjutan dari kode Anda) */
+.subscription-page-content .feature-item-detail {
+  /* flex: 1 1 auto; DIHAPUS karena tidak lagi item flex di dalam .feature-item-content */
+  display: block; /* Pastikan detail mengambil barisnya sendiri */
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: #b88e58;
+  transition: color 0.3s ease;
+  /* Anda bisa menambahkan text-align: left; (default) atau text-align: justify; di sini jika diinginkan */
+  /* text-align: justify; */
+}
+
+/* Penyesuaian warna teks untuk Dark Mode tetap sama */
+.dark-theme .subscription-page-content .feature-item-title {
+  color: #e2d7c4;
+}
+
+.dark-theme .subscription-page-content .feature-item-detail {
+  color: #b0a390;
+}
+
+
+/* =====================================================================================
+   CSS TAMBAHAN UNTUK FITUR SELEKSI PAKET DAN TOMBOL PEMBAYARAN
+   ===================================================================================== */
+
+/* Menyembunyikan input radio asli karena kita menggunakan label (kartu) untuk interaksi */
+.subscription-page-content .hidden-radio {
+    display: none;
+}
+
+/* Gaya tambahan untuk kartu yang dapat dipilih */
+/* Kelas .package-card sudah ada, .selectable-card ditambahkan di HTML pada elemen yang sama (label) */
+.subscription-page-content .selectable-card {
+    cursor: pointer;
+    border: 3px solid transparent; /* Border awal, akan berubah warna saat dipilih */
+    /* Transisi yang sudah ada di .package-card akan digabungkan atau bisa disesuaikan di sini jika perlu */
+    /* Contoh transisi spesifik untuk seleksi: */
+    transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.subscription-page-content .selectable-card:hover {
+    transform: translateY(-5px); /* Efek sedikit terangkat saat kursor diarahkan */
+    border-color: #cccccc;       /* Warna border saat hover (sesuaikan jika perlu) */
+                                 /* Anda mungkin juga ingin mengubah box-shadow saat hover */
+}
+
+/* Gaya untuk kartu yang sedang dipilih */
+.subscription-page-content .selectable-card.selected {
+    border-color: #f2a32f; /* Warna border yang menandakan pilihan (misalnya, warna aksen tema Anda) */
+    /* Anda bisa menggunakan box-shadow yang lebih menonjol untuk item terpilih jika mau */
+    box-shadow: 0 8px 20px rgba(242, 163, 47, 0.35); /* Contoh shadow untuk item terpilih */
+}
+
+/* Penyesuaian Dark Mode untuk seleksi kartu */
+.dark-theme .subscription-page-content .selectable-card:hover {
+    border-color: #b07d46; /* Warna border hover di dark mode */
+}
+
+.dark-theme .subscription-page-content .selectable-card.selected {
+    border-color: #f2a32f; /* Warna border terpilih di dark mode (bisa sama atau berbeda) */
+    box-shadow: 0 8px 20px rgba(242, 163, 47, 0.4); /* Shadow terpilih di dark mode */
+}
+
+/* Kontainer untuk tombol pembayaran */
+.subscription-page-content .payment-button-container {
+    text-align: center; /* Memusatkan tombol pembayaran */
+    margin-top: 40px;   /* Jarak dari bagian paket */
+    margin-bottom: 40px;/* Jarak di bawah tombol */
+}
+
+/* Tombol Pembayaran */
+#proceedToPaymentBtn { /* Menggunakan ID selector karena ini tombol unik */
+  padding: 12px 28px; /* Padding tombol */
+  font-size: 1.1em;   /* Ukuran font tombol */
+  font-family: 'Inter', sans-serif; /* Menggunakan font Inter agar konsisten dengan bagian lain jika diinginkan */
+  font-weight: bold;
+  background-color: #6b4c2e; /* Warna utama tombol */
+  color: #ffffff;      /* Warna teks tombol */
+  border: none;
+  border-radius: 8px;  /* Sudut tombol */
+  cursor: pointer;     /* Kursor akan selalu pointer */
+  transition: background-color 0.3s ease, opacity 0.3s ease; /* Opacity mungkin tidak lagi banyak berubah tanpa :disabled style */
+}
+
+#proceedToPaymentBtn:hover { /* :not(:disabled) dihapus */
+  background-color: #5a3414; /* Warna tombol saat hover (lebih gelap) */
+}
+
+/* Aturan untuk #proceedToPaymentBtn:disabled telah dihapus */
+
+/* Penyesuaian Dark Mode untuk Tombol Pembayaran */
+.dark-theme #proceedToPaymentBtn {
+  background-color: #a15e2a; /* Warna tombol di dark mode */
+  color: #ffffff;
+}
+
+.dark-theme #proceedToPaymentBtn:hover { /* :not(:disabled) dihapus */
+  background-color: #c76b29; /* Warna hover tombol di dark mode */
+}
+
+/* Aturan untuk .dark-theme #proceedToPaymentBtn:disabled telah dihapus */
