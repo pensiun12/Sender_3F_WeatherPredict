@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Weather Predict - Sign Up</title> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Weather Predict - Sign Up</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css" />
@@ -26,73 +27,129 @@
     </header>
 
     <div class="signup-container">
-      <form class="signup-form" id="signupForm"> <h2>Sign Up</h2>
+      <form class="signup-form" id="signupForm">
+        <h2>Sign Up</h2>
+        <div id="authMessageSignup" class="auth-message" style="display: none;"></div> <label for="emailSignup">Email</label>
+        <input type="email" id="emailSignup" placeholder="Email" required />
+
+        <label for="passwordSignup">Password</label>
+        <span class="input-icon-wrapper">
+            <input type="password" id="passwordSignup" placeholder="Password" required />
+            <i class="fas fa-eye toggle-password-visibility" data-target-input="passwordSignup"></i>
+        </span>
+
+        <label for="repasswordSignup">Confirm Password</label>
+        <span class="input-icon-wrapper">
+            <input type="password" id="repasswordSignup" placeholder="Confirm Password" required /> <i class="fas fa-eye toggle-password-visibility" data-target-input="repasswordSignup"></i>
+        </span>
         
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Email" required />
-
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Password" required />
-
-        <label for="repassword">Confirm Password</label>
-        <input type="password" id="repassword" placeholder="Confirm Password" required /> <div class="remember">
-          <input type="checkbox" id="remember" />
-          <label for="remember">Remember me?</label>
+        <div class="remember">
+          <input type="checkbox" id="rememberSignup" />
+          <label for="rememberSignup">Remember me?</label>
         </div>
 
         <button type="submit" class="btn-signup">Sign Up</button>
 
         <div class="divider">or Sign Up with</div>
 
-        <button type="button" class="btn-google" id="btnGoogleSignup"> <span class="google-icon">G</span> Google Email
+        <button type="button" class="btn-google" id="btnGoogleSignup">
+          <span class="google-icon">G</span> Google Email
         </button>
 
         <div class="login-text">
           Already have an account? 
-          <a href="login.html" class="login-btn">Sign In</a> </div>
+          <a href="login.html" class="login-btnb">Sign In</a>
+        </div>
       </form>
     </div>
   </div>
 
   <script>
     function toggleMenu() {
-      const nav = document.querySelector('.top-menu nav'); // Target nav di dalam .top-menu
+      const nav = document.querySelector('.top-menu nav');
       nav.classList.toggle('active');
     }
   </script>
   
   <script type="module">
+    // Pastikan firebaseauth.js di-refactor untuk tidak redirect/alert sendiri
     import { signUpUser, signInWithGoogle } from './firebaseauth.js';
 
     const signupForm = document.getElementById('signupForm');
     const btnGoogleSignup = document.getElementById('btnGoogleSignup');
+    const authMessageSignupDiv = document.getElementById('authMessageSignup');
+
+    function displayAuthMessageSignup(message, type) {
+        if (!authMessageSignupDiv) return;
+        authMessageSignupDiv.textContent = message;
+        authMessageSignupDiv.className = 'auth-message'; // Reset class
+        authMessageSignupDiv.style.display = 'block';
+        if (type === 'success') {
+            authMessageSignupDiv.classList.add('success');
+        } else if (type === 'error') {
+            authMessageSignupDiv.classList.add('error');
+        }
+    }
 
     signupForm.addEventListener('submit', async (event) => {
-      event.preventDefault(); // Mencegah form submit standar
+      event.preventDefault();
+      if(authMessageSignupDiv) { authMessageSignupDiv.style.display = 'none'; authMessageSignupDiv.textContent = '';}
 
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const repassword = document.getElementById('repassword').value;
+      const email = document.getElementById('emailSignup').value;
+      const password = document.getElementById('passwordSignup').value;
+      const repassword = document.getElementById('repasswordSignup').value;
 
       if (password !== repassword) {
-        alert("Password dan konfirmasi password tidak cocok!");
+        displayAuthMessageSignup("Password dan konfirmasi password tidak cocok!", 'error');
         return;
       }
       if (password.length < 6) {
-        alert("Password minimal harus 6 karakter.");
+        displayAuthMessageSignup("Password minimal harus 6 karakter.", 'error');
         return;
       }
 
-      // Panggil fungsi signUpUser dari firebaseauth.js
-      await signUpUser(email, password);
-      // Tidak perlu username jika tidak ada field username, atau ambil jika ada:
-      // const username = document.getElementById('username').value;
+      try {
+        await signUpUser(email, password);
+        displayAuthMessageSignup("Pendaftaran berhasil! Anda akan diarahkan ke halaman login.", 'success');
+        setTimeout(() => { window.location.href = "login.html"; }, 2000);
+      } catch (error) {
+        displayAuthMessageSignup(`Pendaftaran gagal: ${error.message || 'Error tidak diketahui'}`, 'error');
+      }
     });
 
     btnGoogleSignup.addEventListener('click', async () => {
-      // Panggil fungsi signInWithGoogle dari firebaseauth.js
-      await signInWithGoogle();
+      if(authMessageSignupDiv) { authMessageSignupDiv.style.display = 'none'; authMessageSignupDiv.textContent = '';}
+      try {
+        await signInWithGoogle();
+        // Jika signInWithGoogle di firebaseauth.js mengarahkan ke homepage, pesan ini mungkin tidak terlihat lama
+        displayAuthMessageSignup("Pendaftaran/Login dengan Google berhasil! Mengarahkan...", 'success');
+        // Jika signInWithGoogle tidak redirect, maka redirect di sini:
+        setTimeout(() => { window.location.href = "homepage.html"; }, 2000);
+      } catch (error) {
+        displayAuthMessageSignup(`Pendaftaran/Login dengan Google gagal: ${error.message || 'Error tidak diketahui'}`, 'error');
+      }
     });
+
+    // --- LOGIKA UNTUK TOGGLE PASSWORD VISIBILITY ---
+    document.querySelectorAll('.toggle-password-visibility').forEach(toggle => {
+        toggle.addEventListener('click', function () {
+            const targetInputId = this.dataset.targetInput;
+            const passwordInput = document.getElementById(targetInputId);
+
+            if (passwordInput) {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                if (type === 'text') {
+                    this.classList.remove('fa-eye');
+                    this.classList.add('fa-eye-slash');
+                } else {
+                    this.classList.remove('fa-eye-slash');
+                    this.classList.add('fa-eye');
+                }
+            }
+        });
+    });
+    // --- AKHIR LOGIKA TOGGLE PASSWORD ---
   </script>
-  </body>
+</body>
 </html>

@@ -1572,3 +1572,57 @@ input[type="repassword"] {
   font-size: 14px;
   color: #5a3414;
 }
+
+.login-btnb {
+  background-color: #f4a62a;
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.input-icon-wrapper {
+    position: relative;
+    display: block; /* Membuat span mengambil lebar penuh seperti div */
+    width: 100%;    /* Sesuaikan jika form Anda tidak full width */
+    /* margin-bottom: 15px; /* Atur margin jika diperlukan, atau biarkan default dari input */
+}
+
+.input-icon-wrapper input[type="password"],
+.input-icon-wrapper input[type="text"] {
+    width: 100%;
+    padding-right: 40px !important; /* Beri ruang di kanan input untuk ikon. !important mungkin diperlukan jika ada style lain yang kuat */
+    box-sizing: border-box;
+    /* Pastikan style input lain (border, padding-left, height, margin-bottom) 
+       tetap konsisten dengan input lain di form Anda. 
+       Anda mungkin perlu mendefinisikannya di sini atau memastikan selector ini
+       tidak meng-override style yang sudah ada secara tidak sengaja. */
+}
+
+/* Jika input Anda memiliki margin-bottom, .input-icon-wrapper mungkin juga perlu */
+/* Atau atur margin-bottom pada .input-icon-wrapper, bukan pada input di dalamnya */
+.login-form .input-icon-wrapper,
+.signup-form .input-icon-wrapper {
+    margin-bottom: 15px; /* Contoh margin yang sama dengan input lain */
+}
+.login-form input, .signup-form input {
+    /* Jika Anda punya margin-bottom di sini, dan input password sekarang di dalam span,
+       Anda mungkin ingin memindahkan margin-bottom ke .input-icon-wrapper */
+}
+
+
+.toggle-password-visibility {
+    position: absolute;
+    top: 50%;
+    right: 12px; /* Jarak ikon dari tepi kanan input */
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777; /* Warna ikon mata */
+    z-index: 3;
+    padding: 5px; /* Perbesar area klik */
+}
+
+.toggle-password-visibility:hover {
+    color: #333; /* Warna ikon saat hover */
+}
