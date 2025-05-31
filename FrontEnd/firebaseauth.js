@@ -112,11 +112,13 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     // Pengguna login
     console.log("User is logged in:", user);
+    console.log("Firebaseauth.js: User is logged in:", user.uid);
     // Anda bisa menyembunyikan tombol login/signup dan menampilkan info pengguna/tombol logout
     // Contoh: updateUIForLoggedInUser(user);
   } else {
     // Pengguna logout
     console.log("User is logged out");
+    console.log("Firebaseauth.js: User is logged out");
     // Anda bisa menampilkan tombol login/signup dan menyembunyikan info pengguna/tombol logout
     // Contoh: updateUIForLoggedOutUser();
   }
