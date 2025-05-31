@@ -327,9 +327,34 @@ main {
 }
 
 .location {
-  margin-top: 4px;
-  font-size: 14px;
-  color: #7a6148;
+    /* Pastikan .location bisa menampung ikon di sebelahnya dengan baik */
+    display: flex; /* Membuat 📍, nama lokasi, dan ikon sejajar */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    justify-content: center; /* Atau sesuaikan alignment lainnya */
+    flex-wrap: wrap; /* Agar bisa turun baris jika nama lokasi panjang */
+}
+
+#displayedLocationName {
+    margin-right: 8px; /* Jarak antara nama lokasi dan ikon bintang */
+    /* Sesuaikan properti lain jika perlu */
+}
+
+.favorite-icon {
+    cursor: pointer;
+    font-size: 1.2em; /* Ukuran ikon bintang, sesuaikan */
+    color: #a0a0a0;   /* Warna default untuk bintang outline (belum favorit) */
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    padding: 5px; /* Area klik yang lebih besar */
+}
+
+.favorite-icon.is-favorite { /* Class ini akan ditambahkan oleh JS */
+    color: #FFD700; /* Warna emas untuk bintang terisi (favorit) */
+    /* Jika Anda menggunakan fas fa-star, perubahan class sudah cukup. 
+       Style ini untuk jika Anda hanya mengubah warna pada satu jenis ikon. */
+}
+
+.favorite-icon:hover {
+    transform: scale(1.2); /* Efek hover kecil */
 }
 
 /* Bagian Detil Kanan */

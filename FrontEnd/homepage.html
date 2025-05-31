@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
   <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
@@ -21,10 +21,8 @@
     </div>
     <div class="top-menu">
       <button class="login-btn" id="loginButtonContainer">
-        <a href="login.html">Login</a>
-      </button>
+        <a href="login.html">Login</a> </button>
 
-      <!-- TAMBAHAN DROPDOWN -->
       <div id="userProfileDropdown" class="user-profile-dropdown" style="display: none;">
         <button id="userProfileButton" class="user-profile-button">
           <span class="user-icon-custom">
@@ -58,7 +56,15 @@
       <div class="weather-icon">
         <img src="assets/weather-partly-cloudy.png" alt="Memuat ikon cuaca..." />
       </div>
-      <div class="temperature">-- <span>°C</span></div> <p class="desc">Memuat data...</p> <p class="date">Memuat tanggal...</p> <p class="location">📍 MEMUAT LOKASI...</p> </section>
+      <div class="temperature">-- <span>°C</span></div>
+      <p class="desc">Memuat data...</p>
+      <p class="date">Memuat tanggal...</p>
+      
+      <p class="location">
+        📍 <span id="displayedLocationName">MEMUAT LOKASI...</span>
+        <i class="far fa-star favorite-icon" id="favoriteLocationIcon" title="Tandai sebagai favorit"></i>
+      </p>
+      </section>
     <section class="details">
       <div class="cards">
         <div class="card">
@@ -104,7 +110,7 @@
       </div>
     </section>
   </main>
-  <script src="visualcross.js"></script>
+  <script src="visualcross.js"></script> 
   <script type="module" src="firebaseauth.js"></script>
   <script type="module" src="authUI.js"></script>
 </body>
