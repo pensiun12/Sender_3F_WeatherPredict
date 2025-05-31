@@ -86,6 +86,17 @@ h1 {
   gap: 16px;
 }
 
+/* Pastikan tombol login dan profile dropdown tertata baik dengan nav lainnya */
+.top-menu > button, /* loginButtonContainer */
+.top-menu > div.user-profile-dropdown { /* userProfileDropdown */
+    order: -1; /* Pindahkan ke paling kiri sebelum nav items jika diinginkan */
+    /* Atau atur posisi sesuai preferensi Anda */
+}
+
+.top-menu > nav {
+    /* Atur jika perlu, misal order: 0; */
+}
+
 .login-btn {
   background-color: transparent;
   border: 2px solid #6e4b29;
@@ -121,6 +132,110 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+
+/* USER ICON */
+/* Menyembunyikan elemen jika diperlukan (bisa juga diatur via JS display none/block) */
+/* .hidden {
+    display: none !important; 
+} */
+
+/* Styling untuk User Profile Dropdown */
+.user-profile-dropdown {
+    position: relative; /* Penting untuk positioning dropdown menu */
+    display: inline-flex; /* Agar sejajar dengan item nav lain, atau 'block' */
+    align-items: center;
+}
+
+.user-profile-button {
+    background-color: #f0efeb; /* Contoh warna seperti di gambar Anda */
+    border: 1px solid #e0e0e0;
+    padding: 6px 10px; /* Sesuaikan padding */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 25px; /* Ujung melengkung */
+    color: #5a3414; /* Warna ikon dan panah agar sesuai tema */
+    transition: background-color 0.3s ease;
+}
+
+.user-profile-button:hover {
+    background-color: #e6e2da; /* Warna hover */
+}
+
+.user-icon-custom {
+    font-size: 1.3em; /* Sesuaikan ukuran ikon Anda */
+    margin-right: 6px; /* Jarak antara ikon dan panah */
+    display: flex;
+    align-items: center;
+    color: #5a3414; /* Warna ikon agar sesuai tema */
+}
+
+/* Jika ikon Anda adalah gambar/SVG: */
+.user-icon-custom img, 
+.user-icon-custom svg {
+    width: 22px; /* Sesuaikan */
+    height: 22px; /* Sesuaikan */
+    border-radius: 50%; /* Jika ikonnya bulat */
+}
+
+.dropdown-arrow-custom {
+    font-size: 0.7em; /* Sesuaikan ukuran panah */
+    display: flex;
+    align-items: center;
+    color: #5a3414; /* Warna panah agar sesuai tema */
+}
+
+.dropdown-menu-content {
+    display: none; /* Awalnya tersembunyi */
+    position: absolute;
+    right: 0; /* Rata kanan dengan tombol */
+    top: calc(100% + 5px); /* Muncul di bawah tombol dengan sedikit jarak */
+    background-color: #fffdf9; /* Warna background dropdown */
+    min-width: 180px; /* Lebar minimal dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1001; /* Pastikan di atas elemen lain, lebih tinggi dari header jika header fixed */
+    border-radius: 8px;
+    border: 1px solid #d9cbbf;
+    padding: 8px;
+    font-family: 'Crimson Text', serif;
+}
+
+.dropdown-menu-content.show {
+    display: block; /* Tampilkan saat class 'show' ditambahkan oleh JS */
+}
+
+.dropdown-menu-content .user-email {
+    padding: 8px 10px;
+    font-size: 0.9em;
+    color: #5a3414;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e2d7c4;
+    padding-bottom: 8px;
+}
+
+.dropdown-menu-content hr { /* Styling untuk garis pemisah jika ada */
+    border: 0;
+    height: 1px;
+    background-color: #e2d7c4;
+    margin: 6px 0;
+}
+
+.dropdown-menu-content a.logout-link,
+.dropdown-menu-content a { /* Style umum untuk link di dropdown */
+    color: #5a3414;
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9em;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu-content a.logout-link:hover,
+.dropdown-menu-content a:hover {
+    background-color: #f5eee3;
+}
+/* END USER ICON */
 
 nav a {
   margin-left: 16px;
@@ -563,6 +678,34 @@ main {
     right: 0;
   }
 
+  /* TAMBAHAN DROPDOWN */
+  .top-menu.active .user-profile-dropdown {
+    /* Mungkin perlu styling khusus saat menu mobile aktif */
+    display: flex !important; /* Pastikan terlihat jika user login di mobile menu */
+    flex-direction: column; /* Atau sesuai desain mobile menu Anda */
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .top-menu.active .user-profile-button {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .top-menu.active .dropdown-menu-content {
+    position: static; /* Ubah dari absolute agar flow di dalam mobile menu */
+    box-shadow: none;
+    border: none;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .top-menu.active #loginButtonContainer {
+    /* Styling untuk login button di mobile menu jika perlu */
+    width: auto; /* Reset dari style desktop jika ada */
+    margin-bottom: 1rem; /* Beri jarak jika perlu */
+  }
+/* SELESAi TAMBAHAN DROPDOWN */
   .top-menu a,
   .login-btn a {
     font-size: 1rem;
