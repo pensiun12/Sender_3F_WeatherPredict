@@ -237,6 +237,110 @@ h1 {
 }
 /* END USER ICON */
 
+/* FAVORIT LIST */
+/* Pembungkus untuk link pemicu dan dropdown list */
+.nav-link-dropdown.favorites-trigger-container {
+    position: relative; /* Penting untuk positioning dropdown menu */
+    display: inline-flex; /* Agar sejajar dengan item nav lain */
+    align-items: center;
+}
+
+/* Link Pemicu Dropdown Favorit */
+#navFavoritesLink {
+    display: flex;       /* Agar ikon dan teks sejajar */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    /* Anda bisa menyalin style dari .nav-link Anda yang sudah ada untuk konsistensi */
+    /* Contoh:
+    padding: 5px 10px;
+    color: #3e2f1c; 
+    text-decoration: none;
+    font-size: 14px;
+    */
+}
+
+#navFavoritesLink .fa-heart {
+    margin-right: 5px;
+    color: #e74c3c; /* Contoh warna ikon hati */
+}
+
+#navFavoritesLink .nav-arrow {
+    font-size: 0.75em;
+    margin-left: 5px;
+    transition: transform 0.2s ease-out; /* Untuk animasi putar panah */
+}
+
+/* Animasi putar panah saat dropdown terbuka (opsional) */
+.favorites-trigger-container.open #navFavoritesLink .nav-arrow {
+    transform: rotate(180deg);
+}
+
+/* Konten Dropdown List Favorit (ul) */
+/* Menggunakan class .dropdown-menu-content yang mungkin sudah ada untuk profil dropdown */
+#navFavoritesList.dropdown-menu-content {
+    display: none; /* Awalnya disembunyikan, akan di-toggle oleh JS dengan class .show */
+    position: absolute;
+    top: calc(100% + 5px); /* Muncul di bawah pemicu dengan sedikit jarak */
+    left: 0; /* Atau bisa juga right: 0; jika ingin rata kanan dari pemicu */
+    background-color: #fffdf9; /* Sesuaikan dengan warna dropdown Anda */
+    border: 1px solid #d9cbbf;
+    border-radius: 8px;
+    min-width: 200px; /* Lebar minimal dropdown */
+    list-style: none;  /* Hilangkan bullet points dari ul */
+    padding: 8px 0;    /* Padding vertikal untuk list */
+    margin: 5px 0 0 0;         /* Hilangkan margin default dari ul */
+    z-index: 1010;     /* Pastikan di atas elemen lain */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Bayangan halus */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out, visibility 0.25s;
+}
+
+#navFavoritesList.dropdown-menu-content.show {
+    display: block; /* Atau flex jika item di dalamnya perlu flexbox */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Item (li) dan Link (a) di dalam Dropdown Favorit */
+#navFavoritesList li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+#navFavoritesList li a {
+    display: block;
+    padding: 10px 15px; /* Padding untuk setiap item link */
+    text-decoration: none;
+    color: #5a3414; /* Warna teks item */
+    font-size: 14px; /* Ukuran font item */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.2s ease;
+}
+
+#navFavoritesList li a:hover {
+    background-color: #f5eee3; /* Warna latar saat item di-hover */
+}
+
+/* Pesan "Belum ada lokasi favorit" */
+#navFavoritesList li.no-favorites-msg {
+    padding: 10px 15px;
+    color: #777;
+    font-style: italic;
+    font-size: 14px;
+    cursor: default; /* Tidak bisa diklik */
+    /* display: list-item; atau display: none; dikontrol oleh JS */
+}
+
+#navFavoritesList li.no-favorites-msg:hover {
+    background-color: transparent; /* Pastikan tidak ada efek hover */
+}
+/*FAVORIT LIST */
+
 nav a {
   margin-left: 16px;
   text-decoration: none;

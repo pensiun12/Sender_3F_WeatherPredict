@@ -41,6 +41,19 @@
       <nav>
         <a href="chatbot.html">ChatBot</a>
         <a href="team.html">Tentang Kami</a>
+        <!-- FAVORITE LIST -->
+        <div class="nav-link-dropdown favorites-trigger-container" id="navFavoritesContainer">
+            <a href="#" id="navFavoritesLink" class="nav-link">
+                <i class="fas fa-heart" style="margin-right: 5px;"></i>
+                <span>Favorit</span>
+                <i class="fas fa-chevron-down nav-arrow" style="font-size: 0.75em; margin-left: 5px;"></i>
+            </a>
+            <ul id="navFavoritesList" class="dropdown-menu-content"> 
+                {/* Item template ini akan dikontrol oleh JavaScript */}
+                <li class="no-favorites-msg" style="padding: 10px 15px; color: #777; font-style: italic; display: list-item;">Belum ada lokasi favorit.</li>
+            </ul>
+        </div>
+        <!-- FAVORITE LIST -->
         <a href="setting.html">Pengaturan</a>
       </nav>
     </div>
