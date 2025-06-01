@@ -508,11 +508,150 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // --- AKHIR PENAMBAHAN KODE SLIDER ---
 
+    /* RESPONSIF */
+    //Toggle class active
+    const topNav = document.querySelector('.top-menu')
 
-    // --- Hamburger Menu Toggle (KODE ASLI ANDA DIPERTAHANKAN) ---
-    const topNav = document.querySelector('.top-menu');
-    const hamburger = document.querySelector('#hamburger-menu');
-    hamburger?.addEventListener("click", (e) => { e.stopPropagation(); topNav?.classList.toggle('active'); });
-    document.addEventListener('click', function (e) { if (topNav && hamburger && !hamburger.contains(e.target) && !topNav.contains(e.target)) { topNav.classList.remove('active'); } });
+    //Hamburger menu di klik
+    document.querySelector('#hamburger-menu').onclick =()=>{
+        topNav.classList.toggle('active');
+    };
+
+    //klik diluar untuk menghilangkan sidebar
+    const Hamburger = document.querySelector('#hamburger-menu');
+
+    document.addEventListener('click', function(e){
+        if(!Hamburger.contains(e.target) && !topNav.contains(e.target)){
+            topNav.classList.remove('active');
+        }
+    })
+
+    /* selesai responsif */ 
+
+    // DARK MODE
+
+    const themeSelect = document.getElementById('themeSelect');
+    const body = document.body;
+
+    // Function to apply the theme
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+        body.classList.add('dark-theme');
+        body.classList.remove('light-theme'); // Ensure light-theme is removed if present
+        localStorage.setItem('theme', 'dark'); // Save user preference
+        } else if (theme === 'light') {
+        body.classList.add('light-theme');
+        body.classList.remove('dark-theme'); // Ensure dark-theme is removed if present
+        localStorage.setItem('theme', 'light'); // Save user preference
+        } else {
+        // Default or 'Pilih' state
+        body.classList.remove('dark-theme');
+        body.classList.remove('light-theme');
+        localStorage.removeItem('theme'); // Remove preference if default
+        }
+    }
+
+    // Load theme from localStorage on page load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        applyTheme(savedTheme);
+        themeSelect.value = savedTheme; // Set the dropdown to the saved theme
+    } else {
+        // If no saved theme, set dropdown to 'Pilih' and apply default styles
+        themeSelect.value = 'default';
+    }
+
+
+    // Event listener for dropdown change
+    themeSelect.addEventListener('change', (event) => {
+        const selectedTheme = event.target.value;
+        applyTheme(selectedTheme);
+    });
+
+    // --- AWAL LOGIKA POP-UP LOGOUT (DIMODIFIKASI) ---
+    // Tentukan pemicu logout berdasarkan halaman atau elemen yang ada
+    let logoutTrigger = null;
+    const logoutButtonHomepage = document.getElementById('logoutButton');  // Untuk homepage.html
+    const logoutOptionSettings = document.getElementById('logoutOption'); // Untuk setting.html
+
+    if (logoutButtonHomepage) {
+        logoutTrigger = logoutButtonHomepage;
+        console.log("INFO: Pemicu logout 'logoutButton' (homepage) ditemukan.");
+    } else if (logoutOptionSettings) {
+        logoutTrigger = logoutOptionSettings;
+        console.log("INFO: Pemicu logout 'logoutOption' (settings) ditemukan.");
+    } else {
+        // Hanya tampilkan warning jika kita berada di halaman yang seharusnya ada tombol logout,
+        // untuk menghindari console spam di halaman lain.
+        if (window.location.pathname.includes('homepage.html') || window.location.pathname.includes('setting.html') || document.getElementById('userProfileDropdown')) {
+             console.warn('PERINGATAN: Tidak ada elemen pemicu logout (logoutButton atau logoutOption) yang ditemukan.');
+        }
+    }
+
+    const logoutPopup = document.getElementById('logoutPopup'); // Elemen pop-up (harus ada di HTML kedua halaman)
+
+    if (logoutTrigger && logoutPopup) { // Hanya jalankan jika pemicu DAN pop-up ada
+        const confirmLogoutBtn = document.getElementById('confirmLogoutBtn');
+        const cancelLogoutBtn = document.getElementById('cancelLogoutBtn');
+
+        if (!confirmLogoutBtn || !cancelLogoutBtn) {
+            console.error('ERROR: Tombol konfirmasi atau batal di dalam pop-up logout tidak ditemukan!');
+        } else {
+            function showLogoutPopup() {
+                logoutPopup.style.display = 'flex';
+                setTimeout(() => {
+                    logoutPopup.classList.add('show');
+                }, 10);
+            }
+
+            function hideLogoutPopup() {
+                logoutPopup.classList.remove('show');
+                setTimeout(() => {
+                    logoutPopup.style.display = 'none';
+                }, 300); // Sesuaikan dengan durasi transisi CSS
+            }
+
+            logoutTrigger.addEventListener('click', function(event) {
+                event.preventDefault(); // Mencegah perilaku default jika pemicu adalah link <a>
+                showLogoutPopup();
+            });
+
+            cancelLogoutBtn.addEventListener('click', hideLogoutPopup);
+
+            confirmLogoutBtn.addEventListener('click', function() {
+                hideLogoutPopup();
+                console.log('Proses Logout...');
+                // --- LOGIKA KELUAR AKTUAL ---
+                // Contoh: Hapus data dari localStorage, panggil API logout Firebase, dll.
+                // localStorage.removeItem('userToken'); 
+                // localStorage.removeItem('userData');
+                
+                // Arahkan ke halaman login
+                window.location.href = 'login.html';
+            });
+
+            logoutPopup.addEventListener('click', function(event) {
+                if (event.target === logoutPopup) { // Klik pada overlay
+                    hideLogoutPopup();
+                }
+            });
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && logoutPopup.style.display === 'flex' && logoutPopup.classList.contains('show')) {
+                    hideLogoutPopup();
+                }
+            });
+        }
+    } else {
+        if (window.location.pathname.includes('homepage.html') || window.location.pathname.includes('setting.html')) {
+            if (!logoutTrigger) { /* Pesan sudah dicover di atas */ }
+            if (!logoutPopup) {
+                console.warn('PERINGATAN: Elemen pop-up logout (ID "logoutPopup") tidak ditemukan di HTML halaman ini.');
+            }
+        }
+    }
+    // --- AKHIR LOGIKA POP-UP LOGOUT ---
+    // SELESAI DARKMODE
+
     
 });
