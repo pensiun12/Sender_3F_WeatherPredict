@@ -286,6 +286,7 @@ btnRightDaily.addEventListener("click", () => {
     }
     alert(`Fitur pencarian untuk kota ${city} akan dikembangkan.`);
 }
+/* RESPONSIF */
 //Toggle class active
 const topNav = document.querySelector('.top-menu')
 
@@ -303,7 +304,7 @@ document.addEventListener('click', function(e){
     }
 })
 
-  
+/* selesai responsif */  
 /* CHATBOT PAGE */
 const userInput = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
