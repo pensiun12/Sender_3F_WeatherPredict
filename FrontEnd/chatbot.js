@@ -1,17 +1,63 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Toggle hamburger menu
-  const topNav = document.querySelector('.top-menu');
-  const hamburger = document.querySelector('#hamburger-menu');
+      /* RESPONSIF */
+    //Toggle class active
+    const topNav = document.querySelector('.top-menu')
 
-  hamburger?.addEventListener("click", () => {
-    topNav.classList.toggle('active');
-  });
+    //Hamburger menu di klik
+    document.querySelector('#hamburger-menu').onclick =()=>{
+        topNav.classList.toggle('active');
+    };
 
-  document.addEventListener('click', function (e) {
-    if (!hamburger?.contains(e.target) && !topNav?.contains(e.target)) {
-      topNav.classList.remove('active');
+    //klik diluar untuk menghilangkan sidebar
+    const Hamburger = document.querySelector('#hamburger-menu');
+
+    document.addEventListener('click', function(e){
+        if(!Hamburger.contains(e.target) && !topNav.contains(e.target)){
+            topNav.classList.remove('active');
+        }
+    })
+
+    /* selesai responsif */
+
+       // DARK MODE
+
+    const themeSelect = document.getElementById('themeSelect');
+    const body = document.body;
+
+    // Function to apply the theme
+    function applyTheme(theme) {
+    if (theme === 'dark') {
+        body.classList.add('dark-theme');
+        body.classList.remove('light-theme');
+        localStorage.setItem('theme', 'dark');
+    } else if (theme === 'light') {
+        body.classList.add('light-theme');
+        body.classList.remove('dark-theme');
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.classList.remove('dark-theme');
+        body.classList.remove('light-theme');
+        localStorage.removeItem('theme');
     }
-  });
+}
+
+// Terapkan tema dari localStorage
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    applyTheme(savedTheme);
+}
+
+// Jika ada dropdown tema (hanya di setting.html), pasang event listener-nya
+if (themeSelect) {
+    themeSelect.value = savedTheme || 'default';
+    themeSelect.addEventListener('change', (event) => {
+        const selectedTheme = event.target.value;
+        applyTheme(selectedTheme);
+    });
+}
+
+  // DARK MODE // 
+
 
   // CHATBOT PAGE
   const userInput = document.getElementById("userInput");
@@ -78,7 +124,6 @@ document.addEventListener("DOMContentLoaded", () => {
       addChatMessage("bot", "Gagal memuat cuaca awal.");
     });
   }
-
   // Event listener tombol & enter
   sendBtn?.addEventListener("click", sendMessage);
   userInput?.addEventListener("keydown", function (e) {
