@@ -21,8 +21,8 @@
     </div>
     <div class="top-menu">
       <button class="login-btn" id="loginButtonContainer">
-        <a href="login.html">Login</a> </button>
-
+        <a href="login.html">Login</a> 
+      </button>
       <div id="userProfileDropdown" class="user-profile-dropdown" style="display: none;">
         <button id="userProfileButton" class="user-profile-button">
           <span class="user-icon-custom">
@@ -49,7 +49,6 @@
                 <i class="fas fa-chevron-down nav-arrow" style="font-size: 0.75em; margin-left: 5px;"></i>
             </a>
             <ul id="navFavoritesList" class="dropdown-menu-content"> 
-                {/* Item template ini akan dikontrol oleh JavaScript */}
                 <li class="no-favorites-msg" style="padding: 10px 15px; color: #777; font-style: italic; display: list-item;">Belum ada lokasi favorit.</li>
             </ul>
         </div>
@@ -131,6 +130,18 @@
       </div>
     </section>
   </main>
+  <!--POP UP MESSAGE-->
+  <!-- POPUP LOGOUT -->
+          <div id="logoutPopup" class="popup-overlay" style="display: none;">
+            <div class="popup-content">
+              <h2>Konfirmasi Keluar</h2>
+              <p>Apakah Anda yakin ingin keluar dari akun Anda?</p>
+              <div class="popup-buttons">
+                <button id="confirmLogoutBtn" class="btn btn-popup btn-danger">Ya, Keluar</button>
+                <button id="cancelLogoutBtn" class="btn btn-popup btn-secondary">Batal</button>
+              </div>
+            </div>
+  <!--POP UP MESSAGE-->
   <script src="visualcross.js"></script> 
   <script type="module" src="firebaseauth.js"></script>
   <script type="module" src="authUI.js"></script>
