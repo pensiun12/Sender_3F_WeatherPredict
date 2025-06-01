@@ -60,13 +60,21 @@
   </header>
   <main>
     <section class="sidebar">
+      <!-- VIDEO BACKGROUND-->
+      <video autoplay loop muted playsinline class="sidebar-background-video" id="weatherVideoBackground">
+        {/* Sumber video akan diatur oleh JavaScript. 
+             Anda bisa menaruh video default di sini jika mau, atau biarkan kosong. 
+             Contoh: <source src="assets/videos/default_cuaca.mp4" type="video/mp4"> 
+        */}
+      </video>
+      <!--VIDEO BACKGROUND-->
       <div class="location-search">
         <input type="text" id="cityInput" placeholder="Masukkan nama kota" />
         <button class ="search-btn" aria-label="Cari cuaca berdasarkan kota">
           <span class="iconify" data-icon="iconamoon:search-light" data-width="20" data-height="20"></span>
         </button>
       </div>
-      <div class="weather-icon">
+      <div class="weather-icon-container">
         <img src="assets/weather-partly-cloudy.png" alt="Memuat ikon cuaca..." />
       </div>
       <div class="temperature">-- <span>°C</span></div>
