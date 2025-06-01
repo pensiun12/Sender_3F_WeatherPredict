@@ -25,6 +25,9 @@
   <div class="container"> <div class="setting-title">
       <i class="fas fa-gear"></i>
       <span>Pengaturan</span>
+      <button class="btn-langganan"> <!--BERLANGGANAN-->
+        <a href="pricing.html"> Langganan</a>
+      </button> 
     </div>
 
     <div class="setting-option">
@@ -52,6 +55,18 @@
       </div>
     </div>
   </div>
+  <!--POP UP MESSAGE-->
+  <!-- POPUP LOGOUT -->
+          <div id="logoutPopup" class="popup-overlay" style="display: none;">
+            <div class="popup-content">
+              <h2>Konfirmasi Keluar</h2>
+              <p>Apakah Anda yakin ingin keluar dari akun Anda?</p>
+              <div class="popup-buttons">
+                <button id="confirmLogoutBtn" class="btn btn-popup btn-danger">Ya, Keluar</button>
+                <button id="cancelLogoutBtn" class="btn btn-popup btn-secondary">Batal</button>
+              </div>
+            </div>
+  <!--POP UP MESSAGE-->
   <script>
     function toggleMenu() {
       const nav = document.querySelector('.top-menu');
