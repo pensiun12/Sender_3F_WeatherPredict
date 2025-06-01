@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Predict - Pilih Langganan</title> <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top-bar">
+    <h1>
+      <a href="homepage.html" class="logo"> WEATHER PREDICT</a>
+    </h1>
+    <div id="hamburger-menu" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <nav class="top-menu">
+      <a href="chatbot.html">ChatBot</a>
+      <a href="team.html">Tentang Kami</a>
+      <a href="homepage.html">Laman Utama</a>
+      <a href="setting.html">Pengaturan</a>
+    </nav>
+  </header>
+
+  <div class="subscription-page-content">
+    <section class="intro-section">
+      <h2 class="main-title">PILIH PAKET TERBAIKMU!</h2>
+      <p class="subtitle">
+        Akses konten kami semudah sentuhan jari! Pilih paket yang anda suka, dan
+        dapatkan lisensi khusus yang kami siapkan untuk pengalaman terbaik Anda.
+      </p>
+    </section>
+
+    <form id="subscriptionForm"> 
+      <section class="packages-section">
+        <label class="package-card free-tier selectable-card" for="pkg-free" data-package-name="Pengamat Awan" data-package-price="FREE">
+          <input type="radio" name="subscription_package" id="pkg-free" value="free" class="hidden-radio">
+          <div class="package-price-display">FREE</div> 
+          <p class="package-tagline">Akses Ahad!</p>
+          <ul class="features-list">
+            <li>
+              <img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon">
+              <div class="feature-item-content">
+                <span class="feature-item-title">Ramalan Cuaca Standar</span>
+                <span class="feature-item-detail">Dapatkan informasi cuaca harian yang Anda butuhkan.</span>
+              </div>
+            </li>
+            <li>
+              <img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon">
+              <div class="feature-item-content">
+                <span class="feature-item-title">ChatBot AI Dasar</span>
+                <span class="feature-item-detail">Tanyakan cuaca, dengan jawaban terbatas.</span>
+              </div>
+            </li>
+            <li>
+              <img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon">
+              <div class="feature-item-content">
+                <span class="feature-item-title">Lokasi Favorit</span>
+                <span class="feature-item-detail">Pantau cuaca di satu tempat pilihan Anda.</span>
+              </div>
+            </li>
+          </ul>
+        </label>
+
+        <label class="package-card paid-tier selectable-card" for="pkg-2" data-package-name="Pemandu Cuaca" data-package-price="$2">
+          <input type="radio" name="subscription_package" id="pkg-2" value="2" class="hidden-radio">
+          <div class="package-price-display">$2</div>
+          <h3 class="package-title">PEMANDU CUACA</h3>
+          <p class="package-tagline">Coba Dulu Satu Bulan!</p>
+          <ul class="features-list">
+            <li><img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon"><div class="feature-item-content"><span class="feature-item-title">Chatbot AI Premium Tanpa Batas</span><span class="feature-item-detail">Tanyakan apa saja tentang cuaca, respons lengkap tanpa henti!</span></div></li>
+            <li><img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon"><div class="feature-item-content"><span class="feature-item-title">Lokasi Favorit Tak Terbatas</span><span class="feature-item-detail">Pantau cuaca di semua tempat penting bagi Anda.</span></div></li>
+            <li><img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon"><div class="feature-item-content"><span class="feature-item-title">Fitur Cuaca Lanjutan</span><span class="feature-item-detail">Akses ramalan per jam untuk analisis mendalam.</span></div></li>
+            <li><img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon"><div class="feature-item-content"><span class="feature-item-title">Bebas Iklan</span><span class="feature-item-detail">Nikmati pengalaman tanpa gangguan.</span></div></li>
+          </ul>
+        </label>
+
+        <label class="package-card paid-tier selectable-card" for="pkg-10" data-package-name="Ahli Iklim" data-package-price="$10">
+            <input type="radio" name="subscription_package" id="pkg-10" value="10" class="hidden-radio">
+            <div class="package-price-display">$10</div>
+            <h3 class="package-title">AHLI IKLIM</h3>
+            <p class="package-tagline">Setengah Tahun Penuh Insight Cuaca</p>
+            <ul class="features-list">
+                <li><img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon"><div class="feature-item-content"><span class="feature-item-title">Chatbot AI Premium Tanpa Batas</span><span class="feature-item-detail">Tanyakan apa saja tentang cuaca, respons lengkap tanpa henti!</span></div></li>
+                <li><img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon"><div class="feature-item-content"><span class="feature-item-title">Lokasi Favorit Tak Terbatas</span><span class="feature-item-detail">Pantau cuaca di semua tempat penting bagi Anda.</span></div></li>
+                <li><img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon"><div class="feature-item-content"><span class="feature-item-title">Fitur Cuaca Lanjutan</span><span class="feature-item-detail">Akses ramalan per jam untuk analisis mendalam.</span></div></li>
+                <li><img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon"><div class="feature-item-content"><span class="feature-item-title">Bebas Iklan</span><span class="feature-item-detail">Nikmati pengalaman tanpa gangguan.</span></div></li>
+            </ul>
+        </label>
+
+        <label class="package-card paid-tier selectable-card" for="pkg-20" data-package-name="Ahli Meteorologi" data-package-price="$20">
+            <input type="radio" name="subscription_package" id="pkg-20" value="20" class="hidden-radio">
+            <div class="package-price-display">$20</div>
+            <h3 class="package-title">AHLI METEOROLOGI</h3>
+            <p class="package-tagline">Satu Tahun Penuh Prediksi Akurat</p>
+            <ul class="features-list">
+                <li><img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon"><div class="feature-item-content"><span class="feature-item-title">Chatbot AI Premium Tanpa Batas</span><span class="feature-item-detail">Tanyakan apa saja tentang cuaca, respons lengkap tanpa henti!</span></div></li>
+                <li><img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon"><div class="feature-item-content"><span class="feature-item-title">Lokasi Favorit Tak Terbatas</span><span class="feature-item-detail">Pantau cuaca di semua tempat penting bagi Anda.</span></div></li>
+                <li><img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon"><div class="feature-item-content"><span class="feature-item-title">Fitur Cuaca Lanjutan</span><span class="feature-item-detail">Akses ramalan per jam untuk analisis mendalam.</span></div></li>
+                <li><img src="assets/icon check.png" alt="Centang Fitur" class="feature-checkmark-icon"><div class="feature-item-content"><span class="feature-item-title">Bebas Iklan</span><span class="feature-item-detail">Nikmati pengalaman tanpa gangguan.</span></div></li>
+            </ul>
+        </label>
+      </section>
+
+      <div class="payment-button-container">
+        <button type="button" id="proceedToPaymentBtn" disabled>Pilih Paket untuk Melanjutkan</button>
+      </div>
+    </form> 
+
+  </div> 
+
+    <script>
+    function toggleMenu() {
+        const nav = document.querySelector('.top-menu');
+        nav.classList.toggle('active');
+    }
+
+    // Kode JavaScript untuk seleksi paket akan ditambahkan ke file script.js Anda
+    // atau bisa diletakkan di sini sebelum </body> jika Anda mau.
+    </script>
+    <script src="visualcross.js"></script>
+</body>
+</html>
