@@ -103,4 +103,22 @@
 **Dokumentasi Rapat:**  
 ![Rapat 6 – 26 Mei](Pertemuan%206.jpg)
 
+## 📅 Pertemuan 7 — 31 Mei 2025
+**Agenda:** Lanjutan Progresan
+### 📌 Hasil Rapat:
+- Progress frontend (darkmode)
+- Progress chatbot (ai)
+- Progress bakcend(signup,login,integrasi API,integrasi chatbot)
 
+**Dokumentasi Rapat:**  
+![Rapat 7 – 31 Mei](Pertemuan%207.jpg)
+
+## 📅 Pertemuan 8 — 02 Juni 2025
+**Agenda:** Demo Project
+### 📌 Hasil Rapat:
+- Mempresentasikan hasil project
+- Mereview tugas tugas dari semua anggota
+- Hasil akhir project
+
+**Dokumentasi Rapat:**  
+![Rapat 8 – 02 Juni](Pertemuan%208.jpg)
