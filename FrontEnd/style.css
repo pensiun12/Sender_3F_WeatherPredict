@@ -338,15 +338,6 @@ h1 {
     */
 }
 
-#navFavoritesLink .fa-heart {
-    margin-right: 5px;
-    color: #e74c3c; /* Contoh warna ikon hati */
-}
-
-.dark-theme #navFavoritesLink .fa-heart{
-  color: white;
-}
-
 .dark-theme #navFavoritesLink span {
   color: white;
 }
@@ -372,7 +363,7 @@ h1 {
     display: none; /* Awalnya disembunyikan, akan di-toggle oleh JS dengan class .show */
     position: absolute;
     top: calc(100% + 5px); /* Muncul di bawah pemicu dengan sedikit jarak */
-    left: 0; /* Atau bisa juga right: 0; jika ingin rata kanan dari pemicu */
+    left: 0.2; /* Atau bisa juga right: 0; jika ingin rata kanan dari pemicu */
     background-color: none; /* Sesuaikan dengan warna dropdown Anda */
     border: 1px solid #d9cbbf;
     border-radius: 8px;
@@ -810,6 +801,10 @@ main {
     /* white-space: nowrap;  Jika ingin teks tetap satu baris */
     /* overflow: hidden; */
     /* text-overflow: ellipsis; */
+}
+
+.dark-theme .hour-card .desc-hourly {
+  color: white;
 }
 
 .hourly-forecast h3 {
