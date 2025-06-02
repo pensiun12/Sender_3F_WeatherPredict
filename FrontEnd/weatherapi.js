@@ -1,7 +1,7 @@
 /* WEATHER API */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const API_KEY = "a5c97c6c314246c695130649253005"; // Your WeatherAPI.com API Key
+  const API_KEY = "996e389b36e047b5812114744253005"; // Your WeatherAPI.com API Key
 
   // HTML Element Selectors from your homepage.html
   const cityInputElement = document.getElementById("cityInput");
