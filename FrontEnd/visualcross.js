@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // HTML Element Selectors (untuk homepage.html)
     const cityInputElement = document.getElementById("cityInput");
     const searchButtonElement = document.querySelector(".search-btn");
-    const weatherIconElement = document.querySelector(".weather-icon img");
+    const weatherIconElement = document.querySelector(".weather-icon-container img");
     const temperatureElement = document.querySelector(".temperature");
     const descriptionElement = document.querySelector(".sidebar .desc");
     const dateElement = document.querySelector(".date");
