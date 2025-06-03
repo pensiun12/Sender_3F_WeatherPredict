@@ -2074,6 +2074,27 @@ main.tentang-kami ul {
   text-align: left;
 }
 
+.api-details {
+  display: inline-block; /* Membuatnya bisa sejajar dengan "API Cuaca: " tapi juga bisa mengatur padding/margin dan children-nya */
+  vertical-align: top;  /* Memastikan bagian atas blok ini sejajar dengan teks "API Cuaca: " */
+}
+
+/* Ini untuk teks tambahan di bawah nama API */
+.api-details .api-subtext {
+  display: block;     /* Membuat span ini mengambil satu baris penuh (menjadi baris baru) di dalam .api-details */
+  /* Tidak perlu margin-left karena ia akan otomatis lurus dengan awal dari .api-details (yaitu "OpenWeatherMap") */
+  
+  /* Styling opsional untuk subteks agar sedikit berbeda: */
+  font-size: 0.95rem;   /* Sedikit lebih kecil */
+  color: #4e3a28;     /* Warna sedikit lebih redup (sesuaikan dengan tema Anda) */
+  padding-top: 3px;   /* Sedikit jarak dari baris di atasnya */
+}
+
+/* Opsional: Jika Anda ingin style khusus untuk dark mode pada subteks */
+.dark-theme .api-details .api-subtext {
+  color: #e2d7c4; /* Warna yang lebih terang untuk dark mode */
+}
+
 /* Footer */
 footer {
   margin-top: auto;

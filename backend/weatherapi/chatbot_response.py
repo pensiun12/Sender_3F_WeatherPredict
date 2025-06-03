@@ -5,11 +5,12 @@ import numpy as np
 import nltk
 import requests
 import spacy
+import os
 import re
 from datetime import datetime, timedelta, date
 from tensorflow.keras.models import load_model
 from nltk.stem import WordNetLemmatizer
-
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 # Inisialisasi
 lemmatizer = WordNetLemmatizer()
 
@@ -43,15 +44,18 @@ except OSError:
         print(f"Gagal mengunduh model spaCy secara otomatis: {e}")
         print("Silakan coba jalankan 'python -m spacy download xx_ent_wiki_sm' secara manual di terminal Anda.")
         nlp = None
-
+INTENTS_FILE = os.path.join(SCRIPT_DIR, 'intents.json')
+WORDS_FILE = os.path.join(SCRIPT_DIR, 'words.pkl')
+CLASSES_FILE = os.path.join(SCRIPT_DIR, 'classes.pkl')
+MODEL_FILE = os.path.join(SCRIPT_DIR, 'chatbot_model.h5')
 
 # Load model dan data
 # Pastikan path ini benar relatif terhadap direktori kerja saat skrip dijalankan (misalnya, dari app.py)
 try:
-    intents = json.loads(open('backend/weatherapi/intents.json', encoding='utf-8').read())
-    words = pickle.load(open('backend/weatherapi/words.pkl', 'rb'))
-    classes = pickle.load(open('backend/weatherapi/classes.pkl', 'rb'))
-    model = load_model('backend/weatherapi/chatbot_model.h5')
+    intents = json.loads(open(INTENTS_FILE, encoding='utf-8').read())
+    words = pickle.load(open(WORDS_FILE, 'rb'))
+    classes = pickle.load(open(CLASSES_FILE, 'rb'))
+    model = load_model(MODEL_FILE)
 except FileNotFoundError as e:
     print(f"Error: File model atau data tidak ditemukan. Pastikan path sudah benar. Detail: {e}")
     print("Pastikan Anda menjalankan skrip dari direktori utama proyek yang berisi folder 'backend'.")
