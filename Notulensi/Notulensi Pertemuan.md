@@ -65,4 +65,60 @@
 **Dokumentasi Rapat:**  
 ![Rapat 3 – 4 Mei](Pertemuan%203.jpg)
 
+## 📅 Pertemuan 4 — 12 Mei 2025
+**Agenda:** Lanjutan Progresan
+### 📌 Hasil Rapat:
+- Progress frontend 
+- Revisian UI/UX
+- Progress AI 
 
+**Dokumentasi Rapat:**  
+![Rapat 4 – 12 Mei](Pertemuan%204.jpg)
+
+## 📅 Pertemuan 5 — 20 Mei 2025
+**Agenda:** Lanjutan Progresan
+### 📌 Hasil Rapat:
+- Progress frontend 
+- Progress chatbot
+- Website tersedia gratis dengan fitur utama seperti :
+  - Ramalan cuaca standar
+  - Chatbot AI dasar (jawaban terbatas)
+  - Lokasi favorit 1 tempat
+- Tapi, untuk membuka fitur lanjutan :
+  - DLC Model (One-Time Payment) :
+    - Unlock chatbot AI premium (jawaban lebih dalam, historis cuaca)
+    - Tambahkan banyak lokasi favorit
+
+
+**Dokumentasi Rapat:**  
+![Rapat 5 – 20 Mei](Pertemuan%205.jpg)
+
+## 📅 Pertemuan 6 — 26 Mei 2025
+**Agenda:** Lanjutan Progresan
+### 📌 Hasil Rapat:
+- Progress frontend 
+- Progress chatbot
+- Progress bakcend(signup,login)
+
+**Dokumentasi Rapat:**  
+![Rapat 6 – 26 Mei](Pertemuan%206.jpg)
+
+## 📅 Pertemuan 7 — 31 Mei 2025
+**Agenda:** Lanjutan Progresan
+### 📌 Hasil Rapat:
+- Progress frontend (darkmode)
+- Progress chatbot (ai)
+- Progress bakcend(signup,login,integrasi API,integrasi chatbot)
+
+**Dokumentasi Rapat:**  
+![Rapat 7 – 31 Mei](Pertemuan%207.jpg)
+
+## 📅 Pertemuan 8 — 02 Juni 2025
+**Agenda:** Demo Project
+### 📌 Hasil Rapat:
+- Mempresentasikan hasil project
+- Mereview tugas tugas dari semua anggota
+- Hasil akhir project
+
+**Dokumentasi Rapat:**  
+![Rapat 8 – 02 Juni](Pertemuan%208.jpg)
