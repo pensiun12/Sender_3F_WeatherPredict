@@ -76,7 +76,7 @@ Sebelum menjalankan proyek ini, pastikan Anda memiliki:
 
 1.  **Clone Repository (Jika Belum):**
     ```bash
-    git clone <URL_REPOSITORY_ANDA>
+    git clone <https://github.com/pensiun12/Sender_3F_WeatherPredict>
     cd SENDER_3F_WEATHERPREDICT
     ```
 
