@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 # Pastikan import ini benar sesuai lokasi file Anda
-from weatherapi.chatbot_response import chatbot_response, initial_greeting_with_weather
+#from weatherapi.chatbot_response import chatbot_response, initial_greeting_with_weather
+from visualcross.chatbot_response import chatbot_response, initial_greeting_with_weather
 # Jika Anda sudah memindahkan atau yakin 'openweather' tidak dipakai, Anda bisa hapus import di bawah ini
 # from openweather.chatbot_response import chatbot_response, initial_greeting_with_weather
 

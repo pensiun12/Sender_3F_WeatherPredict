@@ -1,0 +1,85 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hai",
+        "Halo",
+        "Selamat pagi",
+        "Selamat siang",
+        "Selamat malam",
+        "Apa kabar?",
+        "Hai chatbot",
+        "Halo cuaca"
+      ],
+      "responses": [
+        "Hai juga! 😊 Bagaimana kabarmu hari ini?",
+        "Halo! Senang bertemu denganmu. Mau tahu cuaca hari ini?",
+        "Selamat datang! Saya siap bantu soal cuaca.",
+        "Hai! Hari ini kamu terlihat cerah 🌞"
+      ]
+    },
+    {
+      "tag": "cuaca",
+      "patterns": [
+        "Bagaimana cuaca hari ini?",
+        "Cuaca sekarang gimana?",
+        "Apa ramalan cuaca hari ini?",
+        "Hari ini hujan atau tidak?",
+        "Cuaca di Jakarta sekarang?",
+        "Prediksi cuaca hari ini"
+      ],
+      "responses": [
+        "Tunggu sebentar ya, saya ambilkan data cuacanya... ☁️",
+        "Oke! Saya cek dulu cuaca di kotamu... 🔍",
+        "Sebentar, saya lihatkan cuaca hari ini..."
+      ],
+      "context_set": "get_weather"
+    },
+    {
+      "tag": "weather_recommendation",
+      "patterns": [
+        "Apa yang harus saya pakai hari ini?",
+        "Rekomendasi pakaian hari ini?",
+        "Baju apa yang cocok untuk cuaca ini?",
+        "Perlu bawa payung gak?",
+        "Kalau cuaca hujan, pakai apa ya?"
+      ],
+      "responses": [
+        "Kalau sedang hujan, sebaiknya kamu membawa payung dan memakai jaket tahan air ☔.",
+        "Kalau cuacanya panas, gunakan pakaian ringan dan jangan lupa pakai sunscreen 🌤️.",
+        "Cuaca dingin hari ini, gunakan jaket hangat ya ❄️."
+      ]
+    },
+    {
+      "tag": "weather_activity",
+      "patterns": [
+        "Aktivitas apa yang cocok hari ini?",
+        "Hari ini enaknya ngapain ya?",
+        "Ada saran kegiatan buat hari cerah?",
+        "Kalau hujan, enaknya ngapain?"
+      ],
+      "responses": [
+        "Kalau cerah, jalan pagi atau olahraga ringan di luar bisa jadi pilihan bagus 🏃‍♂️.",
+        "Kalau hujan, nonton film atau membaca buku di rumah bisa menyenangkan 📚☕.",
+        "Cuaca mendung? Istirahat dan relaksasi bisa bantu recharge semangatmu ☁️😊."
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Terima kasih",
+        "Makasih",
+        "Sampai jumpa",
+        "Dadah",
+        "Bye"
+      ],
+      "responses": [
+        "Sama-sama! Semoga harimu menyenangkan 😊",
+        "Terima kasih kembali! Sampai jumpa 👋",
+        "Senang bisa membantu! Hati-hati di luar ya!",
+        "Bye-bye! Jangan lupa cek cuaca lagi besok ☀️"
+      ]
+    }
+  ]
+}
