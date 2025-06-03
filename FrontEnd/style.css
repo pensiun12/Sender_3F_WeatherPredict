@@ -1721,7 +1721,7 @@ nav a:hover {
   font-size: 0.9rem; /* Ukuran font sedikit lebih kecil dari judul */
   font-family: 'Georgia', serif; /* Konsisten dengan font lain */
   background-color: transparent; /* Contoh: menggunakan warna coklat dari tema Anda */
-  color: #f8f3e3; /* Contoh: menggunakan warna terang dari tema Anda */
+  color: #daac17; /* Contoh: menggunakan warna terang dari tema Anda */
   border: 2px solid #6e4b29;
   border-radius: 6px; /* Menyamakan dengan border-radius select */
   cursor: pointer;
