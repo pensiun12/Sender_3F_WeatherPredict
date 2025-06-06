@@ -127,7 +127,7 @@
         // Jika signInWithGoogle di firebaseauth.js mengarahkan ke homepage, pesan ini mungkin tidak terlihat lama
         displayAuthMessageSignup("Pendaftaran/Login dengan Google berhasil! Mengarahkan...", 'success');
         // Jika signInWithGoogle tidak redirect, maka redirect di sini:
-        setTimeout(() => { window.location.href = "homepage.html"; }, 2000);
+        setTimeout(() => { window.location.href = "login.html"; }, 2000);
       } catch (error) {
         displayAuthMessageSignup(`Pendaftaran/Login dengan Google gagal: ${error.message || 'Error tidak diketahui'}`, 'error');
       }

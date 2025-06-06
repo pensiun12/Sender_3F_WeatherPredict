@@ -1,128 +1,104 @@
-// FrontEnd/firebaseauth.js
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"; // Ganti dengan versi terbaru jika perlu
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-  onAuthStateChanged, // Untuk memantau status login
-  signOut // Untuk logout
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"; // Ganti dengan versi terbaru jika perlu
-// Hapus getAnalytics jika tidak digunakan secara spesifik sekarang untuk auth
-// import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+    getAuth,
+    onAuthStateChanged,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
+    GoogleAuthProvider,
+    signInWithPopup
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-// Your web app's Firebase configuration
+// --- Konfigurasi Firebase Anda ---
 const firebaseConfig = {
-  apiKey: "AIzaSyAk3WyOshRliF4rXnpTi_UwdHGnlv0mMPs", // Jaga kerahasiaan API Key Anda jika memungkinkan (misalnya dengan environment variables di build process)
-  authDomain: "weather-predict-sender.firebaseapp.com",
-  projectId: "weather-predict-sender",
-  storageBucket: "weather-predict-sender.appspot.com", // Pastikan ini benar, biasanya .appspot.com
-  messagingSenderId: "621664124169",
-  appId: "1:621664124169:web:df7fe7d78e48499f0f27d8",
-  measurementId: "G-MYL40F077S" // Opsional untuk auth dasar
+    apiKey: "AIzaSyAk3WyOshRliF4rXnpTi_UwdHGnlv0mMPs", // Jaga kerahasiaan ini
+    authDomain: "weather-predict-sender.firebaseapp.com",
+    projectId: "weather-predict-sender",
+    storageBucket: "weather-predict-sender.appspot.com",
+    messagingSenderId: "621664124169",
+    appId: "1:621664124169:web:df7fe7d78e48499f0f27d8",
+    measurementId: "G-MYL40F077S"
 };
 
-// Initialize Firebase
+// --- Inisialisasi Firebase ---
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-// const analytics = getAnalytics(app); // Hapus atau komentari jika tidak langsung digunakan untuk auth
 
-const provider = new GoogleAuthProvider(); // Untuk Google Sign-In
-
-// --- Fungsi untuk Sign Up dengan Email & Password ---
-async function signUpUser(email, password) {
-  try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    // Signed up
-    const user = userCredential.user;
-    console.log("User signed up:", user);
-    window.location.href = "login.html"; // Arahkan ke halaman login setelah berhasil
-    return user;
-  } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.error("Error signing up:", errorCode, errorMessage);
-    alert(`Pendaftaran gagal: ${errorMessage}`);
-    return null;
-  }
+/**
+ * Mendaftarkan pengguna baru dengan email dan password.
+ * @param {string} email 
+ * @param {string} password 
+ * @returns {Promise<import("firebase/auth").UserCredential>}
+ * @throws {Error} Firebase jika pendaftaran gagal.
+ */
+export async function signUpUser(email, password) {
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        console.log("Firebase Auth: User created successfully.", userCredential.user);
+        return userCredential;
+    } catch (error) {
+        console.error("Firebase Auth Error (signUpUser):", error);
+        // Melempar error agar bisa ditangkap oleh blok .catch() di UI
+        throw error;
+    }
 }
 
-// --- Fungsi untuk Login dengan Email & Password ---
-async function signInUser(email, password) {
-  try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    // Signed in
-    const user = userCredential.user;
-    console.log("User signed in:", user);
-    window.location.href = "homepage.html"; // Arahkan ke homepage setelah berhasil
-    return user;
-  } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.error("Error signing in:", errorCode, errorMessage);
-    alert(`Login gagal: ${errorMessage}`);
-    return null;
-  }
+/**
+ * Melakukan login pengguna dengan email dan password.
+ * @param {string} email 
+ * @param {string} password 
+ * @returns {Promise<import("firebase/auth").UserCredential>}
+ * @throws {Error} Firebase jika login gagal.
+ */
+export async function signInUser(email, password) {
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        console.log("Firebase Auth: User signed in successfully.", userCredential.user);
+        return userCredential;
+    } catch (error) {
+        console.error("Firebase Auth Error (signInUser):", error);
+        throw error;
+    }
 }
 
-// --- Fungsi untuk Sign In dengan Google ---
-async function signInWithGoogle() {
-  try {
-    const result = await signInWithPopup(auth, provider);
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    console.log("User signed in with Google:", user);
-    alert("Login dengan Google berhasil!");
-    window.location.href = "homepage.html"; // Arahkan ke homepage setelah berhasil
-    return user;
-  } catch (error) {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData ? error.customData.email : 'N/A';
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    console.error("Error signing in with Google:", errorCode, errorMessage, email, credential);
-    alert(`Login dengan Google gagal: ${errorMessage}`);
-    return null;
-  }
+/**
+ * Melakukan login atau signup pengguna dengan akun Google via pop-up.
+ * @returns {Promise<import("firebase/auth").UserCredential>}
+ * @throws {Error} Firebase jika proses gagal.
+ */
+export async function signInWithGoogle() {
+    const provider = new GoogleAuthProvider();
+    try {
+        const result = await signInWithPopup(auth, provider);
+        console.log("Firebase Auth: Successfully signed in with Google.", result.user);
+        return result;
+    } catch (error) {
+        console.error("Firebase Auth Error (signInWithGoogle):", error);
+        // Menangani error umum dari pop-up
+        if (error.code === 'auth/popup-closed-by-user') {
+            console.warn("Google sign-in popup closed by user.");
+            // Tidak perlu melempar error besar, cukup biarkan proses berhenti
+            // atau lempar error custom jika perlu penanganan khusus di UI.
+        }
+        throw error;
+    }
 }
 
-// --- Fungsi untuk Logout ---
-async function signOutUser() {
-  try {
-    await signOut(auth);
-    console.log("User signed out");
-    alert("Anda berhasil logout.");
-    window.location.href = "homepage.html"; // Arahkan ke homepage atau halaman login
-  } catch (error) {
-    console.error("Error signing out:", error);
-    alert(`Logout gagal: ${error.message}`);
-  }
+/**
+ * Melakukan logout pengguna yang sedang aktif.
+ * @returns {Promise<void>}
+ * @throws {Error} Firebase jika logout gagal.
+ */
+export async function signOutUser() {
+    try {
+        await signOut(auth);
+        console.log("Firebase Auth: User signed out successfully.");
+    } catch (error) {
+        console.error("Firebase Auth Error (signOutUser):", error);
+        throw error;
+    }
 }
 
-// --- Memantau Perubahan Status Autentikasi ---
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // Pengguna login
-    console.log("User is logged in:", user);
-    console.log("Firebaseauth.js: User is logged in:", user.uid);
-    // Anda bisa menyembunyikan tombol login/signup dan menampilkan info pengguna/tombol logout
-    // Contoh: updateUIForLoggedInUser(user);
-  } else {
-    // Pengguna logout
-    console.log("User is logged out");
-    console.log("Firebaseauth.js: User is logged out");
-    // Anda bisa menampilkan tombol login/signup dan menyembunyikan info pengguna/tombol logout
-    // Contoh: updateUIForLoggedOutUser();
-  }
-});
-
-// Ekspor fungsi agar bisa digunakan di file HTML/JS lain
-export { auth, signUpUser, signInUser, signInWithGoogle, signOutUser, onAuthStateChanged };
+// Ekspor objek 'auth' dan fungsi 'onAuthStateChanged' untuk digunakan di tempat lain,
+// terutama untuk memantau status login secara global.
+export { auth, onAuthStateChanged };
